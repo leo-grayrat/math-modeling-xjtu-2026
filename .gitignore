@@ -1,0 +1,40 @@
+# Large local datasets and archives
+/data/
+/*.zip
+
+# Personal and sensitive competition records
+/2024年7月国赛校赛/2024年7月国赛校赛题目/2024年校赛队伍信息及编号-群公布.pdf
+/2024年7月国赛校赛/2024年7月国赛校赛题目/2024_B题/附件/
+/2024年7月国赛校赛/获奖情况/
+/2024年7月国赛校赛/论文/GS24008-王泓宇-A.pdf
+
+# MATLAB generated files
+*.asv
+*.m~
+*.mlx.autosave
+slprj/
+codegen/
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Office and operating-system temporary files
+~$*
+.DS_Store
+Thumbs.db
