@@ -170,3 +170,11 @@ Statistics and Machine Learning Toolbox 尚未安装。因此，`factoran`、`pc
 ## 十、不要凭预估名称读取阶段产物
 
 本轮整理阶段 1 说明时，第一次把实际文件 `stage1_validation_groups.csv` 预估成了 `stage1_internal_validation_groups.csv`，因此出现一次“路径不存在”。处理办法很简单：引用阶段结果前先看一眼该目录的真实文件名，再读取内容；文档中只写实际已经生成的路径，不凭记忆补全名称。
+
+## 十一、MATLAB 工具箱命令行安装
+
+### 2026-08-02：R2025a 输入模板第一次下载失败
+
+使用官方 `matlab-install-products` 流程安装 Statistics and Machine Learning Toolbox。`mpm.exe` 已成功下载到 `C:\Users\34788\Downloads\mpm.exe`，但第一次从 MathWorks 下载 R2025a 官方输入模板时，`Invoke-WebRequest` 返回 `Access Denied`，参考号为 `18.4dbd2817.1785648852.681710ac`。按照安装流程只允许再重试一次；若第二次仍失败，则停止命令行安装并改由用户在 MATLAB App 中安装。
+
+第二次下载仍返回 `Access Denied`，参考号为 `18.4dbd2817.1785648932.681bdcdb`。命令行安装已经停止，没有执行 `mpm install`，Statistics and Machine Learning Toolbox 仍未安装。临时工作目录 `C:\Users\34788\AppData\Local\Temp\mpm-20260802-132949` 保留了三份安装脚本，已经下载的 `mpm.exe` 也予以保留；下一步由用户在 MATLAB 的 App 或附加功能界面搜索并安装 **Statistics and Machine Learning Toolbox**。
