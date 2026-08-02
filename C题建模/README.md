@@ -1,5 +1,7 @@
 # C 题建模工作区
 
+整体进度见 `论文工作总清单.md`；每一步的一段话说明单独放在 `阶段说明/` 中。
+
 ## 这一阶段先做什么
 
 C 题后面要预测“某个细胞敲掉某个基因以后，会受到多大影响”。在开始做模型以前，第一件事是把训练数据和待预测数据分清楚，并确认测试中哪些细胞、哪些基因是训练时没有见过的。
@@ -79,13 +81,16 @@ C 题后面要预测“某个细胞敲掉某个基因以后，会受到多大影
 | `更新4 岭回归和lasso回归/岭回归和lasso回归.pdf` | 讲义处理多个自变量彼此相关时的回归不稳定问题，配套资料包含棉花产量数据，并强调标准化、惩罚项和交叉验证 | 用于问题二的基因普遍重要性和细胞修正基线；验证必须按细胞和基因分组，不能照搬随机行划分 |
 | `4.清风数学建模公开课的课件/公开课：MATLAB机器学习算法` | 配套材料通过房价、鸢尾花、众筹和泰坦尼克号等例子展示数据整理、训练与评价 | 后续用于整理统一训练流程和指标输出，不直接照抄示例模型 |
 
-当前 MATLAB 只有基础环境、Optimization Toolbox 和 Symbolic Math Toolbox，尚无 Statistics and Machine Learning Toolbox。因此 `pca`、`factoran` 和 `lasso` 暂时不能直接调用。`v1.0` 只使用基础 MATLAB；下一阶段会先实现不依赖该工具箱的基因平均基线和岭回归，再决定是否安装统计工具箱。
+当前 MATLAB 只有基础环境、Optimization Toolbox 和 Symbolic Math Toolbox，尚无 Statistics and Machine Learning Toolbox。因此 `pca`、`factoran` 和 `lasso` 暂时不能直接调用。`v1.0` 只使用基础 MATLAB；按照后续安排，先安装统计与机器学习工具箱，再进入简单基线和模块建模。
 
 ## 目录说明
 
 ```text
 C题建模/
 ├── README.md
+├── 论文工作总清单.md
+├── 阶段说明/
+│   └── 阶段1_数据入口与冷启动划分.md
 ├── matlab/
 │   └── run_stage1_data_inventory.m
 ├── data_processed/

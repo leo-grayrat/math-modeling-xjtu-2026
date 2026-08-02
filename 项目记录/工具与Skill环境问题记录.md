@@ -166,3 +166,7 @@ Statistics and Machine Learning Toolbox 尚未安装。因此，`factoran`、`pc
 - 做中文扫描 PDF 时再看 Tesseract。
 
 这样既能保留已经修好的环境，也不会让工具检查反过来占据建模时间。
+
+## 十、不要凭预估名称读取阶段产物
+
+本轮整理阶段 1 说明时，第一次把实际文件 `stage1_validation_groups.csv` 预估成了 `stage1_internal_validation_groups.csv`，因此出现一次“路径不存在”。处理办法很简单：引用阶段结果前先看一眼该目录的真实文件名，再读取内容；文档中只写实际已经生成的路径，不凭记忆补全名称。
