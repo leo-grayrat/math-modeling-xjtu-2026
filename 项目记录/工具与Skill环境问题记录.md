@@ -178,3 +178,7 @@ Statistics and Machine Learning Toolbox 尚未安装。因此，`factoran`、`pc
 使用官方 `matlab-install-products` 流程安装 Statistics and Machine Learning Toolbox。`mpm.exe` 已成功下载到 `C:\Users\34788\Downloads\mpm.exe`，但第一次从 MathWorks 下载 R2025a 官方输入模板时，`Invoke-WebRequest` 返回 `Access Denied`，参考号为 `18.4dbd2817.1785648852.681710ac`。按照安装流程只允许再重试一次；若第二次仍失败，则停止命令行安装并改由用户在 MATLAB App 中安装。
 
 第二次下载仍返回 `Access Denied`，参考号为 `18.4dbd2817.1785648932.681bdcdb`。命令行安装已经停止，没有执行 `mpm install`，Statistics and Machine Learning Toolbox 仍未安装。临时工作目录 `C:\Users\34788\AppData\Local\Temp\mpm-20260802-132949` 保留了三份安装脚本，已经下载的 `mpm.exe` 也予以保留；下一步由用户在 MATLAB 的 App 或附加功能界面搜索并安装 **Statistics and Machine Learning Toolbox**。
+
+### 2026-08-02：用户已通过 MATLAB 界面完成安装
+
+`C:\software\professional\Matlab\appdata\prodcontents.json` 已列出 Statistics and Machine Learning Toolbox 25.1。随后在 MATLAB R2025a 中实际运行 `pca`、`factoran`、`lasso` 和 `zscore`，四个函数均成功，退出码为 0。后续 C 题可以正常使用统计与机器学习工具箱；此前的 CDN 报错只影响 mpm 命令行安装，不影响用户通过 MATLAB 界面安装后的使用。

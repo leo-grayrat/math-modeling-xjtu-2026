@@ -81,7 +81,7 @@ C 题后面要预测“某个细胞敲掉某个基因以后，会受到多大影
 | `更新4 岭回归和lasso回归/岭回归和lasso回归.pdf` | 讲义处理多个自变量彼此相关时的回归不稳定问题，配套资料包含棉花产量数据，并强调标准化、惩罚项和交叉验证 | 用于问题二的基因普遍重要性和细胞修正基线；验证必须按细胞和基因分组，不能照搬随机行划分 |
 | `4.清风数学建模公开课的课件/公开课：MATLAB机器学习算法` | 配套材料通过房价、鸢尾花、众筹和泰坦尼克号等例子展示数据整理、训练与评价 | 后续用于整理统一训练流程和指标输出，不直接照抄示例模型 |
 
-当前 MATLAB 只有基础环境、Optimization Toolbox 和 Symbolic Math Toolbox，尚无 Statistics and Machine Learning Toolbox。因此 `pca`、`factoran` 和 `lasso` 暂时不能直接调用。命令行安装在下载 R2025a 官方配置模板时连续两次被 MathWorks CDN 拒绝，已按工具流程停止。需要用户先在 MATLAB 的 App 或附加功能界面安装 **Statistics and Machine Learning Toolbox**；安装完成后再进入简单基线和模块建模。
+当前 MATLAB R2025a 已安装 MATLAB、Optimization Toolbox、Statistics and Machine Learning Toolbox 与 Symbolic Math Toolbox。用户通过 MATLAB 界面完成统计工具箱安装后，已经实际运行并验证 `pca`、`factoran`、`lasso` 和 `zscore`。后续可以直接进入简单基线和模块建模。
 
 ## 目录说明
 
