@@ -1,0 +1,7 @@
+model,final_score,rmse,rho_macro,ndcg,precision
+stage4_hybrid_base,54.675535,0.294394,0.535568,0.478383,0.345655
+cell_additive_ridge,54.685709,0.293577,0.535568,0.478383,0.345655
+cell_gene_interaction_ridge,54.691542,0.293110,0.535568,0.478383,0.345655
+interaction_without_module8,54.691576,0.293107,0.535568,0.478383,0.345655
+functional_additive_ridge,54.685854,0.293572,0.535573,0.478383,0.345655
+functional_matched_interaction_ridge,54.673134,0.293525,0.535595,0.478728,0.344695
