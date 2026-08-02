@@ -1,0 +1,2 @@
+n_modules,n_cells,n_leaf_pathways,mean_communality,median_communality,pathways_communality_ge_050,min_specific_variance,specific_variance_at_lower_bound,model_loglike,model_df
+8,1140,113,0.676182568852776,0.69963433841488,95,0.00500000000002467,1,-45.6024345566839,5452

@@ -1,8 +1,9 @@
-function run_stage3_factor_candidates(seed)
+function run_stage3_factor_candidates(seed, candidateCounts)
 %RUN_STAGE3_FACTOR_CANDIDATES Compare interpretable factor counts.
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42
+    candidateCounts (1, :) double {mustBeInteger, mustBePositive} = [8, 12, 15, 18]
 end
 
 rng(seed, "twister");
@@ -30,7 +31,6 @@ leafDescription = structure.description(leafMask);
 X = zscore(pathways{:, find(leafMask)' + 1});
 assert(all(isfinite(X), "all"), "Standardized leaf pathway matrix is invalid.");
 
-candidateCounts = [12, 15, 18];
 summaryTables = cell(numel(candidateCounts), 1);
 topTables = cell(numel(candidateCounts), 1);
 
@@ -56,10 +56,24 @@ end
 
 candidateSummary = vertcat(summaryTables{:});
 topPathways = vertcat(topTables{:});
-writetable(candidateSummary, ...
-    fullfile(resultsDir, "stage3_factor_candidate_summary.csv"));
-writetable(topPathways, ...
-    fullfile(resultsDir, "stage3_factor_candidate_top_pathways.csv"));
+summaryPath = fullfile(resultsDir, "stage3_factor_candidate_summary.csv");
+topPath = fullfile(resultsDir, "stage3_factor_candidate_top_pathways.csv");
+
+if isfile(summaryPath)
+    existingSummary = readtable(summaryPath, TextType="string");
+    existingSummary(ismember(existingSummary.n_factors, candidateCounts), :) = [];
+    candidateSummary = [existingSummary; candidateSummary];
+end
+if isfile(topPath)
+    existingTop = readtable(topPath, TextType="string");
+    existingTop(ismember(existingTop.n_factors, candidateCounts), :) = [];
+    topPathways = [existingTop; topPathways];
+end
+
+candidateSummary = sortrows(candidateSummary, "n_factors");
+topPathways = sortrows(topPathways, ["n_factors", "factor", "rank"]);
+writetable(candidateSummary, summaryPath);
+writetable(topPathways, topPath);
 
 disp(candidateSummary);
 fprintf("Candidate factor results written to %s\n", resultsDir);

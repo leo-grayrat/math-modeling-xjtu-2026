@@ -202,3 +202,7 @@ AGENTS 中写的是 `1.视频配套所有课件和代码（包含正课和更新
 ## 十五、12 因子最大似然模型出现零唯一方差
 
 第一次运行 `run_stage3_factor_candidates.m` 时，MATLAB 在 12 因子模型中警告“有些唯一方差为零，无法计算显著性”。此时 `factoran` 返回的 `stats` 结构不包含脚本预期的 `chisq` 字段，脚本随后退出，退出码为 1。后续不能只补一个字段判断就当作模型正常；要先检查唯一方差和实际返回字段，把零唯一方差视为候选因子数可能不合适的证据，再决定是否保留该候选。
+
+## 十六、MATLAB 命令必须放入 shell 工具参数
+
+第一次准备运行 `run_stage3_final_modules` 时，把命令文本直接放在工具调用外层，工具解析器返回 `SyntaxError: Unexpected string`。错误发生在 MATLAB 启动之前，没有生成或改动结果。后续统一通过 `shell_command` 的 `command` 参数传入 `matlab -batch` 命令。
