@@ -1,5 +1,5 @@
 function run_stage3_module_diagnostics()
-%RUN_STAGE3_MODULE_DIAGNOSTICS Check whether pathway data suit factor analysis.
+% 阶段3：检查通路数据是否适合因子分析。
 
 matlabDir = fileparts(mfilename("fullpath"));
 projectDir = fileparts(matlabDir);

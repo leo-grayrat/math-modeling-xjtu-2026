@@ -1,5 +1,5 @@
 function run_stage3_factor_candidates(seed, candidateCounts)
-%RUN_STAGE3_FACTOR_CANDIDATES Compare interpretable factor counts.
+% 阶段3：比较不同因子数量下的可解释性。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42

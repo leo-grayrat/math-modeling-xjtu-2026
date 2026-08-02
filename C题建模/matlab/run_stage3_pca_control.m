@@ -1,5 +1,5 @@
 function run_stage3_pca_control()
-%RUN_STAGE3_PCA_CONTROL Build the planned PCA comparison on leaf pathways.
+% 阶段3：在末级通路上建立 PCA 对照结果。
 
 matlabDir = fileparts(mfilename("fullpath"));
 projectDir = fileparts(matlabDir);

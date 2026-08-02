@@ -1,7 +1,6 @@
 function run_stage4_gene_importance(seed)
-%RUN_STAGE4_GENE_IMPORTANCE Estimate gene-wide importance from metadata.
-% The outer split is fixed by Stage 1. An inner gene split selects the
-% penalty, so the held-out genes remain untouched until final evaluation.
+% 阶段4：根据基因元数据估计基因的普遍重要性。
+% 外层划分沿用阶段1，内层再按基因留出数据选择惩罚参数，避免提前使用外层新基因标签。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42
@@ -49,7 +48,7 @@ trainFeatureRows = ismember(allGenes, trainGenes);
 [~, trainLocations] = ismember(trainGenes, allGenes);
 trainFeature = X(trainLocations, :);
 
-% The inner split is at gene level, not at individual cell-gene rows.
+% 内层验证按基因划分，不把同一基因的不同细胞行混到训练和验证两边。
 rng(seed + 1000, "twister");
 nInner = max(1, round(0.20 * numel(trainGenes)));
 innerValidation = false(numel(trainGenes), 1);
@@ -77,8 +76,7 @@ lassoLambdas = logspace(log10(lambdaMax), log10(lambdaMax * 1e-3), 25);
     "MaxIter", 5000);
 lassoGenePrediction = lassoFitInfo.Intercept + X * lassoBeta;
 
-% Known genes retain the directly estimated gene mean; only new genes use
-% metadata regression. This isolates the cold-start contribution.
+% 已见基因继续使用直接估计的基因均值，只有新基因使用元数据回归，单独观察冷启动贡献。
 [knownTrainGene, trainGeneLocation] = ismember(allGenes, trainGenes);
 ridgeHybrid = ridgeGenePrediction;
 lassoHybrid = lassoGenePrediction;
@@ -247,11 +245,11 @@ for j = 1:size(raw.categories, 2)
     if isempty(levels)
         levels = "<missing>";
     end
-    % Drop the first category; the intercept carries its effect.
+        % 去掉第一个类别，把它的平均作用交给截距表示。
     for k = 2:numel(levels)
-        X(:, end + 1) = double(values == levels(k)); %#ok<AGROW>
-        featureNames(end + 1) = raw.categoryNames(j) + "=" + levels(k); %#ok<AGROW>
-        featureKinds(end + 1) = "category"; %#ok<AGROW>
+        X(:, end + 1) = double(values == levels(k));
+        featureNames(end + 1) = raw.categoryNames(j) + "=" + levels(k);
+        featureKinds(end + 1) = "category";
     end
 end
 X(:, end + 1) = double(~metadataKnown);
@@ -334,9 +332,9 @@ for i = 1:numel(modelNames)
             continue
         end
         rho = corr(truth, prediction, "Type", "Spearman", "Rows", "complete");
-        rows(end + 1) = modelNames(i) + "|" + groupName; %#ok<AGROW>
+        rows(end + 1) = modelNames(i) + "|" + groupName;
         values(end + 1, :) = [i, double(groupName == "all"), numel(truth), ...
-            sqrt(mean((prediction - truth).^2)), mean(abs(prediction - truth)), rho]; %#ok<AGROW>
+            sqrt(mean((prediction - truth).^2)), mean(abs(prediction - truth)), rho];
     end
 end
 summary = array2table(values, 'VariableNames', ...
