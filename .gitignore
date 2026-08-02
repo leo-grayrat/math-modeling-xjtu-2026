@@ -20,6 +20,7 @@ codegen/
 /C题建模/results/stage4_scoring/
 /C题建模/results/stage5_scoring/
 /C题建模/results/stage6_scoring/
+/C题建模/results/stage7_scoring/
 
 # Python environments and caches
 __pycache__/
