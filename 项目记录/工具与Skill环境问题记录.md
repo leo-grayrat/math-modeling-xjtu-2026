@@ -219,8 +219,14 @@ AGENTS 中写的是 `1.视频配套所有课件和代码（包含正课和更新
 
 直接运行 `codex mcp ...` 时，PowerShell 优先调用 `C:\Users\34788\AppData\Roaming\npm\codex.ps1`，系统执行策略禁止加载该脚本。改用同目录下的 `codex.cmd mcp ...` 可以正常运行，不需要修改整台电脑的 PowerShell 执行策略。当前 `codex.cmd mcp list` 显示命令行侧没有已配置的 MCP 服务器。
 
-## 十九、GitHub CLI 已安装但默认登录令牌无效
+## 十九、GitHub CLI 已安装但曾读取到无效的旧登录状态
 
 用户改用 GitHub CLI 后，已确认 `C:\Program Files\GitHub CLI\gh.exe` 存在；当前环境没有 `GITHUB_TOKEN` 或 `GH_TOKEN`，Codex 配置中也没有 GitHub MCP 段，旧的 MCP 令牌路径已移除。
 
-运行 `gh auth status` 时，GitHub CLI 报告账号 `leo-grayrat` 的默认 Token 无效，建议重新执行 `gh auth login -h github.com`。因此当前还不能通过 CLI 访问本仓库，也没有创建 Issue、分支或 Pull Request。重新登录应使用 GitHub 官方浏览器授权，不把 Token 粘贴到聊天或提交记录中。
+Codex 工具会话第一次运行 `gh auth status` 时报告默认 Token 无效，但用户随后在自己的 PowerShell 中确认账号 `leo-grayrat` 已通过系统 keyring 登录，Token 权限包含 `repo` 和 `workflow`，并能成功读取目标仓库。此前结果应视为工具会话读取到的旧凭据状态，不能作为用户本机当前状态的结论。
+
+## 二十、GitHub CLI 在用户终端可用，但 Codex shell 出站网络受限
+
+用户在本机终端执行 `gh repo view leo-grayrat/math-modeling-xjtu-2026` 成功，说明 GitHub CLI 和权限配置本身正常。Codex shell 使用同一 `gh.exe` 执行只读仓库查询时，访问 `api.github.com` 报 `connectex ... socket ... forbidden`；随后提权重试又因 `moyuu.cc` 自动审批服务断开而未执行。
+
+因此当前边界是：用户可以在本机 CLI 中完成 GitHub 操作，但 Codex 工具会话暂时不能直接代为访问 GitHub。这个问题与 Token 有效性无关，也没有创建 Issue、分支或 Pull Request。
