@@ -17,6 +17,7 @@ codegen/
 
 # Reproducible large intermediate scoring files
 /C题建模/results/stage2_scoring/
+/C题建模/results/stage4_scoring/
 
 # Python environments and caches
 __pycache__/

@@ -1,5 +1,5 @@
 function run_stage2_baselines(seed)
-%RUN_STAGE2_BASELINES Build transparent baselines on the fixed cold-start split.
+% 阶段2：在固定冷启动划分上建立透明的基线模型。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42

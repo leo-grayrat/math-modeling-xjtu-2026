@@ -1,5 +1,5 @@
 function run_stage1_data_inventory(seed)
-%RUN_STAGE1_DATA_INVENTORY Read C-problem data and build cold-start groups.
+% 阶段1：读取 C 题数据并建立冷启动分组。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42

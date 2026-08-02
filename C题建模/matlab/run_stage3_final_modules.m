@@ -1,5 +1,5 @@
 function run_stage3_final_modules(seed)
-%RUN_STAGE3_FINAL_MODULES Export the selected eight-factor representation.
+% 阶段3：导出选定的八维功能模块表示。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42
