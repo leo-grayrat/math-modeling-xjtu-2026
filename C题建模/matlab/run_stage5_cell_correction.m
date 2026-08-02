@@ -24,6 +24,11 @@ moduleScores = readtable(fullfile(resultsDir, "stage3_cell_module_scores.csv"), 
     TextType="string", VariableNamingRule="preserve");
 geneBaseScores = readtable(fullfile(resultsDir, "stage4_gene_base_scores.csv"), ...
     TextType="string", VariableNamingRule="preserve");
+geneMetadata = readtable(fullfile(dataRoot, "metadata", "gene_metadata.csv"), ...
+    TextType="string", VariableNamingRule="preserve");
+moduleDefinitions = readtable(fullfile(resultsDir, "stage3_module_definitions.csv"), ...
+    Delimiter=",", ReadVariableNames=true, Encoding="UTF-8", ...
+    TextType="string", VariableNamingRule="preserve");
 
 [isValidation, validationGroup, heldCells, heldGenes] = ...
     reproduceStage1Split(labels, seed);
@@ -37,22 +42,35 @@ assert(all(knownGenes), "存在没有基因基础分的标签行。");
 
 modules = moduleScores{cellLocation, 2:end};
 geneBase = geneBaseScores.hybrid_ridge_base(geneLocation);
+[geneMembershipByGene, membershipNames, membershipDiagnostics] = ...
+    buildGeneModuleMembership(geneBaseScores.perturbation_gene, ...
+    geneMetadata, moduleDefinitions, 7);
+geneMembership = geneMembershipByGene(geneLocation, :);
 
 training = labels(~isValidation, :);
 validation = labels(isValidation, :);
 validationGroup = validationGroup(isValidation);
 trainingRows = ~isValidation;
 
-moduleCounts = [8, 8, 7];
-interactionFlags = [false, true, true];
 modelNames = ["stage4_hybrid_base"; "cell_additive_ridge"; ...
-    "cell_gene_interaction_ridge"; "interaction_without_module8"];
-modelFeatures = cell(3, 1);
-modelFeatureNames = cell(3, 1);
-for i = 1:3
-    [modelFeatures{i}, modelFeatureNames{i}] = buildDesign( ...
-        geneBase, modules, moduleCounts(i), interactionFlags(i));
-end
+    "interaction_without_module8"; "functional_additive_ridge"; ...
+    "functional_matched_interaction_ridge"];
+stableModules = modules(:, 1:7);
+modelFeatures = {
+    [geneBase, modules]
+    [geneBase, stableModules, geneBase .* stableModules]
+    [stableModules, geneMembership]
+    [stableModules, geneMembership, stableModules .* geneMembership]
+};
+modelFeatureNames = {
+    ["gene_base", "module_" + compose("%02d", 1:8)]'
+    ["gene_base", "module_" + compose("%02d", 1:7), ...
+        "gene_base_x_module_" + compose("%02d", 1:7)]'
+    ["module_" + compose("%02d", 1:7), membershipNames]'
+    ["module_" + compose("%02d", 1:7), membershipNames, ...
+        "matched_interaction_" + compose("%02d", 1:7)]'
+};
+useResidualTarget = [false; false; true; true];
 
 % 内层验证仍然按细胞和基因留出，避免把同一对象的标签同时用于调参与评价。
 innerValidation = reproduceInnerSplit(training, seed + 2000);
@@ -74,12 +92,22 @@ nonzeroCounts = zeros(numel(modelNames), 1);
 for modelIndex = 2:numel(modelNames)
     featureIndex = modelIndex - 1;
     X = modelFeatures{featureIndex};
-    [lambda, innerMse] = selectLambda(X(trainingRows, :), training.label, ...
+    if useResidualTarget(featureIndex)
+        modelTarget = labels.label - geneBase;
+    else
+        modelTarget = labels.label;
+    end
+    trainingTarget = modelTarget(trainingRows);
+    [lambda, innerMse] = selectLambda(X(trainingRows, :), trainingTarget, ...
         innerTraining, innerValidation, lambdaGrid);
     [XzTrain, center, scale] = standardizeByTraining(X(trainingRows, :));
     XzAll = (X - center) ./ scale;
-    [beta, intercept] = fitRidge(XzTrain, training.label, lambda);
-    predictions(:, modelIndex) = intercept + XzAll(isValidation, :) * beta;
+    [beta, intercept] = fitRidge(XzTrain, trainingTarget, lambda);
+    modelPrediction = intercept + XzAll(isValidation, :) * beta;
+    if useResidualTarget(featureIndex)
+        modelPrediction = geneBase(isValidation) + modelPrediction;
+    end
+    predictions(:, modelIndex) = modelPrediction;
 
     coefficientRows(end + 1, 1) = modelNames(modelIndex);
     coefficientRows(end, 2) = "截距";
@@ -132,6 +160,17 @@ coefficientTable = table(coefficientRows(:, 1), coefficientRows(:, 2), ...
 writetable(coefficientTable, fullfile(resultsDir, ...
     "stage5_cell_correction_coefficients.csv"));
 
+membershipTable = table(geneBaseScores.perturbation_gene, ...
+    'VariableNames', {'perturbation_gene'});
+for moduleIndex = 1:numel(membershipNames)
+    membershipTable.(membershipNames(moduleIndex)) = ...
+        geneMembershipByGene(:, moduleIndex);
+end
+writetable(membershipTable, fullfile(resultsDir, ...
+    "stage5_gene_module_membership.csv"));
+writetable(membershipDiagnostics, fullfile(resultsDir, ...
+    "stage5_gene_module_membership_summary.csv"));
+
 for modelIndex = 1:numel(modelNames)
     submission = validation(:, ["cell_line_id", "perturbation_gene"]);
     submission.label = predictions(:, modelIndex);
@@ -175,16 +214,50 @@ assert(isequal(sort(heldGenes), sort(savedGenes.perturbation_gene)), ...
     "留出基因名单与阶段1不一致。");
 end
 
-function [X, featureNames] = buildDesign(geneBase, modules, moduleCount, useInteraction)
-selectedModules = modules(:, 1:moduleCount);
-X = [geneBase, selectedModules];
-featureNames = ["gene_base", "module_" + compose("%02d", 1:moduleCount)];
-if useInteraction
-    X = [X, geneBase .* selectedModules];
-    featureNames = [featureNames, ...
-        "gene_base_x_module_" + compose("%02d", 1:moduleCount)];
+function [membership, membershipNames, diagnostics] = ...
+    buildGeneModuleMembership(geneNames, metadata, moduleDefinitions, nModules)
+[knownGenes, metadataLocation] = ismember(geneNames, metadata.gene_symbol);
+assert(all(knownGenes), "存在没有元数据的基因，无法建立功能归属。");
+
+membership = false(numel(geneNames), nModules);
+membershipNames = "module_" + compose("%02d", 1:nModules) + "_pathway_member";
+for geneIndex = 1:numel(geneNames)
+    geneTokens = extractPathwayTokens(metadata.pathways(metadataLocation(geneIndex)));
+    for moduleIndex = 1:nModules
+        moduleTokens = normalizePathwayToken( ...
+            split(moduleDefinitions.top_pathways(moduleIndex), "|"));
+        membership(geneIndex, moduleIndex) = ...
+            any(ismember(geneTokens, moduleTokens));
+    end
 end
-featureNames = featureNames(:);
+
+memberCount = sum(membership, 1)';
+diagnostics = table(moduleDefinitions.module_id(1:nModules), ...
+    moduleDefinitions.module_name_zh(1:nModules), memberCount, ...
+    memberCount / numel(geneNames), ...
+    moduleDefinitions.top_pathways(1:nModules), ...
+    'VariableNames', {'module_id', 'module_name', 'gene_count', ...
+    'gene_fraction', 'matched_top_pathways'});
+end
+
+function tokens = extractPathwayTokens(pathwayText)
+if ismissing(pathwayText) || strlength(strtrim(pathwayText)) == 0
+    tokens = strings(0, 1);
+    return
+end
+
+branches = split(pathwayText, "|");
+tokens = strings(0, 1);
+for branchIndex = 1:numel(branches)
+    tokens = [tokens; normalizePathwayToken(split(branches(branchIndex), ">"))];
+end
+tokens = unique(tokens(strlength(tokens) > 0));
+end
+
+function tokens = normalizePathwayToken(values)
+tokens = lower(strtrim(values));
+tokens = regexprep(tokens, "[^a-z0-9]+", "_");
+tokens = regexprep(tokens, "^_+|_+$", "");
 end
 
 function isValidation = reproduceInnerSplit(labels, seed)
