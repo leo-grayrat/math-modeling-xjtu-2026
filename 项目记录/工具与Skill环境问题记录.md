@@ -242,3 +242,7 @@ Codex 工具会话第一次运行 `gh auth status` 时报告默认 Token 无效�
 用户观察到每次发送消息时都会出现 GitHub 的 `Select an account` 窗口，列表中同时有 `leo-grayrat` 和另一个账号。当前仓库远程地址使用 HTTPS，Git 全局凭据助手为 `manager`，没有配置 `credential.https://github.com.username`；`cmdkey` 中也没有可直接区分的 GitHub 条目。
 
 这与 Codex 自动审批模型的 `stream disconnected` 错误不是同一个问题。前者是本机 Git Credential Manager 无法确定使用哪个 GitHub 账号，后者是模型服务审批请求断开。建议后续执行 `gh auth setup-git`，让 Git 使用 GitHub CLI 已登录的 keyring 凭据；如果仍弹窗，再在 Windows 凭据管理器中删除不需要的旧账号或为本仓库固定用户名。当前只完成诊断，没有修改凭据。
+
+## 二十三、阶段5脚本首次运行时出现 MATLAB 运算符语法错误
+
+准备阶段5“细胞个体修正”脚本后，第一次运行 `matlab -batch "addpath('C题建模/matlab'); run_stage5_cell_correction(42)"` 在脚本第236行报“运算符的使用无效”，尚未读取数据或生成阶段5结果。当前脚本已用 Git stash 暂存，阶段5没有继续推进；后续恢复时先定位该行的矩阵或字符串表达式，再重新运行，不把这次失败当成模型结论。
