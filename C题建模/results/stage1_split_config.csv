@@ -1,0 +1,5 @@
+configName,configValue
+seed,42
+holdout_cell_fraction,0.11
+holdout_gene_fraction,0.15
+old_old_row_fraction,0.08
