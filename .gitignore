@@ -15,6 +15,9 @@
 slprj/
 codegen/
 
+# Reproducible large intermediate scoring files
+/C题建模/results/stage2_scoring/
+
 # Python environments and caches
 __pycache__/
 *.py[cod]

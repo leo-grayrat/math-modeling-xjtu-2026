@@ -182,3 +182,15 @@ Statistics and Machine Learning Toolbox 尚未安装。因此，`factoran`、`pc
 ### 2026-08-02：用户已通过 MATLAB 界面完成安装
 
 `C:\software\professional\Matlab\appdata\prodcontents.json` 已列出 Statistics and Machine Learning Toolbox 25.1。随后在 MATLAB R2025a 中实际运行 `pca`、`factoran`、`lasso` 和 `zscore`，四个函数均成功，退出码为 0。后续 C 题可以正常使用统计与机器学习工具箱；此前的 CDN 报错只影响 mpm 命令行安装，不影响用户通过 MATLAB 界面安装后的使用。
+
+## 十二、本地数模讲义目录名有一个空格
+
+AGENTS 中写的是 `1.视频配套所有课件和代码（包含正课和更新的模型）`，磁盘上的真实名称是 `1. 视频配套所有课件和代码（包含正课和更新的模型）`，数字和“视频”之间多了一个空格。第一次按 AGENTS 原文访问时报“路径不存在”；后续直接使用带空格的真实路径，不把它误判成工作区外不可访问。
+
+## 十三、MATLAB 跨行函数调用需要续行符
+
+`run_stage2_baselines.m` 第一次运行时在汇总表的 `summary = table(` 处报“无效表达式”，退出码为 1。原因是函数参数从下一行继续书写时，上一行末尾没有写 `...`。已经改为 `summary = table( ...`；以后跨行写 MATLAB 函数调用时明确保留续行符，不按其他语言的括号换行习惯书写。
+
+同一脚本第二次运行已完成基线计算，但在选择输出表列时退出。`validation(:, {"cell_line_id", ...})` 生成的是字符串元胞数组，不是 MATLAB 表允许的列索引类型；已经改为字符串数组 `validation(:, ["cell_line_id", ...])`。以后表列选择统一使用字符串数组或字符向量元胞数组，不混用两者。
+
+第一次修补上述问题时，同一文件的补丁片段没有按原文件行号顺序排列，`apply_patch` 因而找不到前面的原文，文件未被部分修改。重新按从前到后的顺序排列后再应用；同一文件包含多处修改时，补丁片段也应保持原文顺序。

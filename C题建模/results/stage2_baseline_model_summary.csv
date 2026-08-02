@@ -1,0 +1,6 @@
+metric,value
+training_rows,607578
+validation_rows,265065
+global_mean,0.229584115966044
+additive_iterations,5
+additive_final_delta,1.12863607348856e-11
