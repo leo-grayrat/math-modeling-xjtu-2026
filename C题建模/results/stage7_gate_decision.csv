@@ -1,0 +1,2 @@
+winner_route,lambda,inner_folds_improved,inner_mean_improvement,outer_baseline_score,outer_winner_score,outer_score_improvement,old_cell_new_gene_improvement,new_cell_new_gene_improvement,improved_ranking_metrics,rmse_relative_change,adopted
+two_step_kernel_ridge,0.1000000000,3,0.3939765659,54.6755353513,55.3137277328,0.6381923815,1.5087737936,0.8829730122,2,-0.0318673882,True

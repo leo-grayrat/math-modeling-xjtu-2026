@@ -15,6 +15,11 @@ DATA_ROOT = REPO_ROOT / "2026年校赛题目" / "C" / "数据文件"
 RESULTS_DIR = PROJECT_DIR / "results"
 SCORING_DIR = RESULTS_DIR / "stage7_scoring"
 OUTPUT_PATH = RESULTS_DIR / "stage7_official_metrics.csv"
+GATE_OUTPUT_PATH = RESULTS_DIR / "stage7_gate_decision.csv"
+MIN_SCORE_IMPROVEMENT = 0.20
+MIN_IMPROVED_FOLDS = 2
+MIN_IMPROVED_RANKING_METRICS = 2
+MAX_RMSE_RELATIVE_WORSENING = 0.01
 SUBSETS = (
     "all",
     "old_cell_old_gene",
@@ -61,6 +66,69 @@ def calculate_row(metric, frame: pd.DataFrame, model: str, subset: str) -> dict[
     }
 
 
+def build_gate_decision(
+    result: pd.DataFrame,
+    selection: pd.DataFrame,
+    winner: str,
+) -> pd.DataFrame:
+    """把 Issue #18 的预设门槛整理成一行可复核结论。"""
+
+    def pick(model: str, subset: str) -> pd.Series:
+        row = result.loc[result["model"].eq(model) & result["subset"].eq(subset)]
+        if len(row) != 1:
+            raise ValueError(f"评分结果无法唯一定位：{model} / {subset}")
+        return row.iloc[0]
+
+    baseline = pick("stage4_hybrid_base", "all")
+    winner_all = pick(winner, "all")
+    old_cell_new_gene_base = pick("stage4_hybrid_base", "old_cell_new_gene")
+    old_cell_new_gene_winner = pick(winner, "old_cell_new_gene")
+    new_cell_new_gene_base = pick("stage4_hybrid_base", "new_cell_new_gene")
+    new_cell_new_gene_winner = pick(winner, "new_cell_new_gene")
+
+    ranking_metrics = ("rho_macro", "ndcg_score", "precision_score")
+    improved_ranking_metrics = sum(
+        float(winner_all[name]) > float(baseline[name])
+        for name in ranking_metrics
+    )
+    score_improvement = float(winner_all["final_score"] - baseline["final_score"])
+    old_cell_new_gene_improvement = float(
+        old_cell_new_gene_winner["final_score"]
+        - old_cell_new_gene_base["final_score"]
+    )
+    new_cell_new_gene_improvement = float(
+        new_cell_new_gene_winner["final_score"]
+        - new_cell_new_gene_base["final_score"]
+    )
+    rmse_relative_change = float(
+        winner_all["rmse"] / baseline["rmse"] - 1.0
+    )
+    folds_improved = int(selection.loc[0, "folds_improved"])
+    adopted = (
+        folds_improved >= MIN_IMPROVED_FOLDS
+        and score_improvement >= MIN_SCORE_IMPROVEMENT
+        and old_cell_new_gene_improvement > 0
+        and new_cell_new_gene_improvement > 0
+        and improved_ranking_metrics >= MIN_IMPROVED_RANKING_METRICS
+        and rmse_relative_change <= MAX_RMSE_RELATIVE_WORSENING
+    )
+
+    return pd.DataFrame([{
+        "winner_route": winner,
+        "lambda": float(selection.loc[0, "lambda"]),
+        "inner_folds_improved": folds_improved,
+        "inner_mean_improvement": float(selection.loc[0, "mean_improvement"]),
+        "outer_baseline_score": float(baseline["final_score"]),
+        "outer_winner_score": float(winner_all["final_score"]),
+        "outer_score_improvement": score_improvement,
+        "old_cell_new_gene_improvement": old_cell_new_gene_improvement,
+        "new_cell_new_gene_improvement": new_cell_new_gene_improvement,
+        "improved_ranking_metrics": improved_ranking_metrics,
+        "rmse_relative_change": rmse_relative_change,
+        "adopted": adopted,
+    }])
+
+
 def main() -> None:
     """只读取 MATLAB 已冻结的外层胜出路线，不在这里调参。"""
     selection = pd.read_csv(RESULTS_DIR / "stage7_selected_model.csv")
@@ -101,6 +169,8 @@ def main() -> None:
 
     result = pd.DataFrame(rows)
     result.to_csv(OUTPUT_PATH, index=False, float_format="%.10f")
+    gate_decision = build_gate_decision(result, selection, winner)
+    gate_decision.to_csv(GATE_OUTPUT_PATH, index=False, float_format="%.10f")
     overall = result.loc[result["subset"].eq("all"), [
         "model",
         "final_score",
@@ -111,6 +181,8 @@ def main() -> None:
     ]]
     print(overall.to_string(index=False))
     print(f"官方指标已写入 {OUTPUT_PATH}")
+    print(gate_decision.to_string(index=False))
+    print(f"阶段验收结论已写入 {GATE_OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
