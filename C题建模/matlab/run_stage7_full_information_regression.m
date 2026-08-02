@@ -38,7 +38,7 @@ for foldNumber = 1:3
     [innerTraining, innerValidation] = makeInnerSplit( ...
         data, seed + 3000 + foldNumber);
     [foldBaseByGene, foldBaseInfo] = stage7_fit_fold_gene_base( ...
-        data.geneFeatures, data.rowGeneIndex(innerTraining), ...
+        data.baseGeneFeatures, data.rowGeneIndex(innerTraining), ...
         data.labels.label(innerTraining), seed + 5000 + foldNumber);
     foldBaseByRow = foldBaseByGene(data.rowGeneIndex);
     validationTable = data.labels(innerValidation, :);
@@ -113,8 +113,8 @@ end
 outerTraining = ~data.isOuterValidation;
 outerValidation = data.isOuterValidation;
 [outerBaseByGene, ~] = stage7_fit_fold_gene_base( ...
-    data.geneFeatures, data.rowGeneIndex(outerTraining), ...
-    data.labels.label(outerTraining), seed + 9000);
+    data.baseGeneFeatures, data.rowGeneIndex(outerTraining), ...
+    data.labels.label(outerTraining), seed + 1000);
 outerBaseByRow = outerBaseByGene(data.rowGeneIndex);
 outerTrainingResidual = data.labels.label(outerTraining) - ...
     outerBaseByRow(outerTraining);
@@ -235,6 +235,8 @@ assert(all(knownGeneMetadata), ...
     "stage7:GeneMetadataCoverage", "部分标签基因缺少元数据。");
 geneRows = geneMetadata(geneMetadataIndex, :);
 geneNumericBlock = buildGeneNumericBlock(geneRows);
+baseGeneFeatures = buildStage4BaseFeatures( ...
+    geneRows, geneNumericBlock, geneTrainingMask);
 geneCategoryBlock = encodeCategories(geneRows, ...
     ["curated_gene_list", "sub_mito_location", "mito_domain_score", ...
     "yeast_mito_homolog_score", "rickettsia_homolog_score", "msms_score"]);
@@ -272,17 +274,19 @@ data.isOuterValidation = isOuterValidation;
 data.outerGroup = outerGroup;
 data.cellFeatures = cellFeatures;
 data.geneFeatures = geneFeatures;
+data.baseGeneFeatures = baseGeneFeatures;
 data.cellKernelFeatures = cellKernelFeatures;
 data.geneKernelFeatures = geneKernelFeatures;
 data.ownExpression = ownExpression;
 data.featureBlock = ["cell_expression"; "cell_pathway"; ...
     "cell_metadata"; "cell_modules"; "gene_numeric"; ...
     "gene_categories"; "gene_pathways"; "gene_evidence"; ...
-    "own_expression"];
+    "own_expression"; "stage4_base_features"];
 data.featureCount = [size(expressionBlock, 2); size(pathwayBlock, 2); ...
     size(cellCategoryBlock, 2); size(moduleBlock, 2); ...
     size(geneNumericBlock, 2); size(geneCategoryBlock, 2); ...
-    size(genePathwayBlock, 2); size(geneEvidenceBlock, 2); 1];
+    size(genePathwayBlock, 2); size(geneEvidenceBlock, 2); 1; ...
+    size(baseGeneFeatures, 2)];
 end
 
 function block = buildGeneNumericBlock(geneRows)
@@ -292,6 +296,41 @@ block = [geneRows.targetp_score, geneRows.coexpression_gnf_n50_score, ...
     countTokens(geneRows.pathways, "|"), ...
     countTokens(geneRows.synonyms, "|"), ...
     double(strlength(geneRows.description))];
+end
+
+function features = buildStage4BaseFeatures( ...
+    geneRows, numericBlock, trainingRows)
+% 严格沿用阶段4的数值标准化和五类元数据编码。
+for columnNumber = 1:size(numericBlock, 2)
+    observed = numericBlock(trainingRows, columnNumber);
+    observed = observed(isfinite(observed));
+    if isempty(observed)
+        fillValue = 0;
+    else
+        fillValue = median(observed);
+    end
+    missing = ~isfinite(numericBlock(:, columnNumber));
+    numericBlock(missing, columnNumber) = fillValue;
+end
+center = mean(numericBlock(trainingRows, :), 1);
+scale = std(numericBlock(trainingRows, :), 0, 1);
+scale(scale < 1e-12 | ~isfinite(scale)) = 1;
+features = (numericBlock - center) ./ scale;
+
+categoryFields = ["sub_mito_location", "mito_domain_score", ...
+    "yeast_mito_homolog_score", "rickettsia_homolog_score", "msms_score"];
+for fieldNumber = 1:numel(categoryFields)
+    values = string(geneRows.(categoryFields(fieldNumber)));
+    values(ismissing(values) | strlength(strtrim(values)) == 0) = "<missing>";
+    levels = unique(values(trainingRows), "stable");
+    for levelNumber = 2:numel(levels)
+        features(:, end + 1) = ...
+            double(values == levels(levelNumber)); %#ok<AGROW>
+    end
+end
+
+% 当前数据的基因元数据完整，仍保留阶段4同名的全零缺失指示列。
+features(:, end + 1) = 0;
 end
 
 function counts = countTokens(values, delimiter)
@@ -446,7 +485,7 @@ geneFeatures = data.geneFeatures(selectedGenes, :);
 ownExpression = data.ownExpression(selectedCells, selectedGenes);
 validationTable = data.labels(validationRows, :);
 [sliceBaseByGene, sliceBaseInfo] = stage7_fit_fold_gene_base( ...
-    data.geneFeatures, data.rowGeneIndex(trainingRows), ...
+    data.baseGeneFeatures, data.rowGeneIndex(trainingRows), ...
     data.labels.label(trainingRows), seed + 8000);
 sliceBaseByRow = sliceBaseByGene(data.rowGeneIndex);
 baselinePrediction = sliceBaseByRow(validationRows);

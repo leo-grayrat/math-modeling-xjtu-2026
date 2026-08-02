@@ -69,7 +69,7 @@ classdef stage7ModelsTest < matlab.unittest.TestCase
         end
 
         function testFoldBaseUsesTrainingLabelsOnly(testCase)
-            geneFeatures = [(-2:3)', ((-2:3)'.^2), ones(6, 1)];
+            geneFeatures = [(-2:3)', ((-2:3)'.^2)];
             trainingGeneIndex = [1; 1; 2; 2; 3; 3];
             trainingTarget = [0.8; 1.2; 1.8; 2.2; 2.8; 3.2];
             [baseByGene, info] = stage7_fit_fold_gene_base( ...

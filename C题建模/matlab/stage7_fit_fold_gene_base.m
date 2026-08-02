@@ -22,9 +22,7 @@ trainingGeneMean = splitapply(@mean, trainingTarget, geneGroup);
 assert(numel(trainingGenes) >= 3, "stage7:TooFewBaseGenes", ...
     "基础分至少需要三个训练基因。");
 
-% 最后一列常数项由岭回归截距承担，不重复放进元数据特征。
-metadataFeatures = geneFeatures(:, 1:end - 1);
-trainingFeatures = metadataFeatures(trainingGenes, :);
+trainingFeatures = geneFeatures(trainingGenes, :);
 nTrainingGenes = numel(trainingGenes);
 
 rng(splitSeed, "twister");
@@ -34,12 +32,12 @@ validationGene = false(nTrainingGenes, 1);
 validationGene(randperm(nTrainingGenes, nValidationGenes)) = true;
 fittingGene = ~validationGene;
 
-lambdaGrid = logspace(-3, 3, 13);
+lambdaGrid = logspace(-3, 3, 25);
 [lambda, validationMse] = selectMetadataLambda(trainingFeatures, ...
     trainingGeneMean, fittingGene, validationGene, lambdaGrid);
 [beta, intercept] = fitCenteredRidge( ...
     trainingFeatures, trainingGeneMean, lambda);
-baseByGene = intercept + metadataFeatures * beta;
+baseByGene = intercept + geneFeatures * beta;
 
 % 本折见过的基因直接用训练均值；留出基因保留元数据预测值。
 baseByGene(trainingGenes) = trainingGeneMean;
