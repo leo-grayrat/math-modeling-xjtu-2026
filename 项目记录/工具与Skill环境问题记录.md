@@ -231,6 +231,12 @@ Codex 工具会话第一次运行 `gh auth status` 时报告默认 Token 无效�
 
 因此当前边界是：用户可以在本机 CLI 中完成 GitHub 操作，但 Codex 工具会话暂时不能直接代为访问 GitHub。这个问题与 Token 有效性无关，也没有创建 Issue、分支或 Pull Request。
 
+## 二十二、Codex 侧 GitHub 访问仍有两层阻碍
+
+用户本机的 `gh repo view` 已经成功，说明账号和仓库权限正常。Codex shell 中运行 `gh repo view` 时曾报 `connectex ... socket ... forbidden`，这是出站网络策略阻止访问 `api.github.com`。随后运行 `git ls-remote origin HEAD` 又报 `SEC_E_NO_CREDENTIALS`，因为 Codex 侧 Git 仍使用 Windows Credential Manager，尚未通过 `gh auth setup-git` 接入 CLI 的 keyring。
+
+因此 `gh auth setup-git` 只能解决凭据衔接，不能解决 Codex 沙箱网络限制。当前不能从 Codex 工具会话直接访问 GitHub；需要平台恢复提权审批、放开该执行环境的出站网络，或由用户在自己的终端执行 GitHub 操作。
+
 ## 二十一、GitHub 多账号导致 Credential Manager 反复弹出选择框
 
 用户观察到每次发送消息时都会出现 GitHub 的 `Select an account` 窗口，列表中同时有 `leo-grayrat` 和另一个账号。当前仓库远程地址使用 HTTPS，Git 全局凭据助手为 `manager`，没有配置 `credential.https://github.com.username`；`cmdkey` 中也没有可直接区分的 GitHub 条目。
