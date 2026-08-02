@@ -218,3 +218,9 @@ AGENTS 中写的是 `1.视频配套所有课件和代码（包含正课和更新
 ## 十八、PowerShell 会优先命中被执行策略拦截的 codex.ps1
 
 直接运行 `codex mcp ...` 时，PowerShell 优先调用 `C:\Users\34788\AppData\Roaming\npm\codex.ps1`，系统执行策略禁止加载该脚本。改用同目录下的 `codex.cmd mcp ...` 可以正常运行，不需要修改整台电脑的 PowerShell 执行策略。当前 `codex.cmd mcp list` 显示命令行侧没有已配置的 MCP 服务器。
+
+## 十九、GitHub CLI 已安装但默认登录令牌无效
+
+用户改用 GitHub CLI 后，已确认 `C:\Program Files\GitHub CLI\gh.exe` 存在；当前环境没有 `GITHUB_TOKEN` 或 `GH_TOKEN`，Codex 配置中也没有 GitHub MCP 段，旧的 MCP 令牌路径已移除。
+
+运行 `gh auth status` 时，GitHub CLI 报告账号 `leo-grayrat` 的默认 Token 无效，建议重新执行 `gh auth login -h github.com`。因此当前还不能通过 CLI 访问本仓库，也没有创建 Issue、分支或 Pull Request。重新登录应使用 GitHub 官方浏览器授权，不把 Token 粘贴到聊天或提交记录中。
