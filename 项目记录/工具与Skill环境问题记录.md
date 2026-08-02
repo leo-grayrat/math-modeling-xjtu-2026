@@ -206,3 +206,15 @@ AGENTS 中写的是 `1.视频配套所有课件和代码（包含正课和更新
 ## 十六、MATLAB 命令必须放入 shell 工具参数
 
 第一次准备运行 `run_stage3_final_modules` 时，把命令文本直接放在工具调用外层，工具解析器返回 `SyntaxError: Unexpected string`。错误发生在 MATLAB 启动之前，没有生成或改动结果。后续统一通过 `shell_command` 的 `command` 参数传入 `matlab -batch` 命令。
+
+## 十七、GitHub Issue/PR 操作缺少可用入口
+
+启用新的 Git 工作流程后，C 题第 4 阶段应先创建真实 GitHub Issue，再建立实验分支。当前系统找不到 `gh` 命令，Codex 本轮也没有提供 GitHub Issue/PR 连接器，因此不能按新规则创建远程 Issue。
+
+用户已明确允许安装 GitHub Skill、连接器或官方工具。随后尝试通过官方 `skill-installer` 查询 curated Skills，并尝试使用 `winget install --id GitHub.cli --exact` 安装 GitHub 官方 CLI；两次提权审批都在命令真正执行前因审批服务连接中断而失败，错误为 `stream disconnected before completion`。复查后 `gh` 仍未安装。
+
+这个问题不影响已有仓库和结果，但会阻断正式模型步骤的 Issue、分支、PR 流程。当前没有创建第 4 阶段 Issue、分支或代码。后续可在审批服务恢复后重试官方 CLI 安装；安装成功后运行 `gh auth login`，只通过官方浏览器授权，不在聊天中传递访问令牌。
+
+## 十八、PowerShell 会优先命中被执行策略拦截的 codex.ps1
+
+直接运行 `codex mcp ...` 时，PowerShell 优先调用 `C:\Users\34788\AppData\Roaming\npm\codex.ps1`，系统执行策略禁止加载该脚本。改用同目录下的 `codex.cmd mcp ...` 可以正常运行，不需要修改整台电脑的 PowerShell 执行策略。当前 `codex.cmd mcp list` 显示命令行侧没有已配置的 MCP 服务器。
