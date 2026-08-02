@@ -298,3 +298,17 @@ check_matlab_env(string({'data','statistics'}))
 创建阶段 7 的 PR #21 时，直接把含 Markdown 代码围栏的长正文放进 `gh pr create --body`。PowerShell 处理正文中的反引号后截断了参数，并尝试把代码块里的 MATLAB 函数名当作 PowerShell 命令执行；PR 虽已创建，正文只保留到复现命令开头，CLI 最终退出码为 1。没有 MATLAB 代码被实际运行，仓库文件也没有变化。
 
 处理方法是把完整正文写入 UTF-8 临时 Markdown，再使用 `gh pr edit --body-file` 更新并读回核对。以后含代码围栏、反引号或复杂多行内容的 PR 正文一律使用 `--body-file`，不再直接放进 PowerShell 命令参数。
+
+## 三十、安装两个文献搜索 Skill
+
+Issue #20 要求在阶段 7 完成后安装两个文献搜索 Skill。目前已经完成：
+
+- `academic-search` 版本 1.2.0，来源为 `ustc-ai4science/academic-search`，安装在 `C:\Users\34788\.codex\skills\academic-search`；
+- `global-biblio-base` 版本 3.9.3，来源为 SkillHub 的 `@user_164f4c1f/global-biblio-base`，安装在 `C:\Users\34788\.codex\skills\global-biblio-base`；
+- SkillHub CLI 版本 2026.7.29，安装在用户目录，Windows 命令入口为 `C:\Users\34788\.local\bin\skillhub.cmd`，该目录已经加入用户 PATH。
+
+SkillHub 官方只提供 Bash 安装器，但本机没有 Bash。没有为此额外安装 WSL，而是下载同一个官方安装包，将其中的 Python CLI、版本信息和元数据原样放到用户目录，并建立 Windows 命令入口。CLI 第一次搜索时，PowerShell 的 GBK 控制台无法输出简介中的特殊符号，出现 `UnicodeEncodeError`；设置 `PYTHONIOENCODING=utf-8` 后搜索和安装均正常。
+
+SkillHub 默认把带命名空间的 Skill 放在 `skills/@作者/技能名` 两层目录中，Codex 未必能从这里发现入口。安装后已经把目标 Skill 调整到全局 Skills 根目录下的一层目录，同时保留包内版本和更新信息。`skillhub list` 能识别该 Skill，两个 `SKILL.md` 入口均可读取；`academic-search` 所需的 Node.js 和 `curl` 可用，开放 PDF 脚本通过 Node 语法检查。
+
+`global-biblio-base` 是第三方 SmartLib 服务，实际检索会把检索条件发送给它，并按服务规则消耗次数。其说明写明试用额度为每月 100 次检索和 10 次全文下载。本轮只验证本地安装和入口，没有发出真实检索，也没有触发自动注册或消耗额度。包内服务配置和凭据只保留在用户级 Skill 目录，不写入本仓库。新安装的 Skill 通常要到下一轮会话才会出现在 Codex 的可用 Skill 列表中。
