@@ -1,0 +1,12 @@
+metric,value
+metadata_rows,1123
+metadata_known_all_genes,933
+metadata_known_train_genes,793
+metadata_known_validation_genes,933
+train_genes,793
+validation_genes,933
+missing_targetp,305
+missing_coexpression,107
+missing_pgc_induction,577
+missing_msms,148
+missing_metadata,0
