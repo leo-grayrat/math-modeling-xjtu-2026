@@ -230,3 +230,9 @@ Codex 工具会话第一次运行 `gh auth status` 时报告默认 Token 无效�
 用户在本机终端执行 `gh repo view leo-grayrat/math-modeling-xjtu-2026` 成功，说明 GitHub CLI 和权限配置本身正常。Codex shell 使用同一 `gh.exe` 执行只读仓库查询时，访问 `api.github.com` 报 `connectex ... socket ... forbidden`；随后提权重试又因 `moyuu.cc` 自动审批服务断开而未执行。
 
 因此当前边界是：用户可以在本机 CLI 中完成 GitHub 操作，但 Codex 工具会话暂时不能直接代为访问 GitHub。这个问题与 Token 有效性无关，也没有创建 Issue、分支或 Pull Request。
+
+## 二十一、GitHub 多账号导致 Credential Manager 反复弹出选择框
+
+用户观察到每次发送消息时都会出现 GitHub 的 `Select an account` 窗口，列表中同时有 `leo-grayrat` 和另一个账号。当前仓库远程地址使用 HTTPS，Git 全局凭据助手为 `manager`，没有配置 `credential.https://github.com.username`；`cmdkey` 中也没有可直接区分的 GitHub 条目。
+
+这与 Codex 自动审批模型的 `stream disconnected` 错误不是同一个问题。前者是本机 Git Credential Manager 无法确定使用哪个 GitHub 账号，后者是模型服务审批请求断开。建议后续执行 `gh auth setup-git`，让 Git 使用 GitHub CLI 已登录的 keyring 凭据；如果仍弹窗，再在 Windows 凭据管理器中删除不需要的旧账号或为本仓库固定用户名。当前只完成诊断，没有修改凭据。
