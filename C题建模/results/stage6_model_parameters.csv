@@ -1,0 +1,13 @@
+parameter,value
+stage4_ridge_lambda,56.2341325190349
+percentile_ridge_lambda,17.7827941003892
+top_ridge_lambda,3.16227766016838
+percentile_inner_mse,0.0468460175201856
+top_inner_mse,0.0362844453785133
+spearman_proxy_weight,0.352941176470588
+top_proxy_weight,0.647058823529412
+selected_alpha,1
+inner_baseline_score,31.1904403254651
+inner_selected_score,33.1305131378269
+training_genes,793
+inner_validation_genes,159

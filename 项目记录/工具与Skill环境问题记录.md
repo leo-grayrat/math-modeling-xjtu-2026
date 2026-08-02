@@ -260,3 +260,23 @@ Delimiter=",", ReadVariableNames=true, Encoding="UTF-8"
 ```
 
 再次运行后成功读取中文模块名称和英文通路字段，训练 607,578 行、验证 265,065 行，退出码为 0。以后读取含中文内容且必须保留固定列名的 CSV 时，先显式声明分隔符、表头和 UTF-8 编码，不依赖 MATLAB 自动判断。
+
+## 二十五、PowerShell 吃掉 MATLAB 字符串数组中的双引号
+
+第 6 步准备检查 MATLAB 数据处理和统计工具箱时，第一次把 `check_matlab_env(["data","statistics"])` 放进 PowerShell 的双引号命令。PowerShell 传参后，MATLAB 实际收到的内容在 `([` 处中断，报“该语句不完整”，退出码为 1；检查函数尚未运行，因此不能把这次报错理解成缺少工具箱。
+
+后续改用不含嵌套双引号的写法：
+
+```matlab
+check_matlab_env(string({'data','statistics'}))
+```
+
+在 PowerShell 调用 MATLAB 时，遇到字符串数组优先使用 `string` 包装字符向量元胞，避免在多层引号中继续试错。
+
+改用上述写法后，环境检查成功：MATLAB R2025a、MATLAB 基础功能和 Statistics and Machine Learning Toolbox 均可用，退出码为 0。
+
+## 二十六、PowerShell 管道把 GitHub Issue 中文正文变成问号
+
+创建阶段 6 Issue #9 时，标题作为普通命令参数传递，因此中文正常；正文则通过 PowerShell 的字符串管道送给 `gh issue create --body-file -`。GitHub 上的正文几乎全部显示为 `?`，CLI 重新读取后也确认服务器收到的就是问号，说明损坏发生在本机管道传输阶段，不是网页字体或浏览器显示问题。
+
+后续不再用 PowerShell 字符串管道传递含中文的 Issue、评论或 PR 正文。统一先生成 UTF-8 Markdown 临时文件，再使用 `gh ... --body-file <文件>`；上传后立即读回一次正文，确认中文没有损坏，再删除临时文件。Issue #9 的正文按此方法修复，并另建 Sub-issue 保存用户报告和处理结果。

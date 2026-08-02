@@ -1,0 +1,3 @@
+model,final_score,spearman_score,rho_macro,ndcg_score,ndcg_at_5,ndcg_at_10,ndcg_at_15,precision_score,precision_at_5,precision_at_10,precision_at_15,rmse_score,rmse,nrmse,rows,cell_lines
+stage4_hybrid_base,54.675535,0.767784,0.535568,0.478383,0.471416,0.478423,0.485310,0.345655,0.344063,0.328754,0.364148,0.576611,0.294394,0.734272,265065,1019
+rank_optimized,53.019807,0.753487,0.506973,0.471405,0.461239,0.467917,0.485059,0.313019,0.313445,0.275859,0.349755,0.563171,0.310988,0.775659,265065,1019
