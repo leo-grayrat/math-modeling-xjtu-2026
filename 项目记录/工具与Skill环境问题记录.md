@@ -396,3 +396,9 @@ Issue #53 要求迅速安装 MATLAB MCP。当前安装的是 MathWorks 官方 `m
 论文写作输入盘点时，第一次把含中文路径的 Python 源码通过 PowerShell 管道传入解释器，路径中的中文被替换成问号，`python-docx` 因而无法打开 C 题题面。文件本身没有损坏。
 
 随后先由 PowerShell 使用 `Resolve-Path` 得到真实绝对路径，再通过任务专用环境变量传给只含 ASCII 的 Python 读取代码，C 题 DOCX、数据说明和官方格式 PDF 均正常读取。以后 PowerShell 向 Python 传递中文文件名时优先传递已解析路径，不把中文路径直接写进管道脚本文本。
+
+## 四十四、当前会话未热加载 MATLAB MCP
+
+处理 Issue #87 时，当前会话的工具列表和 MCP 资源列表均没有出现已经安装的 MATLAB MCP，无法直接调用 `check_matlab_code` 和 `matlab_coding_guidelines`。这与此前记录的情况一致：服务器已经安装并通过独立协议验证，但正在运行的 Codex 会话不会热加载后来注册的 MCP。
+
+本轮不重复安装服务器，也不因此停止技术核实。静态检查改用本机 MATLAB 的 `checkcode`，数据流边界由人工阅读阶段 7 源码确认。下次新会话若仍看不到 MATLAB MCP，再检查 Codex 启动时的 MCP 加载日志；在此之前不把“当前会话没有工具入口”误判为服务器安装失败。
