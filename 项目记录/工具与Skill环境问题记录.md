@@ -333,6 +333,12 @@ SkillHub 默认把带命名空间的 Skill 放在 `skills/@作者/技能名` 两
 
 处理 Issue #23 时，`academic-search` 自带依赖检查脚本只能由 Bash 运行；当时 PowerShell 的 `PATH` 中没有 `bash`，常见的 Git for Windows Bash 路径也不存在，因此该检查脚本没有执行。
 
+## 三十四、阶段8环境检查命令的引号与路径
+
+阶段 8 第一次调用 MATLAB 环境检查时，Windows 原生命令参数把 `-batch` 内容中的双引号剥掉，MATLAB 实际收到没有引号的路径和字符串数组，因此在加载任何模型代码前退出。改用 MATLAB 单引号和 `string({'data','optimization'})` 后，命令内容能够完整传入。
+
+第二次调用使用了不存在的 Skill 根目录 `scripts/`。实际检查函数位于 `references/roles/编程手/scripts/check_matlab_env.m`；改用真实路径后检查通过，MATLAB R2025a、MATLAB 基础功能和 Optimization Toolbox 均可用。阶段 8 的 3 个单元测试随后全部通过。这两次失败都发生在模型运行前，没有生成实验结果。
+
 用户后来安装 Git Bash 并加入用户环境变量。当前可直接使用 `D:\Software\Git\bin\bash.exe`，实际运行依赖检查后，Node.js 24.14.1、`curl`、Chrome 远程调试端口 12057 和 CDP Proxy 端口 3456 均正常。Bash 缺失问题已经解决，不需要安装 WSL。
 
 随后按“双引擎论文搜索”调用 OpenAlex 与 AnySearch。OpenAlex 再次返回 HTTP 429；AnySearch 能返回结果，但对“癌症依赖性冷启动预测”的宽检索混入较多只讨论癌症基因、却不讨论依赖性预测的论文，不能直接作为候选清单。之后改用 Europe PMC 的结构化检索和全文 XML 补足生物医学论文。
