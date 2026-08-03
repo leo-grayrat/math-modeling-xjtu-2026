@@ -324,3 +324,7 @@ SkillHub 默认把带命名空间的 Skill 放在 `skills/@作者/技能名` 两
 第一次运行 `gh project list` 时，GitHub CLI 报告当前令牌缺少 `read:project` 权限。用户刷新权限后，Projects 接口正常；已经建立私有 Project `MM2026 C题建模进度`，关联本仓库，加入 Issue #22、#23、#24 和 #25，并建立“待办、进行中、待审核、已完成”四值进度字段。
 
 关闭 Issue #24 时还确认 `gh issue edit` 没有 `--state` 参数。正确做法是先用 `gh issue edit` 修改标签，再用 `gh issue close --reason completed` 关闭。该问题只影响命令写法，没有造成重复 Issue 或状态错误。
+
+## 三十三、Milestone 截止时间被 GitHub 归一化
+
+创建两个 Milestone 时，通过 API 提交了对应北京时间 20:00 的 UTC 时刻，但 GitHub 返回的 `due_on` 被归一化为当天 `00:00:00Z`。因此不能依靠 Milestone 字段保存精确小时。本项目保留正确的截止日期，并把 `20:00（北京时间）`明确写入 Milestone 标题、说明、跟踪 Issue 和本地总清单。
