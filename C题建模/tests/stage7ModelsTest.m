@@ -96,5 +96,16 @@ classdef stage7ModelsTest < matlab.unittest.TestCase
             testCase.verifyEqual(membership, [1, 1, 0; 0, 0, 1]);
             testCase.verifyEqual(counts, [1, 1, 1]);
         end
+
+        function testMissingPathwayAnnotationsStayUnconnected(testCase)
+            annotations = ["0"; missing; ""];
+            pathwayNames = ["Fe-S_proteins"; "mt-tRNA"];
+
+            [membership, counts] = build_gene_pathway_membership( ...
+                annotations, pathwayNames);
+
+            testCase.verifyEqual(membership, zeros(3, 2));
+            testCase.verifyEqual(counts, zeros(1, 2));
+        end
     end
 end
