@@ -1,7 +1,7 @@
 function model = stage7_fit_two_step_kernel( ...
     cellKernel, geneKernel, cellIndex, geneIndex, target, lambda)
 %STAGE7_FIT_TWO_STEP_KERNEL 拟合双边两步核岭回归。
-% 训练矩形中少量未观测组合先用训练残差的细胞、基因加性均值填补。
+% 训练矩形中的未观测组合先用训练残差的细胞、基因加性均值填补。
 
 arguments
     cellKernel double
