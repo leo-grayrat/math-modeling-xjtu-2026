@@ -372,3 +372,11 @@ Google Scholar 和知网均已通过当前 Chrome 登录态实际检索。知网
 现已在用户级 Python 环境安装 `uv 0.12.1`，并把 Skill 自带的 `mcp-server/academic_search_server.py` 以本地 stdio 服务器注册为全局 `academic-search` MCP。PubMed 联系邮箱沿用本仓库已有的 Git 用户邮箱，没有把令牌或数据库密钥写入仓库。基础预检确认 PubMed、CrossRef 和 arXiv 三个接口均可访问；进一步通过 MCP 协议完成初始化、列出 16 个工具，并实际调用 `search_papers` 得到 CrossRef 结果。
 
 核对 Codex 配置格式时，官方 Codex 手册下载脚本收到 HTTP 403，随后改用已配置的官方 OpenAI 文档 MCP 核对 `mcp_servers`、`command` 和 `args` 字段，未反复请求同一地址。新注册的 MCP 不会热加载到已经开始的会话，因此本会话的通用资源检查仍会显示服务器未就绪；重新打开 Codex 会话后才会出现在可调用工具中。这不影响已经完成的独立协议测试，也不要求正在运行的文献检索智能体重新搜索。
+
+## 四十、安装并验证官方 MATLAB MCP Server
+
+Issue #53 要求迅速安装 MATLAB MCP。当前安装的是 MathWorks 官方 `matlab/matlab-mcp-server` 的 `v0.11.2` Windows x64 二进制，路径为 `C:\Users\34788\.codex\mcp\matlab-mcp-server-windows-x64.exe`，SHA-256 为 `F51A440C00F2031B317D90027FA554C5813B20E553F69484278E3ABDF4C5A206`。按照官方说明运行 `--setup-matlab` 后，MATLAB 已显示 `MATLAB MCP Server Toolbox 0.3.0`，状态为启用。
+
+用户级 `C:\Users\34788\.codex\config.toml` 已新增 `matlab` stdio MCP：指定本机 MATLAB 根目录 `C:\software\professional\Matlab`、本仓库初始目录、自动会话模式和关闭匿名遥测，并按官方 Windows 提示转发 `WINDIR`。`codex mcp list` 与 `codex mcp get matlab` 均显示服务器启用。
+
+最后通过 MCP 协议实际初始化服务器，成功列出 `check_matlab_code`、`detect_matlab_toolboxes`、`evaluate_matlab_code`、`run_matlab_file` 和 `run_matlab_test_file` 五个工具；调用 `evaluate_matlab_code` 返回 MATLAB `R2025a`，算式 `1+1` 返回 `2`，`is_error=False`。这证明 Codex、MCP Server 和本机 MATLAB 三段已经连通。当前已经打开的会话不会热加载新工具，下一次 Codex 会话会直接看到 MATLAB MCP 入口。
