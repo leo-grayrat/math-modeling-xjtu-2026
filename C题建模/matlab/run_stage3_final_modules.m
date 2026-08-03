@@ -59,7 +59,7 @@ end
 
 moduleId = "module_" + compose("%02d", 1:nModules)';
 moduleNameZh = [
-    "线粒体遗传信息维护与表达"
+    "线粒体综合状态与遗传信息表达"
     "脂肪酸和支链氨基酸利用"
     "解毒与氧化还原代谢"
     "氧化磷酸化"
@@ -69,7 +69,7 @@ moduleNameZh = [
     "TCA-复合体II与动力学平衡"
 ];
 moduleNameEn = [
-    "Mitochondrial genetic maintenance and expression"
+    "Mitochondrial global state and genetic information expression"
     "Fatty-acid and branched-chain amino-acid utilization"
     "Detoxification and redox metabolism"
     "Oxidative phosphorylation"
@@ -83,7 +83,7 @@ interpretationConfidence = [
     "medium"; "medium"; "medium"; "exploratory"
 ];
 interpretation = [
-    "由mtDNA复制、核样体、mtRNA加工和线粒体核糖体装配共同表征。"
+    "反映多类线粒体功能的共同变化，最高载荷集中于mtDNA复制、核样体、mtRNA加工和线粒体核糖体装配。"
     "由脂肪酸氧化、肉碱穿梭和支链氨基酸代谢共同表征。"
     "由外源物代谢、硫代谢、谷胱甘肽和相关氧化还原反应共同表征。"
     "由呼吸链复合体I、III、IV、V及OXPHOS亚基共同表征。"
