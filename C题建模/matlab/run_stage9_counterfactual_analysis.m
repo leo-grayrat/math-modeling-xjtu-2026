@@ -1,5 +1,5 @@
 function run_stage9_counterfactual_analysis(seed, runMode)
-% 阶段9：用冻结阶段7模型完成通路解释和虚拟敲除案例。
+% 阶段9：用冻结阶段7模型完成虚拟敲除输入敏感性检查。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42
@@ -204,7 +204,7 @@ writetable(pathwayRows, fullfile(resultsDir, filePrefix + ...
     "_case_pathway_changes.csv"));
 writetable(moduleRows, fullfile(resultsDir, filePrefix + ...
     "_case_module_changes.csv"));
-fprintf("阶段9完成：生成 %d 个典型案例、%d 条强度结果。\n", ...
+fprintf("阶段9完成：生成 %d 个高预测值案例、%d 条强度结果。\n", ...
     height(caseRows), height(predictionRows));
 end
 
