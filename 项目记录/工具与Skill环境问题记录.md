@@ -384,3 +384,9 @@ Issue #53 要求迅速安装 MATLAB MCP。当前安装的是 MathWorks 官方 `m
 ## 四十一、当前 PowerShell 找不到 pdftotext
 
 阶段 11 校对论文框架时，PowerShell 的当前 `PATH` 中无法识别 `pdftotext`。本轮已经有此前通过 PDF 读取工具取得的官方格式要求，问题不影响论文框架，因此没有围绕同一命令反复尝试，也没有临时安装新环境。后续若需要重新批量提取 PDF，优先调用现有 PDF Skill 或 Python PDF 库；只有这些路径也失效时再单独修复 `pdftotext`。
+
+## 四十二、安装 scientific-visualization 模板 Skill
+
+已从 `davila7/claude-code-templates` 的 `cli-tool/components/skills/scientific/scientific-visualization` 子目录安装全局 Skill，安装位置为 `C:\Users\34788\.codex\skills\scientific-visualization`。入口 `SKILL.md` 可正常读取，目录内包含 `nature.mplstyle`、`publication.mplstyle`、`presentation.mplstyle` 三套 Matplotlib 样式，以及配色、导出工具和现成绘图示例。
+
+本项目只把它作为可直接查阅和改造的科学绘图模板库，不把它视为新的独立生图链路，也不允许它覆盖用户已经固定的色系、字体和视觉批评约束。以后需要某种具体图型时，可以优先从其中挑选结构接近的模板，再按本题数据和用户参考图重新设计；不能原样套用模板后声称完成正式图片。新安装的 Skill 从下一轮会话开始稳定出现在可用 Skill 列表中。
