@@ -1,0 +1,2 @@
+stage,folds,folds_improved,mean_improvement,mean_new_gene_change,mean_spearman_change,mean_weight_l1_from_equal,cell_top_consistency,gene_top_consistency,pass_score_gate,pass_stability_gate,adopt_weighted_multikernel
+前三组,3,0,-0.108083853550745,-0.155227820816731,-0.00185815959305533,0.28237070254992,1,1,0,1,0
