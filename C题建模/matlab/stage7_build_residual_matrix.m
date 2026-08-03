@@ -1,7 +1,8 @@
 function [residualMatrix, observed, trainingCells, trainingGenes] = ...
     stage7_build_residual_matrix(cellIndex, geneIndex, target)
 %STAGE7_BUILD_RESIDUAL_MATRIX 把训练标签整理为细胞乘基因的残差矩阵。
-% 少量未观测组合只使用训练行的细胞均值和基因均值进行加性填补。
+% 未观测组合使用训练残差的细胞均值和基因均值进行加性填补；
+% 固定外层训练矩形约有 15.53% 的组合未观测，不能把它们称为少量缺失。
 
 arguments
     cellIndex (:, 1) double {mustBeInteger, mustBePositive}
