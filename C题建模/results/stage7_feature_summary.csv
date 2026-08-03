@@ -7,5 +7,6 @@ gene_numeric,7
 gene_categories,28
 gene_pathways,140
 gene_evidence,20
+gene_expression_profile,1140
 own_expression,1
 stage4_base_features,36
