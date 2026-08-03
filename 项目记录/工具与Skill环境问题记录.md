@@ -380,3 +380,7 @@ Issue #53 要求迅速安装 MATLAB MCP。当前安装的是 MathWorks 官方 `m
 用户级 `C:\Users\34788\.codex\config.toml` 已新增 `matlab` stdio MCP：指定本机 MATLAB 根目录 `C:\software\professional\Matlab`、本仓库初始目录、自动会话模式和关闭匿名遥测，并按官方 Windows 提示转发 `WINDIR`。`codex mcp list` 与 `codex mcp get matlab` 均显示服务器启用。
 
 最后通过 MCP 协议实际初始化服务器，成功列出 `check_matlab_code`、`detect_matlab_toolboxes`、`evaluate_matlab_code`、`run_matlab_file` 和 `run_matlab_test_file` 五个工具；调用 `evaluate_matlab_code` 返回 MATLAB `R2025a`，算式 `1+1` 返回 `2`，`is_error=False`。这证明 Codex、MCP Server 和本机 MATLAB 三段已经连通。当前已经打开的会话不会热加载新工具，下一次 Codex 会话会直接看到 MATLAB MCP 入口。
+
+## 四十一、当前 PowerShell 找不到 pdftotext
+
+阶段 11 校对论文框架时，PowerShell 的当前 `PATH` 中无法识别 `pdftotext`。本轮已经有此前通过 PDF 读取工具取得的官方格式要求，问题不影响论文框架，因此没有围绕同一命令反复尝试，也没有临时安装新环境。后续若需要重新批量提取 PDF，优先调用现有 PDF Skill 或 Python PDF 库；只有这些路径也失效时再单独修复 `pdftotext`。
