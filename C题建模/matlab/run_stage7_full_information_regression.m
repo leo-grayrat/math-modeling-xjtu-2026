@@ -1,13 +1,15 @@
-function run_stage7_full_information_regression(seed, runMode)
+function output = run_stage7_full_information_regression(seed, runMode)
 %RUN_STAGE7_FULL_INFORMATION_REGRESSION 比较两条全信息双边回归路线。
 % smoke 只用真实数据的小矩形跑通两个模型；full 执行三组内层筛选。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42
-    runMode (1, 1) string {mustBeMember(runMode, ["smoke", "full"])} = "full"
+    runMode (1, 1) string {mustBeMember(runMode, ...
+        ["smoke", "full", "rank_smoke", "rank_full", "stage9_bundle"])} = "full"
 end
 
 rng(seed, "twister");
+output = struct();
 matlabDir = fileparts(mfilename("fullpath"));
 projectDir = fileparts(matlabDir);
 repoRoot = fileparts(projectDir);
@@ -19,6 +21,16 @@ end
 
 data = prepareFullInformation(repoRoot, projectDir, seed);
 writeFeatureSummary(data, resultsDir);
+
+if startsWith(runMode, "rank_")
+    runConditionalRankExperiment(data, resultsDir, seed, runMode);
+    return
+end
+
+if runMode == "stage9_bundle"
+    output = buildStage9Bundle(data, seed);
+    return
+end
 
 if runMode == "smoke"
     runSmokeSlice(data, resultsDir, seed);
@@ -247,7 +259,8 @@ geneCategoryBlock = encodeCategories(geneRows, ...
     ["curated_gene_list", "sub_mito_location", "mito_domain_score", ...
     "yeast_mito_homolog_score", "rickettsia_homolog_score", "msms_score"]);
 pathwayNames = string(pathways.Properties.VariableNames(2:end));
-genePathwayBlock = buildGenePathwayMembership(geneRows.pathways, pathwayNames);
+genePathwayBlock = build_gene_pathway_membership( ...
+    string(geneRows.pathways), pathwayNames);
 geneEvidenceBlock = encodeDelimitedTokens(geneRows.curation_evidence, ",");
 
 geneNumericBlock = standardizeAndBalance( ...
@@ -384,29 +397,6 @@ for rowNumber = 1:numel(values)
 end
 end
 
-function membership = buildGenePathwayMembership(values, pathwayNames)
-membership = zeros(numel(values), numel(pathwayNames));
-for rowNumber = 1:numel(values)
-    if ismissing(values(rowNumber)) || strlength(strtrim(values(rowNumber))) == 0
-        continue
-    end
-    branches = split(values(rowNumber), "|");
-    tokens = strings(0, 1);
-    for branchNumber = 1:numel(branches)
-        tokens = [tokens; split(branches(branchNumber), ">")]; %#ok<AGROW>
-    end
-    tokens = normalizePathwayName(tokens);
-    [known, location] = ismember(unique(tokens), pathwayNames);
-    membership(rowNumber, location(known)) = 1;
-end
-end
-
-function names = normalizePathwayName(names)
-names = strtrim(names);
-names = regexprep(names, "[^A-Za-z0-9]+", "_");
-names = regexprep(names, "^_+|_+$", "");
-end
-
 function block = standardizeAndBalance(block, trainingRows)
 if isempty(block)
     return
@@ -443,7 +433,7 @@ kernel = (kernel + kernel') / 2;
 kernel(1:size(kernel, 1) + 1:end) = 1;
 end
 
-function [isTraining, isValidation] = makeInnerSplit(data, splitSeed)
+function [isTraining, isValidation, group] = makeInnerSplit(data, splitSeed)
 rng(splitSeed, "twister");
 outerTraining = ~data.isOuterValidation;
 availableCells = unique(data.labels.cell_line_id(outerTraining));
@@ -461,6 +451,291 @@ randomHeldRow = false(height(data.labels), 1);
 randomHeldRow(heldRows) = true;
 isValidation = outerTraining & (heldCellRow | heldGeneRow | randomHeldRow);
 isTraining = outerTraining & ~isValidation;
+group = strings(height(data.labels), 1);
+group(~heldCellRow & ~heldGeneRow) = "old_cell_old_gene";
+group(~heldCellRow & heldGeneRow) = "old_cell_new_gene";
+group(heldCellRow & ~heldGeneRow) = "new_cell_old_gene";
+group(heldCellRow & heldGeneRow) = "new_cell_new_gene";
+end
+
+function runConditionalRankExperiment(data, resultsDir, seed, runMode)
+% 在阶段7核结构上只增加同细胞基因差值损失。
+if runMode == "rank_smoke"
+    runConditionalRankSmoke(data, resultsDir, seed);
+    return
+end
+
+fprintf("正在建立条件排序实验所需的细胞核和基因核。\n");
+cellKernel = buildRbfKernel(data.cellKernelFeatures);
+geneKernel = buildRbfKernel(data.geneKernelFeatures);
+kernelLambda = 0.1;
+etaCandidates = [0, 0.25, 0.5, 1, 2, 4];
+innerMetrics = table;
+
+for foldNumber = 1:3
+    [innerTraining, innerValidation, innerGroup] = makeInnerSplit( ...
+        data, seed + 3000 + foldNumber);
+    [foldBaseByGene, ~] = stage7_fit_fold_gene_base( ...
+        data.baseGeneFeatures, data.rowGeneIndex(innerTraining), ...
+        data.labels.label(innerTraining), seed + 5000 + foldNumber);
+    foldBaseByRow = foldBaseByGene(data.rowGeneIndex);
+    trainingResidual = data.labels.label(innerTraining) - ...
+        foldBaseByRow(innerTraining);
+    validationTable = data.labels(innerValidation, :);
+    validationGroup = innerGroup(innerValidation);
+
+    for eta = etaCandidates
+        model = stage7_fit_conditional_rank_kernel( ...
+            cellKernel, geneKernel, ...
+            data.rowCellIndex(innerTraining), ...
+            data.rowGeneIndex(innerTraining), ...
+            trainingResidual, kernelLambda, eta);
+        linearIndex = sub2ind(size(model.predictionMatrix), ...
+            data.rowCellIndex(innerValidation), ...
+            data.rowGeneIndex(innerValidation));
+        prediction = foldBaseByRow(innerValidation) + ...
+            model.predictionMatrix(linearIndex);
+        innerMetrics = [innerMetrics; conditionalMetricRows( ...
+            foldNumber, eta, validationTable, validationGroup, ...
+            prediction)]; %#ok<AGROW>
+    end
+    fprintf("条件排序内层第 %d 组完成。\n", foldNumber);
+end
+
+writetable(innerMetrics, fullfile(resultsDir, ...
+    "conditional_rankrls_inner_metrics.csv"));
+[gateSummary, selection] = selectConditionalRankEta(innerMetrics);
+writetable(gateSummary, fullfile(resultsDir, ...
+    "conditional_rankrls_gate_decision.csv"));
+
+if ~selection.outerEligible
+    fprintf("条件排序没有通过三组内层停止线，不读取固定外层标签。\n");
+    return
+end
+
+outerTraining = ~data.isOuterValidation;
+outerValidation = data.isOuterValidation;
+[outerBaseByGene, ~] = stage7_fit_fold_gene_base( ...
+    data.baseGeneFeatures, data.rowGeneIndex(outerTraining), ...
+    data.labels.label(outerTraining), seed + 1000);
+outerBaseByRow = outerBaseByGene(data.rowGeneIndex);
+outerResidual = data.labels.label(outerTraining) - ...
+    outerBaseByRow(outerTraining);
+validationTable = data.labels(outerValidation, :);
+validationGroup = data.outerGroup(outerValidation);
+
+baselineModel = stage7_fit_conditional_rank_kernel( ...
+    cellKernel, geneKernel, data.rowCellIndex(outerTraining), ...
+    data.rowGeneIndex(outerTraining), outerResidual, kernelLambda, 0);
+candidateModel = stage7_fit_conditional_rank_kernel( ...
+    cellKernel, geneKernel, data.rowCellIndex(outerTraining), ...
+    data.rowGeneIndex(outerTraining), outerResidual, ...
+    kernelLambda, selection.eta);
+linearIndex = sub2ind(size(baselineModel.predictionMatrix), ...
+    data.rowCellIndex(outerValidation), ...
+    data.rowGeneIndex(outerValidation));
+baselinePrediction = outerBaseByRow(outerValidation) + ...
+    baselineModel.predictionMatrix(linearIndex);
+candidatePrediction = outerBaseByRow(outerValidation) + ...
+    candidateModel.predictionMatrix(linearIndex);
+outerMetrics = [conditionalMetricRows(0, 0, validationTable, ...
+    validationGroup, baselinePrediction); ...
+    conditionalMetricRows(0, selection.eta, validationTable, ...
+    validationGroup, candidatePrediction)];
+writetable(outerMetrics, fullfile(resultsDir, ...
+    "conditional_rankrls_outer_metrics.csv"));
+finalDecision = evaluateConditionalOuter(outerMetrics, selection.eta);
+writetable(finalDecision, fullfile(resultsDir, ...
+    "conditional_rankrls_final_decision.csv"));
+fprintf("条件排序固定外层完成：eta=%.6g，采用=%d。\n", ...
+    selection.eta, finalDecision.adopt_conditional_rankrls);
+end
+
+function runConditionalRankSmoke(data, resultsDir, seed)
+% 用真实数据小矩形验证求解链和 eta=0 的严格退回。
+rng(seed + 7100, "twister");
+outerTraining = ~data.isOuterValidation;
+availableCells = unique(data.rowCellIndex(outerTraining), "sorted");
+availableGenes = unique(data.rowGeneIndex(outerTraining), "sorted");
+selectedCells = availableCells(1:min(45, numel(availableCells)));
+selectedGenes = availableGenes(1:min(65, numel(availableGenes)));
+candidateRows = outerTraining & ...
+    ismember(data.rowCellIndex, selectedCells) & ...
+    ismember(data.rowGeneIndex, selectedGenes);
+heldCells = selectedCells(end - 7:end);
+heldGenes = selectedGenes(end - 11:end);
+validationRows = candidateRows & ...
+    (ismember(data.rowCellIndex, heldCells) | ...
+    ismember(data.rowGeneIndex, heldGenes));
+trainingRows = candidateRows & ~validationRows;
+
+cellMap = zeros(size(data.cellNames));
+cellMap(selectedCells) = 1:numel(selectedCells);
+geneMap = zeros(size(data.geneNames));
+geneMap(selectedGenes) = 1:numel(selectedGenes);
+localTrainingCell = cellMap(data.rowCellIndex(trainingRows));
+localTrainingGene = geneMap(data.rowGeneIndex(trainingRows));
+localValidationCell = cellMap(data.rowCellIndex(validationRows));
+localValidationGene = geneMap(data.rowGeneIndex(validationRows));
+
+[baseByGene, ~] = stage7_fit_fold_gene_base( ...
+    data.baseGeneFeatures, data.rowGeneIndex(trainingRows), ...
+    data.labels.label(trainingRows), seed + 8100);
+baseByRow = baseByGene(data.rowGeneIndex);
+trainingResidual = data.labels.label(trainingRows) - ...
+    baseByRow(trainingRows);
+cellKernel = buildRbfKernel(data.cellKernelFeatures(selectedCells, :));
+geneKernel = buildRbfKernel(data.geneKernelFeatures(selectedGenes, :));
+
+stage7Model = stage7_fit_two_step_kernel(cellKernel, geneKernel, ...
+    localTrainingCell, localTrainingGene, trainingResidual, 0.1);
+zeroModel = stage7_fit_conditional_rank_kernel(cellKernel, geneKernel, ...
+    localTrainingCell, localTrainingGene, trainingResidual, 0.1, 0);
+rankModel = stage7_fit_conditional_rank_kernel(cellKernel, geneKernel, ...
+    localTrainingCell, localTrainingGene, trainingResidual, 0.1, 1);
+zeroDifference = max(abs(stage7Model.predictionMatrix - ...
+    zeroModel.predictionMatrix), [], "all");
+assert(zeroDifference < 1e-10, "rankrls:SmokeZeroEta", ...
+    "eta=0 没有退回阶段7两步核岭，最大差异 %.3g。", zeroDifference);
+
+linearIndex = sub2ind(size(zeroModel.predictionMatrix), ...
+    localValidationCell, localValidationGene);
+validationTable = data.labels(validationRows, :);
+zeroPrediction = baseByRow(validationRows) + ...
+    zeroModel.predictionMatrix(linearIndex);
+rankPrediction = baseByRow(validationRows) + ...
+    rankModel.predictionMatrix(linearIndex);
+zeroMetrics = stage7_calculate_metrics(validationTable, zeroPrediction);
+rankMetrics = stage7_calculate_metrics(validationTable, rankPrediction);
+summary = [conditionalSmokeRow(0, zeroMetrics, zeroDifference); ...
+    conditionalSmokeRow(1, rankMetrics, zeroDifference)];
+summary.training_rows(:) = sum(trainingRows);
+summary.validation_rows(:) = sum(validationRows);
+writetable(summary, fullfile(resultsDir, ...
+    "conditional_rankrls_smoke_summary.csv"));
+assert(all(isfinite(summary.final_score)), "rankrls:SmokeFinite", ...
+    "条件排序冒烟测试产生非有限指标。");
+fprintf("条件排序真实数据冒烟测试完成：训练 %d 行，验证 %d 行。\n", ...
+    sum(trainingRows), sum(validationRows));
+end
+
+function rows = conditionalMetricRows( ...
+    foldNumber, eta, validationTable, validationGroup, prediction)
+subsetNames = ["all"; unique(validationGroup, "stable")];
+rows = table;
+for subsetNumber = 1:numel(subsetNames)
+    subset = subsetNames(subsetNumber);
+    if subset == "all"
+        mask = true(height(validationTable), 1);
+    else
+        mask = validationGroup == subset;
+    end
+    if ~any(mask)
+        continue
+    end
+    metrics = stage7_calculate_metrics(validationTable(mask, :), ...
+        prediction(mask));
+    row = table(foldNumber, eta, subset, metrics.final_score, ...
+        metrics.rho_macro, metrics.ndcg_score, metrics.precision_score, ...
+        metrics.rmse, metrics.rmse_score, sum(mask), ...
+        'VariableNames', {'fold', 'eta', 'subset', 'final_score', ...
+        'rho_macro', 'ndcg_score', 'precision_score', 'rmse', ...
+        'rmse_score', 'rows'});
+    rows = [rows; row]; %#ok<AGROW>
+end
+end
+
+function row = conditionalSmokeRow(eta, metrics, zeroDifference)
+row = table(eta, metrics.final_score, metrics.rho_macro, ...
+    metrics.ndcg_score, metrics.precision_score, metrics.rmse, ...
+    metrics.rmse_score, zeroDifference, 0, 0, ...
+    'VariableNames', {'eta', 'final_score', 'rho_macro', ...
+    'ndcg_score', 'precision_score', 'rmse', 'rmse_score', ...
+    'zero_eta_max_abs_difference', 'training_rows', 'validation_rows'});
+end
+
+function [summary, selection] = selectConditionalRankEta(innerMetrics)
+allRows = innerMetrics(innerMetrics.subset == "all", :);
+baseline = sortrows(allRows(allRows.eta == 0, :), "fold");
+etaCandidates = unique(allRows.eta(allRows.eta > 0), "sorted");
+summary = table;
+for etaNumber = 1:numel(etaCandidates)
+    eta = etaCandidates(etaNumber);
+    candidate = sortrows(allRows(allRows.eta == eta, :), "fold");
+    assert(isequal(candidate.fold, baseline.fold), ...
+        "rankrls:GateFoldMismatch", "候选与阶段7基线的内层组不一致。");
+    scoreChange = candidate.final_score - baseline.final_score;
+    rhoChange = candidate.rho_macro - baseline.rho_macro;
+    ndcgChange = candidate.ndcg_score - baseline.ndcg_score;
+    precisionChange = candidate.precision_score - baseline.precision_score;
+    rankMetricsImproved = sum([mean(rhoChange), mean(ndcgChange), ...
+        mean(precisionChange)] > 0);
+
+    newGeneMask = ismember(innerMetrics.subset, ...
+        ["old_cell_new_gene", "new_cell_new_gene"]);
+    newGeneBaseline = innerMetrics(newGeneMask & innerMetrics.eta == 0, :);
+    newGeneCandidate = innerMetrics(newGeneMask & innerMetrics.eta == eta, :);
+    meanNewGeneChange = mean(newGeneCandidate.final_score) - ...
+        mean(newGeneBaseline.final_score);
+    rmseRatio = mean(candidate.rmse) / mean(baseline.rmse);
+    passGate = sum(scoreChange > 0) >= 2 && ...
+        mean(scoreChange) >= 0.10 && rankMetricsImproved >= 2 && ...
+        mean(rhoChange) >= 0 && meanNewGeneChange >= 0 && ...
+        rmseRatio <= 1.01;
+    row = table(eta, mean(candidate.final_score), mean(scoreChange), ...
+        sum(scoreChange > 0), mean(rhoChange), mean(ndcgChange), ...
+        mean(precisionChange), rankMetricsImproved, ...
+        meanNewGeneChange, rmseRatio, passGate, false, false, ...
+        'VariableNames', {'eta', 'mean_final_score', 'mean_improvement', ...
+        'folds_improved', 'mean_rho_change', 'mean_ndcg_change', ...
+        'mean_precision_change', 'rank_metrics_improved', ...
+        'mean_new_gene_change', 'rmse_ratio', 'pass_gate', ...
+        'selected', 'outer_eligible'});
+    summary = [summary; row]; %#ok<AGROW>
+end
+
+eligible = find(summary.pass_gate);
+if isempty(eligible)
+    [~, selectedRow] = max(summary.mean_final_score);
+    outerEligible = false;
+else
+    [~, localBest] = max(summary.mean_final_score(eligible));
+    selectedRow = eligible(localBest);
+    outerEligible = true;
+end
+summary.selected(selectedRow) = true;
+summary.outer_eligible(selectedRow) = outerEligible;
+selection.eta = summary.eta(selectedRow);
+selection.outerEligible = outerEligible;
+end
+
+function decision = evaluateConditionalOuter(outerMetrics, eta)
+baseline = outerMetrics(outerMetrics.eta == 0 & ...
+    outerMetrics.subset == "all", :);
+candidate = outerMetrics(outerMetrics.eta == eta & ...
+    outerMetrics.subset == "all", :);
+newGeneMask = ismember(outerMetrics.subset, ...
+    ["old_cell_new_gene", "new_cell_new_gene"]);
+newGeneBaseline = outerMetrics(newGeneMask & outerMetrics.eta == 0, :);
+newGeneCandidate = outerMetrics(newGeneMask & outerMetrics.eta == eta, :);
+scoreChange = candidate.final_score - baseline.final_score;
+rhoChange = candidate.rho_macro - baseline.rho_macro;
+ndcgChange = candidate.ndcg_score - baseline.ndcg_score;
+precisionChange = candidate.precision_score - baseline.precision_score;
+rankMetricsImproved = sum([rhoChange, ndcgChange, precisionChange] > 0);
+newGeneChange = mean(newGeneCandidate.final_score) - ...
+    mean(newGeneBaseline.final_score);
+rmseRatio = candidate.rmse / baseline.rmse;
+adopt = scoreChange >= 0.10 && rankMetricsImproved >= 2 && ...
+    rhoChange >= 0 && newGeneChange >= 0 && rmseRatio <= 1.01;
+decision = table(eta, baseline.final_score, candidate.final_score, ...
+    scoreChange, rhoChange, ndcgChange, precisionChange, ...
+    rankMetricsImproved, newGeneChange, rmseRatio, adopt, ...
+    'VariableNames', {'eta', 'baseline_score', 'candidate_score', ...
+    'score_change', 'rho_change', 'ndcg_change', ...
+    'precision_change', 'rank_metrics_improved', ...
+    'mean_new_gene_change', 'rmse_ratio', ...
+    'adopt_conditional_rankrls'});
 end
 
 function runSmokeSlice(data, resultsDir, seed)
@@ -654,4 +929,29 @@ assert(isequal(sort(heldCells), sort(savedCells.cell_line_id)), ...
     "stage7:HeldCells", "留出细胞名单与阶段1不一致。");
 assert(isequal(sort(heldGenes), sort(savedGenes.perturbation_gene)), ...
     "stage7:HeldGenes", "留出基因名单与阶段1不一致。");
+end
+
+function bundle = buildStage9Bundle(data, seed)
+% 建立阶段9复用的冻结阶段7模型，不读取固定外层验证标签。
+cellKernel = buildRbfKernel(data.cellKernelFeatures);
+geneKernel = buildRbfKernel(data.geneKernelFeatures);
+outerTraining = ~data.isOuterValidation;
+[baseByGene, baseInfo] = stage7_fit_fold_gene_base( ...
+    data.baseGeneFeatures, data.rowGeneIndex(outerTraining), ...
+    data.labels.label(outerTraining), seed + 1000);
+baseByRow = baseByGene(data.rowGeneIndex);
+trainingResidual = data.labels.label(outerTraining) - ...
+    baseByRow(outerTraining);
+model = stage7_fit_two_step_kernel(cellKernel, geneKernel, ...
+    data.rowCellIndex(outerTraining), data.rowGeneIndex(outerTraining), ...
+    trainingResidual, 0.1);
+bundle.data = data;
+bundle.cellKernel = cellKernel;
+bundle.geneKernel = geneKernel;
+bundle.model = model;
+bundle.baseByGene = baseByGene;
+bundle.baseByRow = baseByRow;
+bundle.outerTraining = outerTraining;
+bundle.baseInfo = baseInfo;
+bundle.seed = seed;
 end
