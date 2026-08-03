@@ -1,0 +1,3 @@
+[![初稿前工作](https://img.shields.io/badge/%E5%88%9D%E7%A8%BF%E5%89%8D%E5%B7%A5%E4%BD%9C-3%2F5%20%2860%25%29-F0AD4E?style=flat-square)](https://github.com/leo-grayrat/math-modeling-xjtu-2026/milestone/2)
+[![论文全部工作](https://img.shields.io/badge/%E8%AE%BA%E6%96%87%E5%85%A8%E9%83%A8%E5%B7%A5%E4%BD%9C-0%2F1%20%28%E5%BE%85%E5%8A%9E%29-9CA3AF?style=flat-square)](https://github.com/leo-grayrat/math-modeling-xjtu-2026/milestone/1)
+[![C题建模进度](https://img.shields.io/badge/C%E9%A2%98%E5%BB%BA%E6%A8%A1%E8%BF%9B%E5%BA%A6-%E6%9F%A5%E7%9C%8B%E7%9C%8B%E6%9D%BF-2563EB?style=flat-square)](https://github.com/users/leo-grayrat/projects/1)
