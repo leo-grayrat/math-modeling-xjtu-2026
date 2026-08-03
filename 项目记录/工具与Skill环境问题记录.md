@@ -364,3 +364,11 @@ Google Scholar 和知网均已通过当前 Chrome 登录态实际检索。知网
 在同一条 PowerShell 命令中先运行 `matlab -batch`、再执行 Git 提交时，MATLAB 和后续 Git 输出的中文一度显示为乱码。重新开启 UTF-8 输出后读取 Git 对象，确认提交名称、文件内容和远端历史均为正常中文，损坏只发生在当次控制台显示层。
 
 后续不在同一条长命令中串联 MATLAB 运行和带中文的 Git 提交；两步分开执行，并在读取提交信息时显式使用 UTF-8。若再次出现乱码，先重新读取 Git 对象确认实际内容，不根据控制台外观擅自改写提交历史。
+
+## 三十九、nature-academic-search 的学术检索 MCP 未注册
+
+定向文献检索时，`nature-academic-search` 一度只能使用 OpenAlex 后备脚本，原因不是论文接口全部失效，而是它自带的 `academic-search MCP` 尚未注册到 Codex，且本机当时没有启动该服务器所需的 `uv`。用户已明确允许后续按实际需要自行配置 MCP，不必因为安装和配置本身反复确认。
+
+现已在用户级 Python 环境安装 `uv 0.12.1`，并把 Skill 自带的 `mcp-server/academic_search_server.py` 以本地 stdio 服务器注册为全局 `academic-search` MCP。PubMed 联系邮箱沿用本仓库已有的 Git 用户邮箱，没有把令牌或数据库密钥写入仓库。基础预检确认 PubMed、CrossRef 和 arXiv 三个接口均可访问；进一步通过 MCP 协议完成初始化、列出 16 个工具，并实际调用 `search_papers` 得到 CrossRef 结果。
+
+核对 Codex 配置格式时，官方 Codex 手册下载脚本收到 HTTP 403，随后改用已配置的官方 OpenAI 文档 MCP 核对 `mcp_servers`、`command` 和 `args` 字段，未反复请求同一地址。新注册的 MCP 不会热加载到已经开始的会话，因此本会话的通用资源检查仍会显示服务器未就绪；重新打开 Codex 会话后才会出现在可调用工具中。这不影响已经完成的独立协议测试，也不要求正在运行的文献检索智能体重新搜索。
