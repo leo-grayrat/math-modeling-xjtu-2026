@@ -20,20 +20,8 @@ assert(numel(cellIndex) == numel(geneIndex) && ...
     numel(cellIndex) == numel(target), ...
     "stage7:KernelRowCount", "核回归索引与目标行数不一致。");
 
-trainingCells = unique(cellIndex, "sorted");
-trainingGenes = unique(geneIndex, "sorted");
-[~, localCell] = ismember(cellIndex, trainingCells);
-[~, localGene] = ismember(geneIndex, trainingGenes);
-linearIndex = sub2ind([numel(trainingCells), numel(trainingGenes)], ...
-    localCell, localGene);
-assert(numel(unique(linearIndex)) == numel(linearIndex), ...
-    "stage7:KernelDuplicatePairs", "核回归训练组合存在重复行。");
-
-observed = false(numel(trainingCells), numel(trainingGenes));
-observed(linearIndex) = true;
-residualMatrix = nan(numel(trainingCells), numel(trainingGenes));
-residualMatrix(linearIndex) = target;
-residualMatrix = fillMissingAdditive(residualMatrix, observed);
+[residualMatrix, observed, trainingCells, trainingGenes] = ...
+    stage7_build_residual_matrix(cellIndex, geneIndex, target);
 
 cellTrainKernel = cellKernel(trainingCells, trainingCells);
 geneTrainKernel = geneKernel(trainingGenes, trainingGenes);
@@ -51,22 +39,4 @@ model.observedFraction = mean(observed, "all");
 model.trainingResidualMatrix = residualMatrix;
 model.cellTrainingKernel = cellTrainKernel;
 model.geneMap = geneMap;
-end
-
-function filled = fillMissingAdditive(values, observed)
-% 用仅来自训练行的加性均值填补训练矩形缺口。
-globalMean = mean(values(observed));
-cellMean = zeros(size(values, 1), 1);
-geneMean = zeros(1, size(values, 2));
-for cellNumber = 1:size(values, 1)
-    rowObserved = observed(cellNumber, :);
-    cellMean(cellNumber) = mean(values(cellNumber, rowObserved));
-end
-for geneNumber = 1:size(values, 2)
-    columnObserved = observed(:, geneNumber);
-    geneMean(geneNumber) = mean(values(columnObserved, geneNumber));
-end
-filled = values;
-additive = cellMean + geneMean - globalMean;
-filled(~observed) = additive(~observed);
 end
