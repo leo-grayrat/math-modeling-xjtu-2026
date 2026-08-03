@@ -390,3 +390,9 @@ Issue #53 要求迅速安装 MATLAB MCP。当前安装的是 MathWorks 官方 `m
 已从 `davila7/claude-code-templates` 的 `cli-tool/components/skills/scientific/scientific-visualization` 子目录安装全局 Skill，安装位置为 `C:\Users\34788\.codex\skills\scientific-visualization`。入口 `SKILL.md` 可正常读取，目录内包含 `nature.mplstyle`、`publication.mplstyle`、`presentation.mplstyle` 三套 Matplotlib 样式，以及配色、导出工具和现成绘图示例。
 
 本项目只把它作为可直接查阅和改造的科学绘图模板库，不把它视为新的独立生图链路，也不允许它覆盖用户已经固定的色系、字体和视觉批评约束。以后需要某种具体图型时，可以优先从其中挑选结构接近的模板，再按本题数据和用户参考图重新设计；不能原样套用模板后声称完成正式图片。新安装的 Skill 从下一轮会话开始稳定出现在可用 Skill 列表中。
+
+## 四十三、PowerShell 管道中的中文路径传入 Python 后损坏
+
+论文写作输入盘点时，第一次把含中文路径的 Python 源码通过 PowerShell 管道传入解释器，路径中的中文被替换成问号，`python-docx` 因而无法打开 C 题题面。文件本身没有损坏。
+
+随后先由 PowerShell 使用 `Resolve-Path` 得到真实绝对路径，再通过任务专用环境变量传给只含 ASCII 的 Python 读取代码，C 题 DOCX、数据说明和官方格式 PDF 均正常读取。以后 PowerShell 向 Python 传递中文文件名时优先传递已解析路径，不把中文路径直接写进管道脚本文本。
