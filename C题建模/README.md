@@ -290,3 +290,13 @@ matlab -batch "addpath('C题建模/matlab'); run_stage6_rank_optimization(42)"
 ### 结果
 
 两步核岭回归的外层总分为 `55.313728`，比阶段 4 高 `0.638192`；旧细胞—新基因和新细胞—新基因分别提高 `1.508774` 与 `0.882973`。NDCG、Precision 和 RMSE 改善，整体 Spearman 由 `0.535568` 小幅降至 `0.533244`。模型满足预设采用门槛并进入主线，但后续稳定性检查必须保留这项排序损失。详细过程见 `阶段说明/阶段7_全信息双边回归.md`，极简结论见 `阶段说明/阶段7_简要说明.md`。
+
+### 配对稳定性检验
+
+为避免把 265065 行预测误当成彼此独立的样本，本步把 1019 个细胞作为配对单位。10000 次细胞 Bootstrap 得到总分提升的 95% 区间为 `[0.505056, 0.772779]`，10000 次细胞内随机交换得到单侧置换检验 `p=0.0001`。NDCG、Precision 和 RMSE 改善稳定，Spearman 的小幅下降区间跨过 0。统计结果位于 `results/stage7_paired_test_summary.csv` 和 `results/stage7_cell_metric_changes.csv`。
+
+从仓库根目录运行：
+
+```powershell
+matlab -batch "addpath('C题建模/matlab'); run_stage7_paired_tests(42,10000,10000)"
+```
