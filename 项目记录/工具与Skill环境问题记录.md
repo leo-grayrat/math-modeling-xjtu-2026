@@ -329,12 +329,22 @@ SkillHub 默认把带命名空间的 Skill 放在 `skills/@作者/技能名` 两
 
 创建两个 Milestone 时，通过 API 提交了对应北京时间 20:00 的 UTC 时刻，但 GitHub 返回的 `due_on` 被归一化为当天 `00:00:00Z`。因此不能依靠 Milestone 字段保存精确小时。本项目保留正确的截止日期，并把 `20:00（北京时间）`明确写入 Milestone 标题、说明、跟踪 Issue 和本地总清单。
 
-## 三十四、定向文献搜索的 Bash 与接口限制
+## 三十四、定向文献搜索的 Bash 与接口情况
 
-处理 Issue #23 时，`academic-search` 自带依赖检查脚本只能由 Bash 运行；当前 PowerShell 的 `PATH` 中没有 `bash`，常见的 Git for Windows Bash 路径也不存在，因此该检查脚本没有执行。Node.js、Python 和网络 API 仍可分别使用，本轮没有为了一个检查脚本额外安装 WSL 或 Git Bash。
+处理 Issue #23 时，`academic-search` 自带依赖检查脚本只能由 Bash 运行；当时 PowerShell 的 `PATH` 中没有 `bash`，常见的 Git for Windows Bash 路径也不存在，因此该检查脚本没有执行。
+
+用户后来安装 Git Bash 并加入用户环境变量。当前可直接使用 `D:\Software\Git\bin\bash.exe`，实际运行依赖检查后，Node.js 24.14.1、`curl`、Chrome 远程调试端口 12057 和 CDP Proxy 端口 3456 均正常。Bash 缺失问题已经解决，不需要安装 WSL。
 
 随后按“双引擎论文搜索”调用 OpenAlex 与 AnySearch。OpenAlex 再次返回 HTTP 429；AnySearch 能返回结果，但对“癌症依赖性冷启动预测”的宽检索混入较多只讨论癌症基因、却不讨论依赖性预测的论文，不能直接作为候选清单。之后改用 Europe PMC 的结构化检索和全文 XML 补足生物医学论文。
 
 第一次并行发出三组 PubMed 检索和摘要请求时，无 API Key 的公共出口超过每秒 3 次限制，摘要请求返回速率错误。没有继续并行重试，而是改用 Europe PMC 的单次组合查询。以后无 PubMed API Key 时不要并行发送多组 ESearch/ESummary；合并检索式或使用 Europe PMC，避免同一公共出口互相抢额度。
 
-`global-biblio-base` 的真实检索要求先由用户提供邮箱，并会消耗 SmartLib 第三方额度。本轮已有 13 篇直接领域文献足以判断路线，因此没有为了测试 Skill 索取邮箱或启动中文检索。确需补中文文献时再单独执行。
+`global-biblio-base` 的真实检索要求先由用户提供邮箱，并会消耗 SmartLib 第三方额度。本轮没有为了测试 Skill 索取邮箱或消耗额度，改用用户已登录的知网网页补中文检索。
+
+Google Scholar 和知网均已通过当前 Chrome 登录态实际检索。知网页面源码中存在“安全验证”等备用提示文字，但当时页面本身仍是正常检索结果；此前据此判断出现验证码属于误判。用户提供的 `https://kns.cnki.net/kns8/defaultresult/index` 可以正常进入检索页，页面加载后会自动规范到 `kns8s/defaultresult`，不影响使用。以后应查看页面标题、可见正文和当前地址共同判断，不能只搜索源码中的提示词。
+
+建立 Issue #34 与 Issue #23 的 Sub-issue 关系时还确认：GitHub API 的父 Issue 编号必须用 `gh api -F` 作为整数传入；使用 `-f` 会把它当成字符串而被接口拒绝。
+
+## 三十五、本地论文批量提取的字体警告
+
+定向通读变更 5 的本地论文时，16 份 PDF 均由 `pdfplumber` 成功提取，共约 113 万字符。其中一份文件出现 `FontBBox` 无法解析为四个浮点数的警告，但页数和正文均完整输出，没有影响阅读。该警告来自 PDF 内嵌字体描述，不代表文件损坏；本轮不为非阻塞警告更换提取工具。
