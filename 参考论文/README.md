@@ -1,10 +1,12 @@
 # C 题方法参考论文
 
-本目录保存 C 题路线判断使用的 15 篇英文核心论文和 1 篇中文背景综述。这里只记录论文实际支持什么，不把论文结论扩大成当前模型已经达到的效果。
+本目录保存 C 题路线判断使用的 17 篇英文核心论文和 1 篇中文背景综述。这里只记录论文实际支持什么，不把论文结论扩大成当前模型已经达到的效果。
 
 | 本地文件 | 论文或方法 | 可追溯编号 | 在本项目中的用途 |
 |---|---|---|---|
 | `stock2018.pdf` | A Comparative Study of Pairwise Learning Methods Based on Kernel Ridge Regression | DOI: `10.1162/neco_a_01096` | 说明细胞—基因组合属于成对学习问题，给出两步核岭回归及四类新旧对象预测设置的理论背景 |
+| `pahikkala2013.pdf` | Efficient Regularized Least-Squares Algorithms for Conditional Ranking on Relational Data | DOI: `10.1007/s10994-013-5354-7`；arXiv: `1209.4825` | 说明条件排序只比较共享同一条件对象的关系，并给出乘积核、平方回归损失和平方排序损失的高效算法 |
+| `pahikkala2009.pdf` | An Efficient Algorithm for Learning to Rank from Preference Graphs | DOI: `10.1007/s10994-008-5097-z` | 给出 RankRLS 的偏好图和拉普拉斯表达，说明无需显式保存平方数量的偏好对 |
 | `natarajan2014.pdf` | Inductive Matrix Completion for Predicting Gene-Disease Associations | DOI: `10.1093/bioinformatics/btu269` | 提供生命科学中的归纳冷启动例子，说明两侧资料能帮助预测训练中未出现的对象 |
 | `1306.0626v1.pdf` | Provable Inductive Matrix Completion | arXiv: `1306.0626` | 给出以两侧特征构造双线性预测 `x^T W y` 的理论形式，并讨论新对象预测 |
 | `ammad-ud-din2016.pdf` | 核化贝叶斯矩阵分解与通路—响应关联 | DOI: `10.1093/bioinformatics/btw433` | 说明多种核可以选择性融合，并可产生通路层面的解释 |
