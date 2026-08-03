@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="321.408pt" viewBox="0 0 518.4 321.408" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-04T00:57:31.019567</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 321.408
+L 518.4 321.408
+L 518.4 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 57.20024 77.258104
+L 259.39976 77.258104
+L 259.39976 11.654303
+L 57.20024 11.654303
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="25.674187" transform="rotate(-0 54.20024 25.674187)">mtDNA复制</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="46.900703" transform="rotate(-0 54.20024 46.900703)">线粒体tRNA修饰</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="68.09522" transform="rotate(-0 54.20024 68.09522)">线粒体核糖体装配</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 57.20024 23.293687
+L 237.9876 23.293687
+" clip-path="url(#p0c3b9aeebf)" style="fill: none; stroke: #6ad1a3; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 44.456203
+L 234.205451 44.456203
+" clip-path="url(#p0c3b9aeebf)" style="fill: none; stroke: #6ad1a3; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 65.61872
+L 229.762553 65.61872
+" clip-path="url(#p0c3b9aeebf)" style="fill: none; stroke: #6ad1a3; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="mecd411d34c" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#p0c3b9aeebf)">
+     <use xlink:href="#mecd411d34c" x="237.9876" y="23.293687" style="fill: #6ad1a3; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#mecd411d34c" x="234.205451" y="44.456203" style="fill: #6ad1a3; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#mecd411d34c" x="229.762553" y="65.61872" style="fill: #6ad1a3; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="243.042588" y="24.76139" transform="rotate(-0 243.042588 24.76139)">0.89</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="239.260439" y="45.923906" transform="rotate(-0 239.260439 45.923906)">0.88</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="234.817541" y="67.086423" transform="rotate(-0 234.817541 67.086423)">0.85</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="57.20024" y="8.654303" transform="rotate(-0 57.20024 8.654303)">M1  遗传信息维护</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_3">
+    <path d="M 313.20024 77.258104
+L 515.39976 77.258104
+L 515.39976 11.654303
+L 313.20024 11.654303
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_4">
+     <g id="line2d_4"/>
+     <g id="text_8">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="25.744687" transform="rotate(-0 310.20024 25.744687)">脂肪酸氧化</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_5"/>
+     <g id="text_9">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="46.929703" transform="rotate(-0 310.20024 46.929703)">肉碱穿梭</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_6"/>
+     <g id="text_10">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="68.09222" transform="rotate(-0 310.20024 68.09222)">肉碱合成与转运</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_2">
+    <path d="M 313.20024 23.293687
+L 448.499185 23.293687
+" clip-path="url(#pf4130962cd)" style="fill: none; stroke: #7fbdda; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 44.456203
+L 448.296453 44.456203
+" clip-path="url(#pf4130962cd)" style="fill: none; stroke: #7fbdda; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 65.61872
+L 446.900367 65.61872
+" clip-path="url(#pf4130962cd)" style="fill: none; stroke: #7fbdda; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_2">
+    <defs>
+     <path id="m6284f3a834" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#pf4130962cd)">
+     <use xlink:href="#m6284f3a834" x="448.499185" y="23.293687" style="fill: #7fbdda; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m6284f3a834" x="448.296453" y="44.456203" style="fill: #7fbdda; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m6284f3a834" x="446.900367" y="65.61872" style="fill: #7fbdda; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="453.554173" y="24.76139" transform="rotate(-0 453.554173 24.76139)">0.67</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="453.351441" y="45.923906" transform="rotate(-0 453.351441 45.923906)">0.67</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="451.955355" y="67.086423" transform="rotate(-0 451.955355 67.086423)">0.66</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="313.20024" y="8.654303" transform="rotate(-0 313.20024 8.654303)">M2  脂肪酸与支链氨基酸</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_4">
+    <path d="M 57.20024 157.567323
+L 259.39976 157.567323
+L 259.39976 91.963521
+L 57.20024 91.963521
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_5"/>
+   <g id="matplotlib.axis_6">
+    <g id="ytick_7">
+     <g id="line2d_7"/>
+     <g id="text_15">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="106.025405" transform="rotate(-0 54.20024 106.025405)">外源物代谢</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_8"/>
+     <g id="text_16">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="127.242422" transform="rotate(-0 54.20024 127.242422)">酰胺肟还原复合体</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_9"/>
+     <g id="text_17">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="148.350438" transform="rotate(-0 54.20024 148.350438)">硫代谢</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_3">
+    <path d="M 57.20024 103.602905
+L 211.574811 103.602905
+" clip-path="url(#p16304d6f87)" style="fill: none; stroke: #bbc7be; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 124.765422
+L 192.512892 124.765422
+" clip-path="url(#p16304d6f87)" style="fill: none; stroke: #bbc7be; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 145.927938
+L 186.851705 145.927938
+" clip-path="url(#p16304d6f87)" style="fill: none; stroke: #bbc7be; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_3">
+    <defs>
+     <path id="m00fccc7097" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#p16304d6f87)">
+     <use xlink:href="#m00fccc7097" x="211.574811" y="103.602905" style="fill: #bbc7be; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m00fccc7097" x="192.512892" y="124.765422" style="fill: #bbc7be; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m00fccc7097" x="186.851705" y="145.927938" style="fill: #bbc7be; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="216.629799" y="105.070608" transform="rotate(-0 216.629799 105.070608)">0.76</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="197.56788" y="126.233125" transform="rotate(-0 197.56788 126.233125)">0.67</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="191.906693" y="147.395642" transform="rotate(-0 191.906693 147.395642)">0.64</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="57.20024" y="88.963521" transform="rotate(-0 57.20024 88.963521)">M3  解毒与氧化还原</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="patch_5">
+    <path d="M 313.20024 157.567323
+L 515.39976 157.567323
+L 515.39976 91.963521
+L 313.20024 91.963521
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_7"/>
+   <g id="matplotlib.axis_8">
+    <g id="ytick_10">
+     <g id="line2d_10"/>
+     <g id="text_22">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="106.069905" transform="rotate(-0 310.20024 106.069905)">氧化磷酸化亚基</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_11"/>
+     <g id="text_23">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="127.155422" transform="rotate(-0 310.20024 127.155422)">复合体I亚基</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_12"/>
+     <g id="text_24">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="148.317938" transform="rotate(-0 310.20024 148.317938)">复合体IV亚基</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_4">
+    <path d="M 313.20024 103.602905
+L 486.438102 103.602905
+" clip-path="url(#p30847de8b0)" style="fill: none; stroke: #ffd47d; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 124.765422
+L 485.600211 124.765422
+" clip-path="url(#p30847de8b0)" style="fill: none; stroke: #ffd47d; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 145.927938
+L 480.993562 145.927938
+" clip-path="url(#p30847de8b0)" style="fill: none; stroke: #ffd47d; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_4">
+    <defs>
+     <path id="meffc4bec3f" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#p30847de8b0)">
+     <use xlink:href="#meffc4bec3f" x="486.438102" y="103.602905" style="fill: #ffd47d; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#meffc4bec3f" x="485.600211" y="124.765422" style="fill: #ffd47d; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#meffc4bec3f" x="480.993562" y="145.927938" style="fill: #ffd47d; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="491.49309" y="105.070608" transform="rotate(-0 491.49309 105.070608)">0.86</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="490.655199" y="126.233125" transform="rotate(-0 490.655199 126.233125)">0.85</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="486.04855" y="147.395642" transform="rotate(-0 486.04855 147.395642)">0.83</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="313.20024" y="88.963521" transform="rotate(-0 313.20024 88.963521)">M4  氧化磷酸化</text>
+   </g>
+  </g>
+  <g id="axes_5">
+   <g id="patch_6">
+    <path d="M 57.20024 237.883479
+L 259.39976 237.883479
+L 259.39976 172.279678
+L 57.20024 172.279678
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_9"/>
+   <g id="matplotlib.axis_10">
+    <g id="ytick_13">
+     <g id="line2d_13"/>
+     <g id="text_29">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="186.341562" transform="rotate(-0 54.20024 186.341562)">维生素B12代谢</text>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_14"/>
+     <g id="text_30">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="207.497078" transform="rotate(-0 54.20024 207.497078)">呼吸体装配</text>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_15"/>
+     <g id="text_31">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="228.634095" transform="rotate(-0 54.20024 228.634095)">复合体II亚基</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_5">
+    <path d="M 57.20024 183.919062
+L 192.631063 183.919062
+" clip-path="url(#p9077301b43)" style="fill: none; stroke: #ffa288; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 205.081578
+L 176.136122 205.081578
+" clip-path="url(#p9077301b43)" style="fill: none; stroke: #ffa288; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 226.244095
+L 170.468166 226.244095
+" clip-path="url(#p9077301b43)" style="fill: none; stroke: #ffa288; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_5">
+    <defs>
+     <path id="mb88512f381" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#p9077301b43)">
+     <use xlink:href="#mb88512f381" x="192.631063" y="183.919062" style="fill: #ffa288; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#mb88512f381" x="176.136122" y="205.081578" style="fill: #ffa288; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#mb88512f381" x="170.468166" y="226.244095" style="fill: #ffa288; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="197.686051" y="185.386765" transform="rotate(-0 197.686051 185.386765)">0.67</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="181.19111" y="206.549281" transform="rotate(-0 181.19111 206.549281)">0.59</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="175.523154" y="227.711798" transform="rotate(-0 175.523154 227.711798)">0.56</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="57.20024" y="169.279678" transform="rotate(-0 57.20024 169.279678)">M5  复合体II与辅因子</text>
+   </g>
+  </g>
+  <g id="axes_6">
+   <g id="patch_7">
+    <path d="M 313.20024 237.883479
+L 515.39976 237.883479
+L 515.39976 172.279678
+L 313.20024 172.279678
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_11"/>
+   <g id="matplotlib.axis_12">
+    <g id="ytick_16">
+     <g id="line2d_16"/>
+     <g id="text_36">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="186.363562" transform="rotate(-0 310.20024 186.363562)">铁稳态</text>
+     </g>
+    </g>
+    <g id="ytick_17">
+     <g id="line2d_17"/>
+     <g id="text_37">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="207.494578" transform="rotate(-0 310.20024 207.494578)">自噬</text>
+     </g>
+    </g>
+    <g id="ytick_18">
+     <g id="line2d_18"/>
+     <g id="text_38">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="228.596095" transform="rotate(-0 310.20024 228.596095)">硒蛋白</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_6">
+    <path d="M 313.20024 183.919062
+L 409.828016 183.919062
+" clip-path="url(#pcbdba36adb)" style="fill: none; stroke: #c49892; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 205.081578
+L 405.954714 205.081578
+" clip-path="url(#pcbdba36adb)" style="fill: none; stroke: #c49892; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 226.244095
+L 401.321879 226.244095
+" clip-path="url(#pcbdba36adb)" style="fill: none; stroke: #c49892; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_6">
+    <defs>
+     <path id="maf43e36598" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#pcbdba36adb)">
+     <use xlink:href="#maf43e36598" x="409.828016" y="183.919062" style="fill: #c49892; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#maf43e36598" x="405.954714" y="205.081578" style="fill: #c49892; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#maf43e36598" x="401.321879" y="226.244095" style="fill: #c49892; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="414.883004" y="185.386765" transform="rotate(-0 414.883004 185.386765)">0.48</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="411.009702" y="206.549281" transform="rotate(-0 411.009702 206.549281)">0.46</text>
+   </g>
+   <g id="text_41">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="406.376867" y="227.711798" transform="rotate(-0 406.376867 227.711798)">0.44</text>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="313.20024" y="169.279678" transform="rotate(-0 313.20024 169.279678)">M6  质量控制与铁稳态</text>
+   </g>
+  </g>
+  <g id="axes_7">
+   <g id="patch_8">
+    <path d="M 57.20024 318.40776
+L 259.39976 318.40776
+L 259.39976 252.803959
+L 57.20024 252.803959
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_13"/>
+   <g id="matplotlib.axis_14">
+    <g id="ytick_19">
+     <g id="line2d_19"/>
+     <g id="text_43">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="266.865843" transform="rotate(-0 54.20024 266.865843)">肌酸代谢</text>
+     </g>
+    </g>
+    <g id="ytick_20">
+     <g id="line2d_20"/>
+     <g id="text_44">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="288.028359" transform="rotate(-0 54.20024 288.028359)">维生素A代谢</text>
+     </g>
+    </g>
+    <g id="ytick_21">
+     <g id="line2d_21"/>
+     <g id="text_45">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="54.20024" y="309.190876" transform="rotate(-0 54.20024 309.190876)">维生素D代谢</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_7">
+    <path d="M 57.20024 264.443343
+L 147.501038 264.443343
+" clip-path="url(#p62dcfeac5b)" style="fill: none; stroke: #929eab; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 285.605859
+L 143.014593 285.605859
+" clip-path="url(#p62dcfeac5b)" style="fill: none; stroke: #929eab; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 57.20024 306.768376
+L 132.148247 306.768376
+" clip-path="url(#p62dcfeac5b)" style="fill: none; stroke: #929eab; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_7">
+    <defs>
+     <path id="m5e6a3fe6cb" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#p62dcfeac5b)">
+     <use xlink:href="#m5e6a3fe6cb" x="147.501038" y="264.443343" style="fill: #929eab; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m5e6a3fe6cb" x="143.014593" y="285.605859" style="fill: #929eab; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m5e6a3fe6cb" x="132.148247" y="306.768376" style="fill: #929eab; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="152.556026" y="265.911046" transform="rotate(-0 152.556026 265.911046)">0.45</text>
+   </g>
+   <g id="text_47">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="148.069581" y="287.073563" transform="rotate(-0 148.069581 287.073563)">0.42</text>
+   </g>
+   <g id="text_48">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="137.203235" y="308.236079" transform="rotate(-0 137.203235 308.236079)">0.37</text>
+   </g>
+   <g id="text_49">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="57.20024" y="249.803959" transform="rotate(-0 57.20024 249.803959)">M7  维生素-血红素与缓冲</text>
+   </g>
+  </g>
+  <g id="axes_8">
+   <g id="patch_9">
+    <path d="M 313.20024 318.40776
+L 515.39976 318.40776
+L 515.39976 252.803959
+L 313.20024 252.803959
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_15"/>
+   <g id="matplotlib.axis_16">
+    <g id="ytick_22">
+     <g id="line2d_22"/>
+     <g id="text_50">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="266.814343" transform="rotate(-0 310.20024 266.814343)">TCA循环</text>
+     </g>
+    </g>
+    <g id="ytick_23">
+     <g id="line2d_23"/>
+     <g id="text_51">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="288.015359" transform="rotate(-0 310.20024 288.015359)">细胞色素</text>
+     </g>
+    </g>
+    <g id="ytick_24">
+     <g id="line2d_24"/>
+     <g id="text_52">
+      <text style="font-size: 6.4px; font-family: 'FandolSong'; text-anchor: end" x="310.20024" y="309.193376" transform="rotate(-0 310.20024 309.193376)">线粒体融合</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_8">
+    <path d="M 313.20024 264.443343
+L 384.600509 264.443343
+" clip-path="url(#pb1b532fd3d)" style="fill: none; stroke: #84addc; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 285.605859
+L 379.326767 285.605859
+" clip-path="url(#pb1b532fd3d)" style="fill: none; stroke: #84addc; stroke-opacity: 0.72; stroke-width: 2"/>
+    <path d="M 313.20024 306.768376
+L 378.035314 306.768376
+" clip-path="url(#pb1b532fd3d)" style="fill: none; stroke: #84addc; stroke-opacity: 0.72; stroke-width: 2"/>
+   </g>
+   <g id="PathCollection_8">
+    <defs>
+     <path id="m3a84f19c9c" d="M 0 2.345208
+C 0.621956 2.345208 1.218523 2.098102 1.658312 1.658312
+C 2.098102 1.218523 2.345208 0.621956 2.345208 0
+C 2.345208 -0.621956 2.098102 -1.218523 1.658312 -1.658312
+C 1.218523 -2.098102 0.621956 -2.345208 0 -2.345208
+C -0.621956 -2.345208 -1.218523 -2.098102 -1.658312 -1.658312
+C -2.098102 -1.218523 -2.345208 -0.621956 -2.345208 0
+C -2.345208 0.621956 -2.098102 1.218523 -1.658312 1.658312
+C -1.218523 2.098102 -0.621956 2.345208 0 2.345208
+z
+" style="stroke: #ffffff; stroke-width: 0.6"/>
+    </defs>
+    <g clip-path="url(#pb1b532fd3d)">
+     <use xlink:href="#m3a84f19c9c" x="384.600509" y="264.443343" style="fill: #84addc; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m3a84f19c9c" x="379.326767" y="285.605859" style="fill: #84addc; stroke: #ffffff; stroke-width: 0.6"/>
+     <use xlink:href="#m3a84f19c9c" x="378.035314" y="306.768376" style="fill: #84addc; stroke: #ffffff; stroke-width: 0.6"/>
+    </g>
+   </g>
+   <g id="text_53">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="389.655497" y="265.911046" transform="rotate(-0 389.655497 265.911046)">0.35</text>
+   </g>
+   <g id="text_54">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="384.381755" y="287.073563" transform="rotate(-0 384.381755 287.073563)">0.33</text>
+   </g>
+   <g id="text_55">
+    <text style="font-size: 6.3px; font-family: 'TeX Gyre Termes'; text-anchor: start" x="383.090302" y="308.236079" transform="rotate(-0 383.090302 308.236079)">0.32</text>
+   </g>
+   <g id="text_56">
+    <text style="font-size: 7.4px; font-family: 'FandolSong'; text-anchor: start" x="313.20024" y="249.803959" transform="rotate(-0 313.20024 249.803959)">M8  TCA-复合体II（探索）</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0c3b9aeebf">
+   <rect x="57.20024" y="11.654303" width="202.19952" height="65.603801"/>
+  </clipPath>
+  <clipPath id="pf4130962cd">
+   <rect x="313.20024" y="11.654303" width="202.19952" height="65.603801"/>
+  </clipPath>
+  <clipPath id="p16304d6f87">
+   <rect x="57.20024" y="91.963521" width="202.19952" height="65.603801"/>
+  </clipPath>
+  <clipPath id="p30847de8b0">
+   <rect x="313.20024" y="91.963521" width="202.19952" height="65.603801"/>
+  </clipPath>
+  <clipPath id="p9077301b43">
+   <rect x="57.20024" y="172.279678" width="202.19952" height="65.603801"/>
+  </clipPath>
+  <clipPath id="pcbdba36adb">
+   <rect x="313.20024" y="172.279678" width="202.19952" height="65.603801"/>
+  </clipPath>
+  <clipPath id="p62dcfeac5b">
+   <rect x="57.20024" y="252.803959" width="202.19952" height="65.603801"/>
+  </clipPath>
+  <clipPath id="pb1b532fd3d">
+   <rect x="313.20024" y="252.803959" width="202.19952" height="65.603801"/>
+  </clipPath>
+ </defs>
+</svg>

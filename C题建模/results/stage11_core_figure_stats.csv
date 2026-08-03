@@ -1,0 +1,8 @@
+﻿metric,value
+test_rows,373990.0
+new_test_cells,121.0
+new_test_genes,165.0
+new_cell_new_gene_rows,19858.0
+selected_pathways_per_module,3.0
+selected_pathways_unique,24.0
+max_abs_module_correlation,0.03989344877192567
