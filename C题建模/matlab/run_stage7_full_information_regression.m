@@ -5,7 +5,8 @@ function output = run_stage7_full_information_regression(seed, runMode)
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42
     runMode (1, 1) string {mustBeMember(runMode, ...
-        ["smoke", "full", "rank_smoke", "rank_full", "stage9_bundle"])} = "full"
+        ["summary", "smoke", "full", "rank_smoke", "rank_full", ...
+        "stage9_bundle"])} = "full"
 end
 
 rng(seed, "twister");
@@ -21,6 +22,11 @@ end
 
 data = prepareFullInformation(repoRoot, projectDir, seed);
 writeFeatureSummary(data, resultsDir);
+
+if runMode == "summary"
+    % 只重建特征摘要，不运行核矩阵求解和模型评分。
+    return
+end
 
 if startsWith(runMode, "rank_")
     runConditionalRankExperiment(data, resultsDir, seed, runMode);
@@ -276,6 +282,7 @@ geneSideFeatures = [geneNumericBlock, geneCategoryBlock, ...
 geneFeatures = [geneSideFeatures, ones(numel(geneNames), 1)];
 
 ownExpression = expression{expressionCellIndex, expressionGeneIndex + 1};
+% 阶段7验证只覆盖有训练标签的1019个细胞；阶段10全量预测另用1140个细胞。
 geneExpressionProfile = ownExpression' / sqrt(size(ownExpression, 1));
 geneKernelFeatures = [geneSideFeatures, geneExpressionProfile];
 
@@ -300,7 +307,7 @@ data.ownExpression = ownExpression;
 data.featureBlock = ["cell_expression"; "cell_pathway"; ...
     "cell_metadata"; "cell_modules"; "gene_numeric"; ...
     "gene_categories"; "gene_pathways"; "gene_evidence"; ...
-    "gene_expression_profile"; "own_expression"; ...
+    "gene_expression_profile"; "bilinear_own_expression_only"; ...
     "stage4_base_features"];
 data.featureCount = [size(expressionBlock, 2); size(pathwayBlock, 2); ...
     size(cellCategoryBlock, 2); size(moduleBlock, 2); ...
