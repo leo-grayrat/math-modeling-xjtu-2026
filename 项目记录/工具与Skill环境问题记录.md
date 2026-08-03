@@ -312,3 +312,15 @@ SkillHub 官方只提供 Bash 安装器，但本机没有 Bash。没有为此额
 SkillHub 默认把带命名空间的 Skill 放在 `skills/@作者/技能名` 两层目录中，Codex 未必能从这里发现入口。安装后已经把目标 Skill 调整到全局 Skills 根目录下的一层目录，同时保留包内版本和更新信息。`skillhub list` 能识别该 Skill，两个 `SKILL.md` 入口均可读取；`academic-search` 所需的 Node.js 和 `curl` 可用，开放 PDF 脚本通过 Node 语法检查。
 
 `global-biblio-base` 是第三方 SmartLib 服务，实际检索会把检索条件发送给它，并按服务规则消耗次数。其说明写明试用额度为每月 100 次检索和 10 次全文下载。本轮只验证本地安装和入口，没有发出真实检索，也没有触发自动注册或消耗额度。包内服务配置和凭据只保留在用户级 Skill 目录，不写入本仓库。新安装的 Skill 通常要到下一轮会话才会出现在 Codex 的可用 Skill 列表中。
+
+## 三十一、新学术 Skill 的边界评估与中文 PDF 路径
+
+新安装的 `Imbad0202/academic-research-skills` 和 `Yuan1z0825/nature-skills` 已能被 Codex 识别，核心入口说明可以正常读取。本轮只评估能力，没有为了测试工具而启动完整研究流水线，也没有消耗受限检索额度。初稿前只在定向搜索论文和判断模型调整方向时使用两套 Skill，完整审稿、投稿、润色和每日文献监控留到后面。
+
+读取本地《数学建模论文写作方法（含国赛美赛）》时，第一次把含中文的完整路径直接写进经 PowerShell 管道传给 Python 的代码，路径被转换为问号，`pypdf` 返回 `OSError: [Errno 22] Invalid argument`。改为由 PowerShell 环境变量传递真实路径后成功读取 141 页，并定位到第 100 至 103 页的文献综述说明。以后遇到 Python 需要读取中文长路径时，优先通过命令参数或环境变量传递，不把路径嵌进可能经过错误编码的管道脚本。
+
+## 三十二、GitHub Projects 权限与 CLI 接口
+
+第一次运行 `gh project list` 时，GitHub CLI 报告当前令牌缺少 `read:project` 权限。用户刷新权限后，Projects 接口正常；已经建立私有 Project `MM2026 C题建模进度`，关联本仓库，加入 Issue #22、#23、#24 和 #25，并建立“待办、进行中、待审核、已完成”四值进度字段。
+
+关闭 Issue #24 时还确认 `gh issue edit` 没有 `--state` 参数。正确做法是先用 `gh issue edit` 修改标签，再用 `gh issue close --reason completed` 关闭。该问题只影响命令写法，没有造成重复 Issue 或状态错误。
