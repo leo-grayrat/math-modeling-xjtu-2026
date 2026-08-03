@@ -47,6 +47,10 @@ model.lambda = lambda;
 model.trainingCells = trainingCells;
 model.trainingGenes = trainingGenes;
 model.observedFraction = mean(observed, "all");
+% 阶段9需要在不重新拟合模型的前提下预测反事实细胞状态。
+model.trainingResidualMatrix = residualMatrix;
+model.cellTrainingKernel = cellTrainKernel;
+model.geneMap = geneMap;
 end
 
 function filled = fillMissingAdditive(values, observed)
