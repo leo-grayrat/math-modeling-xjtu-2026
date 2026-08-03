@@ -84,6 +84,20 @@ classdef stage9ModelsTest < matlab.unittest.TestCase
             testCase.verifyEqual(counts, [1, 1]);
         end
 
+        function testMembershipFollowsTargetGeneOrder(testCase)
+            expressionMembership = logical([1, 0; 0, 1]);
+            expressionGeneNames = ["GENE2"; "GENE1"];
+            targetGeneNames = ["GENE1"; "GENE2"];
+            [known, expressionGeneIndex] = ismember( ...
+                targetGeneNames, expressionGeneNames);
+            testCase.verifyTrue(all(known));
+
+            actual = stage9_align_gene_membership( ...
+                expressionMembership, expressionGeneIndex);
+
+            testCase.verifyEqual(actual, logical([0, 1; 1, 0]));
+        end
+
         function testFrozenPredictionReproducesKernelRow(testCase)
             coordinate = (-2:2)';
             cellKernel = exp(-pdist2(coordinate, coordinate) .^ 2 / 2);

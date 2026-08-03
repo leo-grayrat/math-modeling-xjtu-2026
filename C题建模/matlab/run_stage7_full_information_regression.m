@@ -1,14 +1,15 @@
-function run_stage7_full_information_regression(seed, runMode)
+function output = run_stage7_full_information_regression(seed, runMode)
 %RUN_STAGE7_FULL_INFORMATION_REGRESSION 比较两条全信息双边回归路线。
 % smoke 只用真实数据的小矩形跑通两个模型；full 执行三组内层筛选。
 
 arguments
     seed (1, 1) double {mustBeInteger, mustBeNonnegative} = 42
     runMode (1, 1) string {mustBeMember(runMode, ...
-        ["smoke", "full", "rank_smoke", "rank_full"])} = "full"
+        ["smoke", "full", "rank_smoke", "rank_full", "stage9_bundle"])} = "full"
 end
 
 rng(seed, "twister");
+output = struct();
 matlabDir = fileparts(mfilename("fullpath"));
 projectDir = fileparts(matlabDir);
 repoRoot = fileparts(projectDir);
@@ -23,6 +24,11 @@ writeFeatureSummary(data, resultsDir);
 
 if startsWith(runMode, "rank_")
     runConditionalRankExperiment(data, resultsDir, seed, runMode);
+    return
+end
+
+if runMode == "stage9_bundle"
+    output = buildStage9Bundle(data, seed);
     return
 end
 
@@ -923,4 +929,29 @@ assert(isequal(sort(heldCells), sort(savedCells.cell_line_id)), ...
     "stage7:HeldCells", "留出细胞名单与阶段1不一致。");
 assert(isequal(sort(heldGenes), sort(savedGenes.perturbation_gene)), ...
     "stage7:HeldGenes", "留出基因名单与阶段1不一致。");
+end
+
+function bundle = buildStage9Bundle(data, seed)
+% 建立阶段9复用的冻结阶段7模型，不读取固定外层验证标签。
+cellKernel = buildRbfKernel(data.cellKernelFeatures);
+geneKernel = buildRbfKernel(data.geneKernelFeatures);
+outerTraining = ~data.isOuterValidation;
+[baseByGene, baseInfo] = stage7_fit_fold_gene_base( ...
+    data.baseGeneFeatures, data.rowGeneIndex(outerTraining), ...
+    data.labels.label(outerTraining), seed + 1000);
+baseByRow = baseByGene(data.rowGeneIndex);
+trainingResidual = data.labels.label(outerTraining) - ...
+    baseByRow(outerTraining);
+model = stage7_fit_two_step_kernel(cellKernel, geneKernel, ...
+    data.rowCellIndex(outerTraining), data.rowGeneIndex(outerTraining), ...
+    trainingResidual, 0.1);
+bundle.data = data;
+bundle.cellKernel = cellKernel;
+bundle.geneKernel = geneKernel;
+bundle.model = model;
+bundle.baseByGene = baseByGene;
+bundle.baseByRow = baseByRow;
+bundle.outerTraining = outerTraining;
+bundle.baseInfo = baseInfo;
+bundle.seed = seed;
 end
