@@ -17,30 +17,8 @@ assert(all(ismember(["gene_symbol", "pathways"], ...
 assert(all(knownGenes), "stage9:ExpressionGeneMetadata", ...
     "部分表达基因无法连接到基因元数据。");
 
-membership = false(numel(expressionGeneNames), numel(pathwayNames));
-normalizedPathwayNames = normalizePathwayName(pathwayNames);
 annotations = string(geneMetadata.pathways(metadataIndex));
-for geneNumber = 1:numel(expressionGeneNames)
-    if ismissing(annotations(geneNumber)) || ...
-            strlength(strtrim(annotations(geneNumber))) == 0
-        continue
-    end
-    branches = split(annotations(geneNumber), "|");
-    tokens = strings(0, 1);
-    for branchNumber = 1:numel(branches)
-        tokens = [tokens; split(branches(branchNumber), ">")] ; %#ok<AGROW>
-    end
-    tokens = normalizePathwayName(tokens);
-    [knownPathways, pathwayIndex] = ismember( ...
-        unique(tokens), normalizedPathwayNames);
-    membership(geneNumber, pathwayIndex(knownPathways)) = true;
-end
-
-pathwayGeneCount = sum(membership, 1);
-end
-
-function names = normalizePathwayName(names)
-names = strtrim(names);
-names = regexprep(names, "[^A-Za-z0-9]+", "_");
-names = regexprep(names, "^_+|_+$", "");
+[membership, pathwayGeneCount] = build_gene_pathway_membership( ...
+    annotations, pathwayNames);
+membership = logical(membership);
 end

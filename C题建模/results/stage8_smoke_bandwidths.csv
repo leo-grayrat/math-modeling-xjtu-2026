@@ -5,6 +5,6 @@ fold,side,block,feature_count,rbf_bandwidth,training_objects
 1,cell,cell_modules,8,1.74863142900244,816
 1,gene,gene_numeric,7,1.6791832060334,674
 1,gene,gene_categories,28,1.55994714275705,674
-1,gene,gene_pathways,140,1.45434032593281,674
+1,gene,gene_pathways,140,1.64111799346364,674
 1,gene,gene_evidence,20,1.91030876222122,674
 1,gene,gene_expression_profile,1019,2.00252418439663,674

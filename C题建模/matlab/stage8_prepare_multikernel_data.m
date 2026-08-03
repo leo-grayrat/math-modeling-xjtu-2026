@@ -69,7 +69,8 @@ cellRows = cellMetadata(cellMetadataIndex, :);
 geneRows = geneMetadata(geneMetadataIndex, :);
 geneNumeric = buildGeneNumericBlock(geneRows);
 pathwayNames = string(pathways.Properties.VariableNames(2:end));
-genePathway = buildGenePathwayMembership(geneRows.pathways, pathwayNames);
+genePathway = build_gene_pathway_membership( ...
+    string(geneRows.pathways), pathwayNames);
 ownExpression = expression{expressionCellIndex, expressionGeneIndex + 1};
 
 pairIndex = sub2ind([numel(cellNames), numel(geneNames)], ...
@@ -117,29 +118,6 @@ for rowNumber = 1:numel(values)
         counts(rowNumber) = numel(split(value, delimiter));
     end
 end
-end
-
-function membership = buildGenePathwayMembership(values, pathwayNames)
-membership = zeros(numel(values), numel(pathwayNames));
-for rowNumber = 1:numel(values)
-    if ismissing(values(rowNumber)) || strlength(strtrim(values(rowNumber))) == 0
-        continue
-    end
-    branches = split(values(rowNumber), "|");
-    tokens = strings(0, 1);
-    for branchNumber = 1:numel(branches)
-        tokens = [tokens; split(branches(branchNumber), ">")]; %#ok<AGROW>
-    end
-    tokens = normalizePathwayName(tokens);
-    [known, location] = ismember(unique(tokens), pathwayNames);
-    membership(rowNumber, location(known)) = 1;
-end
-end
-
-function names = normalizePathwayName(names)
-names = strtrim(names);
-names = regexprep(names, "[^A-Za-z0-9]+", "_");
-names = regexprep(names, "^_+|_+$", "");
 end
 
 function [isValidation, group, heldCells, heldGenes] = ...

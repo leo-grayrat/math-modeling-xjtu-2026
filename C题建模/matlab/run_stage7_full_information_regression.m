@@ -247,7 +247,8 @@ geneCategoryBlock = encodeCategories(geneRows, ...
     ["curated_gene_list", "sub_mito_location", "mito_domain_score", ...
     "yeast_mito_homolog_score", "rickettsia_homolog_score", "msms_score"]);
 pathwayNames = string(pathways.Properties.VariableNames(2:end));
-genePathwayBlock = buildGenePathwayMembership(geneRows.pathways, pathwayNames);
+genePathwayBlock = build_gene_pathway_membership( ...
+    string(geneRows.pathways), pathwayNames);
 geneEvidenceBlock = encodeDelimitedTokens(geneRows.curation_evidence, ",");
 
 geneNumericBlock = standardizeAndBalance( ...
@@ -382,29 +383,6 @@ for rowNumber = 1:numel(values)
     [known, location] = ismember(tokenRows{rowNumber}, vocabulary);
     block(rowNumber, location(known)) = 1;
 end
-end
-
-function membership = buildGenePathwayMembership(values, pathwayNames)
-membership = zeros(numel(values), numel(pathwayNames));
-for rowNumber = 1:numel(values)
-    if ismissing(values(rowNumber)) || strlength(strtrim(values(rowNumber))) == 0
-        continue
-    end
-    branches = split(values(rowNumber), "|");
-    tokens = strings(0, 1);
-    for branchNumber = 1:numel(branches)
-        tokens = [tokens; split(branches(branchNumber), ">")]; %#ok<AGROW>
-    end
-    tokens = normalizePathwayName(tokens);
-    [known, location] = ismember(unique(tokens), pathwayNames);
-    membership(rowNumber, location(known)) = 1;
-end
-end
-
-function names = normalizePathwayName(names)
-names = strtrim(names);
-names = regexprep(names, "[^A-Za-z0-9]+", "_");
-names = regexprep(names, "^_+|_+$", "");
 end
 
 function block = standardizeAndBalance(block, trainingRows)
