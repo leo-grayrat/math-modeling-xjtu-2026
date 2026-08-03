@@ -45,3 +45,7 @@ venv/
 ~$*
 .DS_Store
 Thumbs.db
+
+# 已否决的图4本地重复导出：正式审阅快照已存于 .github/issue-assets/64/
+/C题建模/figures/result_q1_module_state_distribution.*
+/C题建模/figures/_qa/result_q1_module_state_distribution_grayscale.png
