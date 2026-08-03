@@ -82,5 +82,19 @@ classdef stage7ModelsTest < matlab.unittest.TestCase
             testCase.verifyEqual(info.trainingRows, 6);
             testCase.verifyEqual(info.trainingGenes, 3);
         end
+
+        function testPathwayNamesUseSameNormalization(testCase)
+            annotations = [ ...
+                "Metabolism > Fe-S proteins|Translation > mt-tRNA"; ...
+                "Respiration > Complex I" ...
+            ];
+            pathwayNames = ["Fe-S_proteins"; "mt-tRNA"; "Complex_I"];
+
+            [membership, counts] = build_gene_pathway_membership( ...
+                annotations, pathwayNames);
+
+            testCase.verifyEqual(membership, [1, 1, 0; 0, 0, 1]);
+            testCase.verifyEqual(counts, [1, 1, 1]);
+        end
     end
 end
