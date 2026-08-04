@@ -58,8 +58,8 @@ MODEL_COLORS = {
 }
 # 两个改善量都属于正向结果，仅用同一绿色的深浅区分算法。
 IMPROVEMENT_COLORS = {
-    "hybrid_ridge": CONFIDENCE_COLORS["high"],
-    "hybrid_lasso": "#9EE1C3",
+    "hybrid_ridge": "#3FAE7C",
+    "hybrid_lasso": "#A8E5CA",
 }
 NEW_GENE_SUBSETS = ["old_cell_new_gene", "new_cell_new_gene"]
 NEW_GENE_LABELS = ["旧细胞", "新细胞"]
