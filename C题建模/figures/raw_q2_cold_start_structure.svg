@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="453.6pt" height="249.48pt" viewBox="0 0 453.6 249.48" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-04T13:39:07.334841</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 249.48
+L 453.6 249.48
+L 453.6 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 36.00024 218.651217
+L 238.292049 218.651217
+L 238.292049 16.359408
+L 36.00024 16.359408
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 42.7433 115.578724
+L 135.219556 115.578724
+L 135.219556 23.102468
+L 42.7433 23.102468
+z
+" clip-path="url(#p4339424a4b)" style="fill: #f8faf9; stroke: #dce8e4; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 139.072733 115.578724
+L 231.548989 115.578724
+L 231.548989 23.102468
+L 139.072733 23.102468
+z
+" clip-path="url(#p4339424a4b)" style="fill: #f8faf9; stroke: #dce8e4; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 42.7433 211.908157
+L 135.219556 211.908157
+L 135.219556 119.431901
+L 42.7433 119.431901
+z
+" clip-path="url(#p4339424a4b)" style="fill: #f8faf9; stroke: #dce8e4; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 139.072733 211.908157
+L 231.548989 211.908157
+L 231.548989 119.431901
+L 139.072733 119.431901
+z
+" clip-path="url(#p4339424a4b)" style="fill: #f8faf9; stroke: #dce8e4; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="88.981428" y="228.73278" transform="rotate(-0 88.981428 228.73278)">基因已见</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="185.310861" y="228.796217" transform="rotate(-0 185.310861 228.796217)">基因未见</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: end" x="31.00024" y="71.975987" transform="rotate(-0 31.00024 71.975987)">细胞已见</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: end" x="31.00024" y="168.30542" transform="rotate(-0 31.00024 168.30542)">细胞未见</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_7">
+    <path d="M 88.981428 101.782079
+C 97.58501 101.782079 105.83737 98.36384 111.921021 92.280189
+C 118.004672 86.196538 121.422912 77.944178 121.422912 69.340596
+C 121.422912 60.737014 118.004672 52.484654 111.921021 46.401003
+C 105.83737 40.317352 97.58501 36.899113 88.981428 36.899113
+C 80.377846 36.899113 72.125486 40.317352 66.041835 46.401003
+C 59.958184 52.484654 56.539945 60.737014 56.539945 69.340596
+C 56.539945 77.944178 59.958184 86.196538 66.041835 92.280189
+C 72.125486 98.36384 80.377846 101.782079 88.981428 101.782079
+z
+" clip-path="url(#p4339424a4b)" style="fill: #9bcbe0; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 185.310861 110.762252
+C 196.296013 110.762252 206.83272 106.397805 214.600395 98.63013
+C 222.36807 90.862455 226.732517 80.325748 226.732517 69.340596
+C 226.732517 58.355444 222.36807 47.818737 214.600395 40.051062
+C 206.83272 32.283387 196.296013 27.91894 185.310861 27.91894
+C 174.325709 27.91894 163.789002 32.283387 156.021327 40.051062
+C 148.253652 47.818737 143.889205 58.355444 143.889205 69.340596
+C 143.889205 80.325748 148.253652 90.862455 156.021327 98.63013
+C 163.789002 106.397805 174.325709 110.762252 185.310861 110.762252
+z
+" clip-path="url(#p4339424a4b)" style="fill: #84addc; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 88.981428 202.239616
+C 98.679796 202.239616 107.98225 198.386414 114.840031 191.528632
+C 121.697813 184.67085 125.551015 175.368397 125.551015 165.670029
+C 125.551015 155.971661 121.697813 146.669208 114.840031 139.811426
+C 107.98225 132.953644 98.679796 129.100442 88.981428 129.100442
+C 79.28306 129.100442 69.980607 132.953644 63.122825 139.811426
+C 56.265043 146.669208 52.411841 155.971661 52.411841 165.670029
+C 52.411841 175.368397 56.265043 184.67085 63.122825 191.528632
+C 69.980607 198.386414 79.28306 202.239616 88.981428 202.239616
+z
+" clip-path="url(#p4339424a4b)" style="fill: #80b9db; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 185.310861 189.413785
+C 191.607779 189.413785 197.647639 186.911993 202.100232 182.4594
+C 206.552825 178.006807 209.054617 171.966947 209.054617 165.670029
+C 209.054617 159.373111 206.552825 153.333251 202.100232 148.880658
+C 197.647639 144.428065 191.607779 141.926273 185.310861 141.926273
+C 179.013943 141.926273 172.974083 144.428065 168.52149 148.880658
+C 164.068897 153.333251 161.567105 159.373111 161.567105 165.670029
+C 161.567105 171.966947 164.068897 178.006807 168.52149 182.4594
+C 172.974083 186.911993 179.013943 189.413785 185.310861 189.413785
+z
+" clip-path="url(#p4339424a4b)" style="fill: #eaf3f1; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="88.981428" y="68.500713" transform="rotate(-0 88.981428 68.500713)">74,415</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="88.981428" y="88.429894" transform="rotate(-0 88.981428 88.429894)">19.9%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="185.310861" y="68.500713" transform="rotate(-0 185.310861 68.500713)">167,237</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="185.310861" y="88.429894" transform="rotate(-0 185.310861 88.429894)">44.7%</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="88.981428" y="164.830146" transform="rotate(-0 88.981428 164.830146)">112,480</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="88.981428" y="184.759327" transform="rotate(-0 88.981428 184.759327)">30.1%</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="185.310861" y="164.830146" transform="rotate(-0 185.310861 164.830146)">19,858</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="185.310861" y="184.759327" transform="rotate(-0 185.310861 184.759327)">5.3%</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: end" x="28.00024" y="13.806908" transform="rotate(-0 28.00024 13.806908)">a</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: start" x="36.00024" y="12.359408" transform="rotate(-0 36.00024 12.359408)">对象组合</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_11">
+    <path d="M 263.292529 222.075385
+L 450.59976 222.075385
+L 450.59976 12.93524
+L 263.292529 12.93524
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 263.292529 88.624054
+L 405.179288 88.624054
+L 405.179288 46.796025
+L 263.292529 46.796025
+z
+" clip-path="url(#pde9f74b1bc)" style="fill: #929eab; opacity: 0.82"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 405.179288 88.624054
+L 422.027471 88.624054
+L 422.027471 46.796025
+L 405.179288 46.796025
+z
+" clip-path="url(#pde9f74b1bc)" style="fill: #ffd47d; opacity: 0.95"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 263.292529 188.2146
+L 393.204547 188.2146
+L 393.204547 146.386571
+L 263.292529 146.386571
+z
+" clip-path="url(#pde9f74b1bc)" style="fill: #929eab; opacity: 0.82"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 393.204547 188.2146
+L 416.179341 188.2146
+L 416.179341 146.386571
+L 393.204547 146.386571
+z
+" clip-path="url(#pde9f74b1bc)" style="fill: #ffd47d; opacity: 0.95"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <defs>
+       <path id="m1d0f73aa66" d="M 0 0
+L 0 3
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#m1d0f73aa66" x="263.292529" y="222.075385" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="263.292529" y="233.433823" transform="rotate(-0 263.292529 233.433823)">0</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m1d0f73aa66" x="291.140765" y="222.075385" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="291.140765" y="233.433823" transform="rotate(-0 291.140765 233.433823)">200</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m1d0f73aa66" x="318.989" y="222.075385" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="318.989" y="233.433823" transform="rotate(-0 318.989 233.433823)">400</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m1d0f73aa66" x="346.837235" y="222.075385" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="346.837235" y="233.433823" transform="rotate(-0 346.837235 233.433823)">600</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m1d0f73aa66" x="374.685471" y="222.075385" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="374.685471" y="233.433823" transform="rotate(-0 374.685471 233.433823)">800</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m1d0f73aa66" x="402.533706" y="222.075385" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="402.533706" y="233.433823" transform="rotate(-0 402.533706 233.433823)">1000</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m1d0f73aa66" x="430.381941" y="222.075385" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="430.381941" y="233.433823" transform="rotate(-0 430.381941 233.433823)">1200</text>
+     </g>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle" x="356.946145" y="244.92726" transform="rotate(-0 356.946145 244.92726)">唯一对象数量</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_3">
+     <g id="line2d_12"/>
+     <g id="text_23">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: end" x="258.292529" y="70.345431" transform="rotate(-0 258.292529 70.345431)">细胞</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_13"/>
+     <g id="text_24">
+      <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: end" x="258.292529" y="169.806366" transform="rotate(-0 258.292529 169.806366)">基因</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_16">
+    <path d="M 263.292529 222.075385
+L 450.59976 222.075385
+" style="fill: none; stroke: #c9d6d2; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="334.235909" y="69.71004" transform="rotate(-0 334.235909 69.71004)">1,019</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #30353b" x="425.995844" y="69.71004" transform="rotate(-0 425.995844 69.71004)">+121</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="328.248538" y="169.300585" transform="rotate(-0 328.248538 169.300585)">933</text>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #30353b" x="420.147715" y="169.300585" transform="rotate(-0 420.147715 169.300585)">+165</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: end" x="255.292529" y="10.38274" transform="rotate(-0 255.292529 10.38274)">b</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 8px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: start" x="263.292529" y="8.93524" transform="rotate(-0 263.292529 8.93524)">对象覆盖</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_17">
+     <path d="M 300.246145 28.058824
+L 308.646145 28.058824
+L 308.646145 23.158824
+L 300.246145 23.158824
+z
+" style="fill: #929eab; opacity: 0.82"/>
+    </g>
+    <g id="text_31">
+     <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: start" x="314.246145" y="28.058824" transform="rotate(-0 314.246145 28.058824)">训练中已见</text>
+    </g>
+    <g id="patch_18">
+     <path d="M 357.646145 28.058824
+L 366.046145 28.058824
+L 366.046145 23.158824
+L 357.646145 23.158824
+z
+" style="fill: #ffd47d; opacity: 0.95"/>
+    </g>
+    <g id="text_32">
+     <text style="font-size: 7px; font-family: 'FandolSong', 'Times New Roman', 'DejaVu Sans', sans-serif; text-anchor: start" x="371.646145" y="28.058824" transform="rotate(-0 371.646145 28.058824)">正式测试新增</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p4339424a4b">
+   <rect x="36.00024" y="16.359408" width="202.291809" height="202.291809"/>
+  </clipPath>
+  <clipPath id="pde9f74b1bc">
+   <rect x="263.292529" y="12.93524" width="187.307231" height="209.140145"/>
+  </clipPath>
+ </defs>
+</svg>
