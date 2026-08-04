@@ -139,17 +139,6 @@ def draw() -> dict[str, str]:
     }
     confidence_values = quality["interpretation_confidence"].tolist()
     confidence_colors_for_rows = [confidence_colors[value] for value in confidence_values]
-    # 用短线把“集中度”连接到圆点，避免右面板只剩一列孤立圆点。
-    for row_y, row_purity, row_color in zip(y, purity, confidence_colors_for_rows):
-        ax_quality.plot(
-            [0.28, row_purity],
-            [row_y, row_y],
-            color=row_color,
-            alpha=0.45,
-            linewidth=1.8,
-            solid_capstyle="round",
-            zorder=1,
-        )
     ax_quality.scatter(
         purity,
         y,
@@ -173,12 +162,22 @@ def draw() -> dict[str, str]:
             color=text_color,
             zorder=3,
         )
+    short_module_names = [
+        "线粒体表达",
+        "脂肪酸/BCAA",
+        "解毒与氧化还原",
+        "氧化磷酸化",
+        "复合体 II",
+        "质量控制",
+        "维生素/血红素",
+        "TCA-动力学",
+    ]
     ax_quality.set(
         title="模块载荷广度",
         xlabel="前八条通路类别集中度",
         yticks=y,
-        yticklabels=[f"M{number}" for number in range(1, 9)],
-        xlim=(0.25, 1.18),
+        yticklabels=[f"M{number}  {name}" for number, name in zip(range(1, 9), short_module_names)],
+        xlim=(0.25, 1.10),
         ylim=(-1, len(quality)),
     )
     ax_quality.tick_params(axis="y", length=0, pad=4)
@@ -206,9 +205,9 @@ def draw() -> dict[str, str]:
         borderpad=0.1,
     )
     ax_quality.text(
-        0.25,
-        8.32,
-        "圆面积与圆内数字：|载荷| ≥ 0.35 的通路数",
+        0.30,
+        7.48,
+        "圆内数字：强载荷数",
         ha="left",
         va="bottom",
         fontsize=6.3,
