@@ -229,6 +229,13 @@
       "sha256": "eec7a02b715012fe333747ff651fb20371b60920563702f3fca012b2b6edb7b9",
       "hash_mode": "content",
       "bound_at": "2026-08-04T11:42:20.634699+00:00"
+    },
+    {
+      "source": "figures/raw_q2_cold_start_structure.pdf",
+      "destination": "figures/raw_q2_cold_start_structure.pdf",
+      "sha256": "5e2672ee45fe89bc840c7a40e3d2f1df3bae29951e4dde5a558d922349770ab4",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T12:16:43.728384+00:00"
     }
   ],
   "created_at": "2026-08-04T10:47:47.923056+00:00"

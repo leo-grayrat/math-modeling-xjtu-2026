@@ -51,9 +51,14 @@ S=100\left(0.30S_{\mathrm{Spearman}}+0.30S_{\mathrm{nDCG}}
 
 其中 \(\boldsymbol x_c\) 和 \(\boldsymbol q_g\) 分别表示细胞与基因资料。只有把两侧可迁移特征写入模型，才可能处理训练中没有历史标签的新对象。
 
-四类新旧对象的组合结构将在图\ref{fig:cold-start-structure}中汇总。
+四类新旧对象的组合结构见图\ref{fig:cold-start-structure}。
 
-\placeholderfigure{数据结构与四类冷启动图待重画}{数据结构与四类冷启动组合}{fig:cold-start-structure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/raw_q2_cold_start_structure.pdf}
+  \caption{数据结构与四类冷启动组合}
+  \label{fig:cold-start-structure}
+\end{figure}
 
 \hypertarget{22-ux4eceux901aux8defux8bfbux6570ux5230ux7ec6ux80deux529fux80fdux72b6ux6001}{%
 \subsection{2.2 从通路读数到细胞功能状态}\label{22-ux4eceux901aux8defux8bfbux6570ux5230ux7ec6ux80deux529fux80fdux72b6ux6001}}
@@ -779,7 +784,7 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 \hypertarget{ux9644ux5f55-a-ux652fux6491ux6570ux636eux8bf4ux660e}{%
 \subsection{附录 A 支撑数据说明}\label{ux9644ux5f55-a-ux652fux6491ux6570ux636eux8bf4ux660e}}
 
-随论文提交的支撑数据包含四类结果：1140 个细胞的八维模块得分及 113 条末级通路载荷；四类新旧对象组合的验证指标与配对统计结果；三个局部表达扰动案例的通路、模块和预测轨迹；373990 个待测组合的最终预测值。原始竞赛数据不重复附入论文。主要文件见表\ref{tab:appendix-data}。
+随论文提交的支撑数据包含四类结果：1140 个细胞的八维模块得分及 113 条末级通路载荷；四类新旧对象组合的验证指标与配对统计结果；三个局部表达扰动案例的通路、模块和预测轨迹；373990 个待测组合的最终预测值。主要文件见表\ref{tab:appendix-data}。
 
 \begin{longtable}[]{@{}p{6.2cm}p{8.6cm}@{}}
 \caption{主要支撑数据文件}\label{tab:appendix-data}\\
@@ -799,7 +804,7 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 \hypertarget{ux9644ux5f55-b-ux6838ux5fc3ux7a0bux5e8fux8bf4ux660e}{%
 \subsection{附录 B 核心程序说明}\label{ux9644ux5f55-b-ux6838ux5fc3ux7a0bux5e8fux8bf4ux660e}}
 
-复现核心结论所需的 MATLAB 程序保存在随文的 \path{code/matlab/} 文件夹。核心入口及作用见表\ref{tab:appendix-code}；数据盘点和绘图脚本不属于模型复现的必要部分，不收入随文代码包。
+复现核心结论所需的 MATLAB 程序保存在随文的 \path{code/matlab/} 文件夹，核心入口及作用见表\ref{tab:appendix-code}。
 
 \begin{longtable}[]{@{}p{7.0cm}p{7.8cm}@{}}
 \caption{核心程序清单}\\
@@ -841,4 +846,4 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 \hypertarget{ux9644ux5f55-c-ux8fd0ux884cux987aux5e8fux4e0eux73afux5883}{%
 \subsection{附录 C 运行顺序与环境}\label{ux9644ux5f55-c-ux8fd0ux884cux987aux5e8fux4e0eux73afux5883}}
 
-复现时先将题目数据置于仓库根目录的 \path{data/}，再依次运行阶段 3、4、7、9 和 10 的 MATLAB 入口。阶段 7 的配对检验在模型结果生成后单独运行。MATLAB 程序使用 Statistics and Machine Learning Toolbox；所有随机划分固定使用种子 42，程序不会把原始大文件复制到论文目录。
+复现时先将题目数据置于仓库根目录的 \path{data/}，再依次运行阶段 3、4、7、9 和 10 的 MATLAB 入口。阶段 7 的配对检验在模型结果生成后单独运行。MATLAB 程序使用 Statistics and Machine Learning Toolbox，所有随机划分固定使用种子 42。
