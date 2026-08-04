@@ -31,6 +31,8 @@ from utils.plot_style import PALETTE, apply_publication_style, audit_design, aud
 MODEL_ORDER = ["stage4_hybrid_base", "two_step_kernel_ridge"]
 MODEL_LABELS = ["混合岭基础分", "两步核岭"]
 MODEL_COLORS = [PALETTE["known"], PALETTE["primary"]]
+IMPROVEMENT_LABEL = "综合评分提升"
+IMPROVEMENT_COLOR = PALETTE["secondary"]
 PANEL_CONFIG = [
     ("旧基因", ["old_cell_old_gene", "new_cell_old_gene"]),
     ("新基因", ["old_cell_new_gene", "new_cell_new_gene"]),
@@ -223,7 +225,7 @@ def draw_figure() -> tuple[plt.Figure, pd.DataFrame]:
             group_centers,
             improvements,
             width=0.38,
-            color=PALETTE["primary"],
+            color=IMPROVEMENT_COLOR,
             edgecolor="none",
             linewidth=0,
             zorder=2,
@@ -265,15 +267,18 @@ def draw_figure() -> tuple[plt.Figure, pd.DataFrame]:
         Patch(facecolor=color, edgecolor="none", label=label)
         for label, color in zip(MODEL_LABELS, MODEL_COLORS)
     ]
+    handles.append(
+        Patch(facecolor=IMPROVEMENT_COLOR, edgecolor="none", label=IMPROVEMENT_LABEL)
+    )
     legend = fig.legend(
         handles=handles,
         loc="upper center",
         bbox_to_anchor=(0.54, 0.955),
-        ncol=2,
+        ncol=3,
         frameon=False,
         handlelength=1.35,
         handleheight=0.78,
-        columnspacing=1.9,
+        columnspacing=1.5,
         handletextpad=0.55,
         borderaxespad=0,
     )
