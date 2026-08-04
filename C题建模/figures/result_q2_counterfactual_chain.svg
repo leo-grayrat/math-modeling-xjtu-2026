@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="313.2pt" viewBox="0 0 518.4 313.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-04T19:02:21.280084</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 313.2
+L 518.4 313.2
+L 518.4 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 121.824 140.609256
+L 307.051579 140.609256
+L 307.051579 31.32
+L 121.824 31.32
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g clip-path="url(#pc78d7011d9)">
+    <image xlink:href="data:image/png;base64,
+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" id="imaged18298ad1b" transform="scale(1 -1) translate(0 -109.44)" x="121.824" y="-31.169256" width="185.28" height="109.44"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 7.3px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="152.695263" y="25.735672" transform="rotate(-0 152.695263 25.735672)">HSPE1</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 7.3px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="214.43779" y="25.735672" transform="rotate(-0 214.43779 25.735672)">PRELID1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 7.3px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="276.180316" y="25.735672" transform="rotate(-0 276.180316 25.735672)">ISCU</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <path d="M 121.824 140.609256
+L 121.824 31.32
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <path d="M 183.566526 140.609256
+L 183.566526 31.32
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <path d="M 245.309053 140.609256
+L 245.309053 31.32
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <path d="M 307.051579 140.609256
+L 307.051579 31.32
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="39.390658" transform="rotate(-0 116.824 39.390658)">伴侣蛋白</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_9"/>
+     <g id="text_5">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="50.178779" transform="rotate(-0 116.824 50.178779)">蛋白质稳态</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_10"/>
+     <g id="text_6">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="61.178369" transform="rotate(-0 116.824 61.178369)">蛋白质导入、分选与稳态</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_11"/>
+     <g id="text_7">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="72.15388" transform="rotate(-0 116.824 72.15388)">心磷脂合成</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_12"/>
+     <g id="text_8">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="83.082806" transform="rotate(-0 116.824 83.082806)">磷脂代谢</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_13"/>
+     <g id="text_9">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="93.965146" transform="rotate(-0 116.824 93.965146)">脂质代谢</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_14"/>
+     <g id="text_10">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="104.894071" transform="rotate(-0 116.824 104.894071)">代谢</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_15"/>
+     <g id="text_11">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="115.866442" transform="rotate(-0 116.824 115.866442)">铁硫簇生物合成</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_16"/>
+     <g id="text_12">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="126.774954" transform="rotate(-0 116.824 126.774954)">含铁硫蛋白</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_17"/>
+     <g id="text_13">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="137.744184" transform="rotate(-0 116.824 137.744184)">金属与辅因子</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_18">
+      <path d="M 121.824 31.32
+L 307.051579 31.32
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_19">
+      <path d="M 121.824 42.248926
+L 307.051579 42.248926
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_20">
+      <path d="M 121.824 53.177851
+L 307.051579 53.177851
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_21">
+      <path d="M 121.824 64.106777
+L 307.051579 64.106777
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_22">
+      <path d="M 121.824 75.035702
+L 307.051579 75.035702
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_16">
+     <g id="line2d_23">
+      <path d="M 121.824 85.964628
+L 307.051579 85.964628
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_17">
+     <g id="line2d_24">
+      <path d="M 121.824 96.893554
+L 307.051579 96.893554
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_18">
+     <g id="line2d_25">
+      <path d="M 121.824 107.822479
+L 307.051579 107.822479
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_19">
+     <g id="line2d_26">
+      <path d="M 121.824 118.751405
+L 307.051579 118.751405
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_20">
+     <g id="line2d_27">
+      <path d="M 121.824 129.680331
+L 307.051579 129.680331
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_21">
+     <g id="line2d_28">
+      <path d="M 121.824 140.609256
+L 307.051579 140.609256
+" clip-path="url(#pc78d7011d9)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #30353b" x="114.414897" y="21.927252" transform="rotate(-0 114.414897 21.927252)">a</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="121.824" y="14.75" transform="rotate(-0 121.824 14.75)">完全扰动下的通路变化</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_3">
+    <path d="M 312.802896 140.609256
+L 319.285861 140.609256
+L 319.285861 31.32
+L 312.802896 31.32
+z
+" style="fill: #ffffff"/>
+   </g>
+   <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAABsAAAHHCAYAAABOXyO1AAACzElEQVR4nO2bgW3tMBDDdIJG7zp/o7+LO0QOBCocFyAuZhI/N52ff/+fICyQzHAys5OJlA2nc+1lNOhSc/qj2hqHk6n3Mg4nM6dS9+NqQJk4DLrUnP5wMtc+9V27ZmkOhMOgS9VrNqBsMJcukBVcK8udFmyQ2vRTPJlq059SmTmVurdyg8mMmVS+ZuqUmVOpO5ApnUxX4wJpvqkHkxkzqXvNhpSJw6BLxU/96U1fHG6+qQeTGTOpO/3hZO7dyqn4Mg4mM2ZSd/rDycypdF9u7pALZAMLJLeV2yDF6Q8nM6dS9009pEwY5lQqlqV2zXJbuQ1ygWxggaR5zQaUDebSBbJCmm/qIWXCMKdSdyBq/R5Et7v6TnoDGVBm0KXmNZv7p9LvpDgQcRh06U4LVkhzIMIwp9L94WeHNH8PwmHQpXvqr2CB5L7X3yB3U29ggeS2chuk+Kae2vTFYdClu6lXiHrTH05mTqXbyu2Q+wG/gQWS4slEyoaTmVPptnI7WCC5rdwGKU5/OJk5lYpl0XudMsMfDD1MZsyk7jV7l/53cun/xcmE4doa0xzIw2TGTOqeTJf+dzK1k+ne1AtYrW/qXCAbWCC5yTawQHJv6g1SPJlqJ3uo7GEyYyZ1T6bayd5N9p1cIBtYICmeTOhWThjmVKoO5NVOptrJ3v0++04ukA2s4vRV+xXgw2TGTLr0l7BAcueNG6R4MtVO9i7976T3Ta1LfwELJHfeuEEukA0skFz6G6T4ffZq10y1k73bpH4nF8gGFkgu/Q3SnL4wzKl0Ne6Q3ss4tZOpdzJd+t9J7WSulaV2zXKHLhvkAtnAAsmlv0GaAxGGOZWuxh3SnP7DZMZMuvSXyAWygQWS4jV7nMycSnfoskNusg0skFz6G6R3sil+UwvDnEq3Sd0ht0ndwALJnTdukAtkAwskzTWKlD1MZsyk7slUO9nj2v8FJ3jUrMpL2+YAAAAASUVORK5CYII=" id="image481a0f8288" transform="scale(1 -1) translate(0 -109.2)" x="312.72" y="-31.44" width="6.48" height="109.2"/>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_22">
+     <g id="line2d_29">
+      <defs>
+       <path id="m271bef1518" d="M 0 0
+L 2.5 0
+" style="stroke: #000000; stroke-width: 0.5"/>
+      </defs>
+      <g>
+       <use xlink:href="#m271bef1518" x="319.285861" y="140.609256" style="stroke: #000000; stroke-width: 0.5"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <text style="font-size: 6.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="323.785861" y="142.726459" transform="rotate(-0 323.785861 142.726459)">−0.9</text>
+     </g>
+    </g>
+    <g id="ytick_23">
+     <g id="line2d_30">
+      <g>
+       <use xlink:href="#m271bef1518" x="319.285861" y="85.964628" style="stroke: #000000; stroke-width: 0.5"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 6.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="323.785861" y="88.081831" transform="rotate(-0 323.785861 88.081831)">0</text>
+     </g>
+    </g>
+    <g id="ytick_24">
+     <g id="line2d_31">
+      <g>
+       <use xlink:href="#m271bef1518" x="319.285861" y="31.32" style="stroke: #000000; stroke-width: 0.5"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 6.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="323.785861" y="33.437203" transform="rotate(-0 323.785861 33.437203)">0.9</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_1"/>
+  </g>
+  <g id="axes_3">
+   <g id="patch_4">
+    <path d="M 121.824 269.352
+L 307.051579 269.352
+L 307.051579 181.920595
+L 121.824 181.920595
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g clip-path="url(#p1370785e84)">
+    <image xlink:href="data:image/png;base64,
+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" id="image26e2b380e5" transform="scale(1 -1) translate(0 -87.6)" x="121.824" y="-181.752" width="185.28" height="87.6"/>
+   </g>
+   <g id="matplotlib.axis_5">
+    <g id="xtick_8">
+     <g id="line2d_32"/>
+     <g id="text_19">
+      <text style="font-size: 7.3px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="152.695263" y="278.337672" transform="rotate(-0 152.695263 278.337672)">HSPE1</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_33"/>
+     <g id="text_20">
+      <text style="font-size: 7.3px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="214.43779" y="278.337672" transform="rotate(-0 214.43779 278.337672)">PRELID1</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_34"/>
+     <g id="text_21">
+      <text style="font-size: 7.3px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="276.180316" y="278.337672" transform="rotate(-0 276.180316 278.337672)">ISCU</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_35">
+      <path d="M 121.824 269.352
+L 121.824 181.920595
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_36">
+      <path d="M 183.566526 269.352
+L 183.566526 181.920595
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_37">
+      <path d="M 245.309053 269.352
+L 245.309053 181.920595
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="xtick_14">
+     <g id="line2d_38">
+      <path d="M 307.051579 269.352
+L 307.051579 181.920595
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_6">
+    <g id="ytick_25">
+     <g id="line2d_39"/>
+     <g id="text_22">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="189.930534" transform="rotate(-0 116.824 189.930534)">M1 综合状态</text>
+     </g>
+    </g>
+    <g id="ytick_26">
+     <g id="line2d_40"/>
+     <g id="text_23">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="200.846374" transform="rotate(-0 116.824 200.846374)">M2 脂肪酸利用</text>
+     </g>
+    </g>
+    <g id="ytick_27">
+     <g id="line2d_41"/>
+     <g id="text_24">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="211.8088" transform="rotate(-0 116.824 211.8088)">M3 解毒与氧化还原</text>
+     </g>
+    </g>
+    <g id="ytick_28">
+     <g id="line2d_42"/>
+     <g id="text_25">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="222.754475" transform="rotate(-0 116.824 222.754475)">M4 氧化磷酸化</text>
+     </g>
+    </g>
+    <g id="ytick_29">
+     <g id="line2d_43"/>
+     <g id="text_26">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="233.666651" transform="rotate(-0 116.824 233.666651)">M5 复合体II与辅因子</text>
+     </g>
+    </g>
+    <g id="ytick_30">
+     <g id="line2d_44"/>
+     <g id="text_27">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="244.615467" transform="rotate(-0 116.824 244.615467)">M6 质量控制与铁稳态</text>
+     </g>
+    </g>
+    <g id="ytick_31">
+     <g id="line2d_45"/>
+     <g id="text_28">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="255.500948" transform="rotate(-0 116.824 255.500948)">M7 维生素与能量缓冲</text>
+     </g>
+    </g>
+    <g id="ytick_32">
+     <g id="line2d_46"/>
+     <g id="text_29">
+      <text style="font-size: 6.7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="116.824" y="266.429873" transform="rotate(-0 116.824 266.429873)">M8 TCA与动力学</text>
+     </g>
+    </g>
+    <g id="ytick_33">
+     <g id="line2d_47">
+      <path d="M 121.824 181.920595
+L 307.051579 181.920595
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_34">
+     <g id="line2d_48">
+      <path d="M 121.824 192.849521
+L 307.051579 192.849521
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_35">
+     <g id="line2d_49">
+      <path d="M 121.824 203.778446
+L 307.051579 203.778446
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_36">
+     <g id="line2d_50">
+      <path d="M 121.824 214.707372
+L 307.051579 214.707372
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_37">
+     <g id="line2d_51">
+      <path d="M 121.824 225.636298
+L 307.051579 225.636298
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_38">
+     <g id="line2d_52">
+      <path d="M 121.824 236.565223
+L 307.051579 236.565223
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_39">
+     <g id="line2d_53">
+      <path d="M 121.824 247.494149
+L 307.051579 247.494149
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_40">
+     <g id="line2d_54">
+      <path d="M 121.824 258.423074
+L 307.051579 258.423074
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+    <g id="ytick_41">
+     <g id="line2d_55">
+      <path d="M 121.824 269.352
+L 307.051579 269.352
+" clip-path="url(#p1370785e84)" style="fill: none; stroke: #ffffff; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+    </g>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 8.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #30353b" x="114.414897" y="174.057897" transform="rotate(-0 114.414897 174.057897)">b</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 7.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="121.824" y="175.920595" transform="rotate(-0 121.824 175.920595)">完全扰动下的模块变化</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="patch_5">
+    <path d="M 312.802896 269.352
+L 319.285861 269.352
+L 319.285861 181.920595
+L 312.802896 181.920595
+z
+" style="fill: #ffffff"/>
+   </g>
+   <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAABsAAAFsCAYAAAA9hMKYAAACUUlEQVR4nO2cga0cUQgDDXLpaScdpZeXIhaNdJangdGBj4Pdrz9//v57gvAMpZKWU0kGP5g8YB1NfrIFXULT6OToDydTbhmHlImUDadbzCS+jMLY5OgPKBvMpeiecSzoUm70FzOpq9yP9mxAmTgWdKnRP8Gxa4GTe8bhXjEXODiNQ8pEyiY1+krt2YIu5V4x7ri6wMnRH1ImjOVUCt5B3IcuF7jRv8DB788UOojd6F/g3Ctmusod4Ni1wMETZEiZOBZ0qVfMCSsQN/oXuNG/wD3gL1iBuFfMBe4Vc4Fjf8+cG331ijnAsdHf5N+zAWXiWNClRv8Ex14xTu6ZQJm6N37Hye/POBw7rpZTqVfMDY6N/mImJa8FDo7+9Ir5jmOjv6BLVupa4NyeTa+YAxz7LsaN/gUO3htFyoaTLadS8BXj2J4tKbMe9p/elPvJLLWM33GsbDGT4DQ6uIyPlCm3jK+yz6xA3AlygSd1B3Fuz9Spf4A7iC9w7BXj9uwCJ08QkbKHyRYzKTmNbs8ucPIEeZmyxUziv9QiZQ+TLWZSJ8gRjp0gbs8ucPIEESebpvEAd4Jc4NieLWZSj8EfTaNAmdqz7zg4+moZv+PYNDp5goiUPUy2mEnJE8Tt2QUOLuNrGb/jPv2+YAXiTpAf/PO1l1pGpabRsT1bUubYMjr2GHR7doGDy6iW8TuOfSDt5J69TNliJjWNR7g7yAUrEMdO/cVM6iA+wp0gF6xiezbBE0Sk7GXKFjOpE+QIx079xUxK/lI7uWciZQ+TLWZS03gEWsb/uIrT9tpzhy0AAAAASUVORK5CYII=" id="imaged1ddd20121" transform="scale(1 -1) translate(0 -87.36)" x="312.72" y="-181.92" width="6.48" height="87.36"/>
+   <g id="matplotlib.axis_7"/>
+   <g id="matplotlib.axis_8">
+    <g id="ytick_42">
+     <g id="line2d_56">
+      <g>
+       <use xlink:href="#m271bef1518" x="319.285861" y="269.352" style="stroke: #000000; stroke-width: 0.5"/>
+      </g>
+     </g>
+     <g id="text_32">
+      <text style="font-size: 6.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="323.785861" y="271.469203" transform="rotate(-0 323.785861 271.469203)">−0.45</text>
+     </g>
+    </g>
+    <g id="ytick_43">
+     <g id="line2d_57">
+      <g>
+       <use xlink:href="#m271bef1518" x="319.285861" y="225.636298" style="stroke: #000000; stroke-width: 0.5"/>
+      </g>
+     </g>
+     <g id="text_33">
+      <text style="font-size: 6.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="323.785861" y="227.753501" transform="rotate(-0 323.785861 227.753501)">0</text>
+     </g>
+    </g>
+    <g id="ytick_44">
+     <g id="line2d_58">
+      <g>
+       <use xlink:href="#m271bef1518" x="319.285861" y="181.920595" style="stroke: #000000; stroke-width: 0.5"/>
+      </g>
+     </g>
+     <g id="text_34">
+      <text style="font-size: 6.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="323.785861" y="184.037798" transform="rotate(-0 323.785861 184.037798)">0.45</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_2"/>
+  </g>
+  <g id="axes_5">
+   <g id="patch_6">
+    <path d="M 378.365962 269.352
+L 500.256 269.352
+L 500.256 31.32
+L 378.365962 31.32
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="line2d_59">
+    <path d="M 378.365962 151.673258
+L 500.256 151.673258
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke-dasharray: 2.25,1.5; stroke-dashoffset: 0; stroke: #8d969c; stroke-width: 0.75"/>
+   </g>
+   <g id="matplotlib.axis_9">
+    <g id="xtick_15">
+     <g id="line2d_60">
+      <defs>
+       <path id="mfbbd56de73" d="M 0 0
+L 0 3
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#mfbbd56de73" x="378.365962" y="269.352" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_35">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="378.365962" y="280.132781" transform="rotate(-0 378.365962 280.132781)">0</text>
+     </g>
+    </g>
+    <g id="xtick_16">
+     <g id="line2d_61">
+      <g>
+       <use xlink:href="#mfbbd56de73" x="430.014283" y="269.352" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_36">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="430.014283" y="280.132781" transform="rotate(-0 430.014283 280.132781)">50</text>
+     </g>
+    </g>
+    <g id="xtick_17">
+     <g id="line2d_62">
+      <g>
+       <use xlink:href="#mfbbd56de73" x="455.838444" y="269.352" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_37">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="455.838444" y="280.132781" transform="rotate(-0 455.838444 280.132781)">75</text>
+     </g>
+    </g>
+    <g id="xtick_18">
+     <g id="line2d_63">
+      <g>
+       <use xlink:href="#mfbbd56de73" x="481.662604" y="269.352" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_38">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="481.662604" y="280.132781" transform="rotate(-0 481.662604 280.132781)">100</text>
+     </g>
+    </g>
+    <g id="text_39">
+     <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="439.310981" y="292.652" transform="rotate(-0 439.310981 292.652)">输入移除比例（%）</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_10">
+    <g id="ytick_45">
+     <g id="line2d_64">
+      <path d="M 378.365962 258.653933
+L 500.256 258.653933
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke: #e6eae7; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_65">
+      <defs>
+       <path id="m34eee70792" d="M 0 0
+L -3 0
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#m34eee70792" x="378.365962" y="258.653933" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_40">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="372.365962" y="261.044323" transform="rotate(-0 372.365962 261.044323)">−0.02</text>
+     </g>
+    </g>
+    <g id="ytick_46">
+     <g id="line2d_66">
+      <path d="M 378.365962 205.163596
+L 500.256 205.163596
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke: #e6eae7; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_67">
+      <g>
+       <use xlink:href="#m34eee70792" x="378.365962" y="205.163596" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_41">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="372.365962" y="207.553986" transform="rotate(-0 372.365962 207.553986)">−0.01</text>
+     </g>
+    </g>
+    <g id="ytick_47">
+     <g id="line2d_68">
+      <path d="M 378.365962 151.673258
+L 500.256 151.673258
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke: #e6eae7; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_69">
+      <g>
+       <use xlink:href="#m34eee70792" x="378.365962" y="151.673258" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_42">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="372.365962" y="154.063649" transform="rotate(-0 372.365962 154.063649)">0</text>
+     </g>
+    </g>
+    <g id="ytick_48">
+     <g id="line2d_70">
+      <path d="M 378.365962 98.182921
+L 500.256 98.182921
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke: #e6eae7; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_71">
+      <g>
+       <use xlink:href="#m34eee70792" x="378.365962" y="98.182921" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_43">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="372.365962" y="100.573312" transform="rotate(-0 372.365962 100.573312)">0.01</text>
+     </g>
+    </g>
+    <g id="ytick_49">
+     <g id="line2d_72">
+      <path d="M 378.365962 44.692584
+L 500.256 44.692584
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke: #e6eae7; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_73">
+      <g>
+       <use xlink:href="#m34eee70792" x="378.365962" y="44.692584" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_44">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="372.365962" y="47.082975" transform="rotate(-0 372.365962 47.082975)">0.02</text>
+     </g>
+    </g>
+    <g id="text_45">
+     <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="348.712056" y="150.336" transform="rotate(-90 348.712056 150.336)">预测变化</text>
+    </g>
+   </g>
+   <g id="patch_7">
+    <path d="M 378.365962 269.352
+L 378.365962 31.32
+" style="fill: none; stroke: #30353b; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 378.365962 269.352
+L 500.256 269.352
+" style="fill: none; stroke: #30353b; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_74">
+    <path d="M 378.365962 151.673258
+L 430.014283 191.720768
+L 455.838444 215.693504
+L 481.662604 242.138352
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke: #ffa288; stroke-width: 1.45; stroke-linecap: square"/>
+    <defs>
+     <path id="m7d8e8793cb" d="M -0 2.1
+L 2.1 -2.1
+L -2.1 -2.1
+z
+" style="stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#pfcdd92e9e1)">
+     <use xlink:href="#m7d8e8793cb" x="378.365962" y="151.673258" style="fill: #ffa288; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m7d8e8793cb" x="430.014283" y="191.720768" style="fill: #ffa288; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m7d8e8793cb" x="455.838444" y="215.693504" style="fill: #ffa288; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m7d8e8793cb" x="481.662604" y="242.138352" style="fill: #ffa288; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #ffa288" x="485.277987" y="250.234567" transform="rotate(-0 485.277987 250.234567)">HSPE1</text>
+   </g>
+   <g id="line2d_75">
+    <path d="M 378.365962 151.673258
+L 430.014283 98.295881
+L 455.838444 75.434662
+L 481.662604 55.243422
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke: #6ad1a3; stroke-width: 1.45; stroke-linecap: square"/>
+    <defs>
+     <path id="m326bacfc15" d="M 0 -2.1
+L -2.1 2.1
+L 2.1 2.1
+z
+" style="stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#pfcdd92e9e1)">
+     <use xlink:href="#m326bacfc15" x="378.365962" y="151.673258" style="fill: #6ad1a3; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m326bacfc15" x="430.014283" y="98.295881" style="fill: #6ad1a3; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m326bacfc15" x="455.838444" y="75.434662" style="fill: #6ad1a3; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m326bacfc15" x="481.662604" y="55.243422" style="fill: #6ad1a3; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_47">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6ad1a3" x="485.277987" y="52.64157" transform="rotate(-0 485.277987 52.64157)">PRELID1</text>
+   </g>
+   <g id="line2d_76">
+    <path d="M 378.365962 151.673258
+L 430.014283 152.358336
+L 455.838444 155.949112
+L 481.662604 161.692878
+" clip-path="url(#pfcdd92e9e1)" style="fill: none; stroke-dasharray: 5.365,2.32; stroke-dashoffset: 0; stroke: #929eab; stroke-width: 1.45"/>
+    <defs>
+     <path id="m5eafb7b500" d="M -2.1 2.1
+L 2.1 2.1
+L 2.1 -2.1
+L -2.1 -2.1
+z
+" style="stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#pfcdd92e9e1)">
+     <use xlink:href="#m5eafb7b500" x="378.365962" y="151.673258" style="fill: #929eab; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m5eafb7b500" x="430.014283" y="152.358336" style="fill: #929eab; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m5eafb7b500" x="455.838444" y="155.949112" style="fill: #929eab; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+     <use xlink:href="#m5eafb7b500" x="481.662604" y="161.692878" style="fill: #929eab; stroke: #ffffff; stroke-width: 0.55; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_48">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #929eab" x="485.277987" y="155.346702" transform="rotate(-0 485.277987 155.346702)">ISCU</text>
+   </g>
+   <g id="text_49">
+    <text style="font-size: 8.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #30353b" x="371.05256" y="12.91526" transform="rotate(-0 371.05256 12.91526)">c</text>
+   </g>
+   <g id="text_50">
+    <text style="font-size: 7.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="378.365962" y="25.32" transform="rotate(-0 378.365962 25.32)">预测响应</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc78d7011d9">
+   <rect x="121.824" y="31.32" width="185.227579" height="109.289256"/>
+  </clipPath>
+  <clipPath id="p1370785e84">
+   <rect x="121.824" y="181.920595" width="185.227579" height="87.431405"/>
+  </clipPath>
+  <clipPath id="pfcdd92e9e1">
+   <rect x="378.365962" y="31.32" width="121.890038" height="238.032"/>
+  </clipPath>
+ </defs>
+</svg>

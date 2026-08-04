@@ -1,0 +1,63 @@
+\documentclass[UTF8,12pt,a4paper,fontset=none]{ctexart}
+
+\usepackage{amsmath,amssymb}
+\usepackage{fontspec}
+\usepackage{booktabs,longtable,array,tabularx,makecell,multirow}
+\usepackage{geometry}
+\usepackage{graphicx,float}
+\usepackage{caption,subcaption}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{TeX Gyre Cursor}
+\setCJKmainfont{FandolSong}[ItalicFont=FandolKai,SlantedFont=FandolKai]
+\setCJKsansfont{FandolHei}
+\setCJKmonofont{FandolFang}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\setlist{nosep,leftmargin=2.4em}
+\captionsetup{font=small,labelsep=quad}
+\hypersetup{bookmarksnumbered=true}
+\setcounter{secnumdepth}{-1}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% 缺少正式图片时保留稳定版面、图题和交叉引用。
+\newcommand{\placeholderfigure}[3]{%
+  \begin{figure}[H]
+    \centering
+    \fbox{\parbox[c][4.4cm][c]{0.88\linewidth}{\centering\color{gray}#1}}
+    \caption{#2}
+    \label{#3}
+  \end{figure}
+}
+
+\begin{document}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\begin{center}
+  {\zihao{2}\bfseries 线粒体功能模块与冷启动基因依赖性预测\par}
+\end{center}
+\vspace{0.6em}
+
+\begin{abstract}
+同一个线粒体相关基因被扰动后，可能使一种癌细胞明显受损，却对另一种细胞影响有限。逐一完成所有“细胞—基因”组合实验代价高昂，而待预测对象中还包含训练数据从未出现过的新细胞和新基因。围绕这一困难，我们先描述细胞的线粒体功能状态，再估计基因的一般依赖程度，最后预测具体细胞背景造成的依赖偏移。
+
+对于问题一，原始 140 条通路存在上下级重复和较强相关。删除 27 条上层类别后，对 113 条末级通路进行旋转因子分析，并在 8、12、15、18 个候选方案及主成分对照之间比较压缩程度和可解释性。八因子方案以较少指标解释了平均 67.62\% 的通路变化，形成了遗传信息表达、底物利用、解毒与氧化还原、氧化磷酸化等八个功能坐标，可用于比较 1140 个细胞的相对线粒体状态。
+
+对于问题二，依赖性被分解为“基因基础分”和“细胞特异修正”。已见基因的基础分来自历史实验均值，新基因则依据自身资料由岭回归估计；随后利用细胞与基因两侧的相似性，通过两步核岭回归传播已观测组合中的修正信息。固定的新对象验证中，综合得分由 54.68 提高至 55.29，四类新旧对象组合均有改善。模型降低了数值误差，并提高了前列候选的识别效果，但完整排序相关系数略降约 0.003。旧基因两组的综合得分接近 80，新基因两组仅为 33 左右，新基因信息不足仍是双侧新对象预测的主要限制。
+
+\noindent\textbf{关键词：}线粒体功能模块；因子分析；冷启动预测；两步核岭回归；基因依赖性
+\end{abstract}
+
+\clearpage
+\input{body.tex}
+
+\end{document}

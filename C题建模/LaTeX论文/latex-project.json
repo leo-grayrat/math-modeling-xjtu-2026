@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "contest": "cumcm",
+  "main_tex": "main.tex",
+  "template": {
+    "path": "C:\\Users\\34788\\.codex\\skills\\math-modeling-skill\\tools\\latex\\assets\\templates\\cumcm",
+    "source": null,
+    "version": null,
+    "sha256": "b58d44f4941ddffe4f19a0b78684d3e6015c2f72b8d5354fe2b2b685202b6186"
+  },
+  "template_files": {
+    "main.tex": "bcdcb449176640a60ff540210aa7b7a64d6a5e77465d5d06877bdb46d44de276",
+    "references.bib": "e19b906154ccbe9f86d9f9c550cda438357622483e23ceb0d1ba8900ca768a69"
+  },
+  "resource_bindings": [
+    {
+      "source": "figures/result_q1_lineage_module_state_preview.png",
+      "destination": "figures/result_q1_lineage_module_state_preview.png",
+      "sha256": "6edf3685a1c3197abf352cd9305905f502cbc0864333913ae830bf70cf2200a6",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:06:14.890617+00:00"
+    },
+    {
+      "source": "figures/result_q2_gene_base_model_comparison.pdf",
+      "destination": "figures/result_q2_gene_base_model_comparison.pdf",
+      "sha256": "2711dce568e4915244ab9f139fac8ebf6b8a2d93135c503218683dfe449d4fdb",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:06:15.012069+00:00"
+    },
+    {
+      "source": "figures/result_q2_model_structure_preview.png",
+      "destination": "figures/result_q2_model_structure_preview.png",
+      "sha256": "200faec9befcc0dfde7571d40315ede4531e0c8c4dbe9f8e3860b3cfe12a8721",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:06:15.126441+00:00"
+    },
+    {
+      "source": "figures/result_q2_cold_start_scores.pdf",
+      "destination": "figures/result_q2_cold_start_scores.pdf",
+      "sha256": "affee0610201637c4b89c867b5ff6209b7379179c52405dff1b378ca7c95b363",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:06:15.238443+00:00"
+    },
+    {
+      "source": "figures/result_q2_paired_improvement.pdf",
+      "destination": "figures/result_q2_paired_improvement.pdf",
+      "sha256": "6e5f9d727be26ee14297bb4c0f8e2476013907bb1e07ff08a071f050bd162697",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:06:15.365050+00:00"
+    },
+    {
+      "source": "figures/result_q2_counterfactual_chain.pdf",
+      "destination": "figures/result_q2_counterfactual_chain.pdf",
+      "sha256": "9d144c7a21d1b3d74beea3898d8b3efbb796fb70694cf6e99e550767048e52fb",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:16:10.701104+00:00"
+    },
+    {
+      "source": "figures/result_q2_prediction_distributions.pdf",
+      "destination": "figures/result_q2_prediction_distributions.pdf",
+      "sha256": "3d5cc9ec432105a1770c659fdbbc828a30d132135065d199a856df88da9f395c",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:16:10.800839+00:00"
+    },
+    {
+      "source": "matlab/run_stage1_data_inventory.m",
+      "destination": "code/matlab/run_stage1_data_inventory.m",
+      "sha256": "1118d9bf0f2663fc2e32090a8e384976355abd91a9ae89f1461d6039e63b7e7e",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:02.965632+00:00"
+    },
+    {
+      "source": "matlab/run_stage3_final_modules.m",
+      "destination": "code/matlab/run_stage3_final_modules.m",
+      "sha256": "5f8d05df29c56d2c25f6a4ef59f0d2e5a5f92f81a6b454bfaf0d26b5d7d37b44",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.068150+00:00"
+    },
+    {
+      "source": "matlab/run_stage4_gene_importance.m",
+      "destination": "code/matlab/run_stage4_gene_importance.m",
+      "sha256": "a6f880f4df2e4fac03478a64d09da637c44a87b4c75b7d8003f93d1771dfdf13",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.163403+00:00"
+    },
+    {
+      "source": "matlab/run_stage7_full_information_regression.m",
+      "destination": "code/matlab/run_stage7_full_information_regression.m",
+      "sha256": "7098afccd4086b007ca7a7071a0b0a277fc31b6f6789424473664e183d39021e",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.260908+00:00"
+    },
+    {
+      "source": "matlab/run_stage7_paired_tests.m",
+      "destination": "code/matlab/run_stage7_paired_tests.m",
+      "sha256": "6b9894d3b58fcb4c4d29a2bd06986d72514a13f6c2fcebe0680418a61b13c8db",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.355220+00:00"
+    },
+    {
+      "source": "matlab/stage7_build_residual_matrix.m",
+      "destination": "code/matlab/stage7_build_residual_matrix.m",
+      "sha256": "e36a4343185d11823e6334700be95acac0acfb665317f3a9d7a98044dd20bdfb",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.450270+00:00"
+    },
+    {
+      "source": "matlab/stage7_calculate_metrics.m",
+      "destination": "code/matlab/stage7_calculate_metrics.m",
+      "sha256": "551053b1afcc1f95c44b786f9c41d41e7793ab24ea403bc2034d1ab3b59b66e7",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.546739+00:00"
+    },
+    {
+      "source": "matlab/stage7_fit_bilinear_ridge.m",
+      "destination": "code/matlab/stage7_fit_bilinear_ridge.m",
+      "sha256": "e18cadd3ab22daa89a1971a26ec964221b190fd2d7e0c04f8eadd1050dbfdd75",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.650866+00:00"
+    },
+    {
+      "source": "matlab/stage7_fit_conditional_rank_kernel.m",
+      "destination": "code/matlab/stage7_fit_conditional_rank_kernel.m",
+      "sha256": "3414e8032d967cbd2bf54e83029c92a4d45ecedf6f35d9b5da25413f6f205de6",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.743378+00:00"
+    },
+    {
+      "source": "matlab/stage7_fit_fold_gene_base.m",
+      "destination": "code/matlab/stage7_fit_fold_gene_base.m",
+      "sha256": "8e1a08ac4ad37b650244a613d8037b1eca753b7b1fc982ecf6adc9ec8abef54e",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.841531+00:00"
+    },
+    {
+      "source": "matlab/stage7_fit_two_step_kernel.m",
+      "destination": "code/matlab/stage7_fit_two_step_kernel.m",
+      "sha256": "483baf7be913132e940de10a0f84ce2d86a3ab13dfec643b8c9e8f0a12f50dce",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:03.937827+00:00"
+    },
+    {
+      "source": "matlab/stage7_predict_bilinear_ridge.m",
+      "destination": "code/matlab/stage7_predict_bilinear_ridge.m",
+      "sha256": "5803d582ff074892ea671cdc74429a62cf10c925ebb232cb7edcd587272505cd",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.037296+00:00"
+    },
+    {
+      "source": "matlab/conditional_rank_centered_loss.m",
+      "destination": "code/matlab/conditional_rank_centered_loss.m",
+      "sha256": "39f5964a6a7b65b31e4ba00ef1ee02dcf742a7bc77be9ba73f5a6767471b64c2",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.135388+00:00"
+    },
+    {
+      "source": "matlab/run_stage9_counterfactual_analysis.m",
+      "destination": "code/matlab/run_stage9_counterfactual_analysis.m",
+      "sha256": "c26aa0eeb8fe6e029e8fabddbebd0a5e9f312872ad86e8933539dd845e67dc99",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.235671+00:00"
+    },
+    {
+      "source": "matlab/stage9_align_gene_membership.m",
+      "destination": "code/matlab/stage9_align_gene_membership.m",
+      "sha256": "52ce4ac936779dd41bb449fe3018b7fb5c827810e37200fa9fe8be5ac3ef94b7",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.336918+00:00"
+    },
+    {
+      "source": "matlab/stage9_apply_bartlett_scores.m",
+      "destination": "code/matlab/stage9_apply_bartlett_scores.m",
+      "sha256": "0ad3f41fd7a9da7ecda639271a1e4572face4eeafe0ea80775e112c67334b9f0",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.431378+00:00"
+    },
+    {
+      "source": "matlab/stage9_build_counterfactual_state.m",
+      "destination": "code/matlab/stage9_build_counterfactual_state.m",
+      "sha256": "ddf4a0bb06b1e11cba92dc5ddefad1e49cea84c23724ec615e890c000a114d31",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.525212+00:00"
+    },
+    {
+      "source": "matlab/stage9_build_pathway_membership.m",
+      "destination": "code/matlab/stage9_build_pathway_membership.m",
+      "sha256": "a95f1dbac3e3068bbe7911d3811e75bd7098e2cfdb9748a97a318162cc47dbc4",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.621990+00:00"
+    },
+    {
+      "source": "matlab/stage9_predict_counterfactual_cell.m",
+      "destination": "code/matlab/stage9_predict_counterfactual_cell.m",
+      "sha256": "54d7d1958737280b5875c212866536a739ff3a1c6ce68cbe01fd7230f951b402",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.716603+00:00"
+    },
+    {
+      "source": "matlab/build_gene_pathway_membership.m",
+      "destination": "code/matlab/build_gene_pathway_membership.m",
+      "sha256": "644a7558f37f509ed522538498d5a66253e6fcb2c390154a70739b49ddf7c84d",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.814648+00:00"
+    },
+    {
+      "source": "matlab/stage10_prepare_full_data.m",
+      "destination": "code/matlab/stage10_prepare_full_data.m",
+      "sha256": "a9950e61d32d944c5e677f3c7cb10e6ae8b882010eb6c8c59e9d2ec42b7a1f8f",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:04.911754+00:00"
+    },
+    {
+      "source": "matlab/run_stage10_final_prediction.m",
+      "destination": "code/matlab/run_stage10_final_prediction.m",
+      "sha256": "73c5a0143d091f938bcadfb265f96379a280d6f733b27ea3c5d75b7be21d4a4a",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:21:05.017524+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure11_counterfactual_chain.py",
+      "destination": "code/python_figures/draw_figure11_counterfactual_chain.py",
+      "sha256": "0e82a2c0fd6d024263fd66b55973fa8b49dd5be225218da8897f5c4b59d19001",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:00.727724+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure12_prediction_distributions.py",
+      "destination": "code/python_figures/draw_figure12_prediction_distributions.py",
+      "sha256": "af1376256b350cb6a8e370031482a7972b927361276c0db246ef64016eaf444b",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:00.855656+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure2_cold_start.py",
+      "destination": "code/python_figures/draw_figure2_cold_start.py",
+      "sha256": "e44d5a2c92996588575ea0e9575bc7ac0faaddbab061bd20b4cdb1a1727d9264",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:00.965226+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure3_module_loadings.py",
+      "destination": "code/python_figures/draw_figure3_module_loadings.py",
+      "sha256": "00e21ea950715d2819bb35d410a65882eab454325b2876c0443e94e7853af91b",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:01.071467+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure4_lineage_modules.py",
+      "destination": "code/python_figures/draw_figure4_lineage_modules.py",
+      "sha256": "fe90296d0fc84097d83288ae023bd820dd9e70eb71e0ec7afa9323d1e622c606",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:01.173304+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure5_gene_base_models.py",
+      "destination": "code/python_figures/draw_figure5_gene_base_models.py",
+      "sha256": "53983dfa19ff9fb547bce2035ac18cd522f153c4b58f2597ac1a56b6f89b6059",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:01.267693+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure6_model_structure.py",
+      "destination": "code/python_figures/draw_figure6_model_structure.py",
+      "sha256": "e556b8bf7f1726e5f0567d23112fb1d614677c79b7cfe33f5faca1fd02773dc0",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:01.366836+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure7_cold_start_scores.py",
+      "destination": "code/python_figures/draw_figure7_cold_start_scores.py",
+      "sha256": "db547df9fad3c444ecb65f915fabed3bc859ef8c2e718972636065f293835bda",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:01.463507+00:00"
+    },
+    {
+      "source": "scripts/figures/draw_figure9_paired_improvement.py",
+      "destination": "code/python_figures/draw_figure9_paired_improvement.py",
+      "sha256": "fd533e31203d03a50c75e0f718f7fa42c1e522083759d30ad12efcfb827c5d85",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:01.556799+00:00"
+    },
+    {
+      "source": "scripts/figures/prepare_figure5_model_scores.py",
+      "destination": "code/python_figures/prepare_figure5_model_scores.py",
+      "sha256": "9e57fa2c53c064a97dcf22f02e06f61c9af778721d0ed231d1e06ab008fd292f",
+      "hash_mode": "content",
+      "bound_at": "2026-08-04T11:22:01.649731+00:00"
+    }
+  ],
+  "created_at": "2026-08-04T10:47:47.923056+00:00"
+}
