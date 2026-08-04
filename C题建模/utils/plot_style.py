@@ -53,6 +53,14 @@ PALETTE = {
     "dark": "#30353B",
 }
 
+# 全文统一的解释把握配色：绿色表示高把握，黄色表示中等把握，珊瑚色表示低把握或探索性结果。
+CONFIDENCE_COLORS = {
+    "high": PALETTE["primary"],
+    "medium": PALETTE["new"],
+    "exploratory": PALETTE["risk"],
+    "low": PALETTE["risk"],
+}
+
 COLOR_SEQUENCE = (
     PALETTE["primary"],
     PALETTE["secondary"],
@@ -480,6 +488,7 @@ def export_figure(
 
 __all__ = [
     "COLOR_SEQUENCE",
+    "CONFIDENCE_COLORS",
     "PALETTE",
     "WIDTHS_IN",
     "add_panel_labels",

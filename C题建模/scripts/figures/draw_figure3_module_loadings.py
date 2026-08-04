@@ -22,6 +22,7 @@ FIGURES_DIR = PROJECT_ROOT / "figures"
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from utils.plot_style import (  # noqa: E402
+    CONFIDENCE_COLORS,
     PALETTE,
     add_panel_labels,
     apply_publication_style,
@@ -91,7 +92,7 @@ def draw() -> dict[str, str]:
         1,
         2,
         width="report",
-        aspect=0.78,
+        aspect=0.86,
         width_ratios=[1.7, 0.85],
     )
     ax_heat, ax_quality = axes
@@ -132,11 +133,7 @@ def draw() -> dict[str, str]:
     purity = quality["top8_category_purity"].to_numpy(dtype=float)
     count = quality["n_loadings_ge_035"].to_numpy(dtype=float)
     sizes = 120 + 520 * np.sqrt(count / count.max())
-    confidence_colors = {
-        "high": PALETTE["primary"],
-        "medium": PALETTE["secondary"],
-        "exploratory": PALETTE["new"],
-    }
+    confidence_colors = CONFIDENCE_COLORS
     confidence_values = quality["interpretation_confidence"].tolist()
     confidence_colors_for_rows = [confidence_colors[value] for value in confidence_values]
     ax_quality.scatter(
@@ -174,11 +171,11 @@ def draw() -> dict[str, str]:
     ]
     ax_quality.set(
         title="模块载荷广度",
-        xlabel="前八条通路类别集中度",
+        xlabel="前八条通路类别集中度\n圆内数字表示强载荷通路数",
         yticks=y,
         yticklabels=[f"M{number}  {name}" for number, name in zip(range(1, 9), short_module_names)],
         xlim=(0.25, 1.10),
-        ylim=(-1, len(quality)),
+        ylim=(-0.7, len(quality) - 0.3),
     )
     ax_quality.tick_params(axis="y", length=0, pad=4)
     ax_quality.spines["left"].set_visible(False)
@@ -193,27 +190,19 @@ def draw() -> dict[str, str]:
             for label, color in [
                 ("高", confidence_colors["high"]),
                 ("中", confidence_colors["medium"]),
-                ("探索性", confidence_colors["exploratory"]),
+                ("低/探索", confidence_colors["exploratory"]),
             ]
         ],
         title="解释把握",
-        loc="lower right",
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.16),
+        ncol=3,
         frameon=False,
         fontsize=6.3,
         title_fontsize=6.3,
         handletextpad=0.35,
         borderpad=0.1,
     )
-    ax_quality.text(
-        0.30,
-        7.48,
-        "圆内数字：强载荷数",
-        ha="left",
-        va="bottom",
-        fontsize=6.3,
-        color=PALETTE["dark"],
-    )
-
     add_panel_labels([ax_heat, ax_quality])
     output_stem = FIGURES_DIR / "result_q1_module_loadings_quality"
     outputs = export_figure(fig, output_stem, dpi=600, grayscale_preview=True)
