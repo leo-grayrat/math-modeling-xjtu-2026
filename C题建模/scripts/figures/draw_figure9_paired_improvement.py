@@ -161,13 +161,13 @@ def load_data() -> tuple[pd.DataFrame, pd.DataFrame]:
 def draw_figure() -> tuple[plt.Figure, pd.DataFrame]:
     """按照配对改进区间契约绘制图9。"""
 
-    apply_publication_style(language="zh", width="single")
+    apply_publication_style(language="zh", width="double")
     mpl.rcParams["figure.constrained_layout.use"] = False
     zh_font, en_font = configure_fonts()
     data, bootstrap = load_data()
 
-    figure, axis = plt.subplots(figsize=(3.5, 2.55), layout=None)
-    figure.subplots_adjust(left=0.225, right=0.975, bottom=0.235, top=0.95)
+    figure, axis = plt.subplots(figsize=(7.2, 2.65), layout=None)
+    figure.subplots_adjust(left=0.14, right=0.985, bottom=0.235, top=0.95)
 
     y_positions = np.arange(len(data))[::-1]
     distributions = [bootstrap[metric].to_numpy(dtype=float) for metric in METRIC_ORDER]
@@ -234,25 +234,25 @@ def draw_figure() -> tuple[plt.Figure, pd.DataFrame]:
             ha=horizontal_alignment,
             va="center",
             fontproperties=en_font,
-            fontsize=6.6,
+            fontsize=7.0,
             color=PALETTE["dark"],
         )
 
     axis.axvline(0, color=PALETTE["dark"], linewidth=0.85, linestyle=(0, (3, 2)), zorder=1)
     axis.set_xlim(-1.55, 5.55)
     axis.set_xticks([-1, 0, 1, 2, 3, 4, 5])
-    axis.set_xlabel("相对基础分模型的变化（%）", fontproperties=zh_font, fontsize=7.3, labelpad=6)
+    axis.set_xlabel("相对基础分模型的变化（%）", fontproperties=zh_font, fontsize=7.8, labelpad=6)
     axis.set_yticks(y_positions)
     axis.set_yticklabels(
         [METRIC_LABELS[metric] for metric in METRIC_ORDER],
         fontproperties=zh_font,
-        fontsize=7.0,
+        fontsize=7.5,
     )
     axis.tick_params(axis="y", length=0, pad=8)
     axis.tick_params(axis="x", length=3, width=0.6, pad=4)
     for label in axis.get_xticklabels():
         label.set_fontproperties(en_font)
-        label.set_fontsize(6.5)
+        label.set_fontsize(7.0)
     axis.grid(axis="x", color="#E7EBE8", linewidth=0.6, zorder=0)
     axis.spines["bottom"].set_color(PALETTE["dark"])
     axis.spines["bottom"].set_linewidth(0.7)
