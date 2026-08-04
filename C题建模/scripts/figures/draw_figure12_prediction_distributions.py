@@ -190,6 +190,7 @@ def draw_figure() -> tuple[plt.Figure, pd.Series]:
     zh_font, en_font = configure_fonts()
     predictions, counts = load_grouped_predictions()
     x_values, curves = density_curves(predictions)
+    display_upper = float(predictions["label"].quantile(0.995))
 
     figure, axis = plt.subplots(figsize=(7.2, 3.25), layout=None)
     figure.subplots_adjust(left=0.255, right=0.975, bottom=0.20, top=0.95)
@@ -229,8 +230,8 @@ def draw_figure() -> tuple[plt.Figure, pd.Series]:
     labels = [f"{GROUP_LABELS[group]}  n={int(counts[group]):,}" for group in GROUP_ORDER]
     axis.set_yticklabels(labels, fontproperties=zh_font, fontsize=7.3)
     axis.tick_params(axis="y", length=0, pad=8)
-    axis.set_xlim(float(predictions["label"].min()), float(predictions["label"].max()))
-    axis.set_xticks([-0.4, 0, 1, 2, 3, 3.8])
+    axis.set_xlim(float(predictions["label"].min()), display_upper)
+    axis.set_xticks([-0.4, 0, 0.4, 0.8, 1.2, 1.6])
     axis.set_xlabel("正式预测值", fontproperties=zh_font, fontsize=7.8, labelpad=6)
     axis.tick_params(axis="x", length=3, width=0.6, pad=4)
     for label in axis.get_xticklabels():
@@ -290,7 +291,7 @@ def main() -> None:
     figure, counts = draw_figure()
     outputs = [export_preview(figure)] if args.preview else export_final(figure)
     plt.close(figure)
-    print("图12使用全部373990条正式预测，未抽样、未截断。")
+    print("图12使用全部373990条正式预测计算密度，横轴显示99.5%的预测值范围。")
     print("四类数量：" + "；".join(f"{group}={int(counts[group])}" for group in GROUP_ORDER))
     for output in outputs:
         print(output)

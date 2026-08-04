@@ -28,13 +28,6 @@
       "bound_at": "2026-08-04T11:06:15.012069+00:00"
     },
     {
-      "source": "figures/result_q2_model_structure_preview.png",
-      "destination": "figures/result_q2_model_structure_preview.png",
-      "sha256": "200faec9befcc0dfde7571d40315ede4531e0c8c4dbe9f8e3860b3cfe12a8721",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:06:15.126441+00:00"
-    },
-    {
       "source": "figures/result_q2_cold_start_scores.pdf",
       "destination": "figures/result_q2_cold_start_scores.pdf",
       "sha256": "affee0610201637c4b89c867b5ff6209b7379179c52405dff1b378ca7c95b363",
@@ -54,20 +47,6 @@
       "sha256": "9d144c7a21d1b3d74beea3898d8b3efbb796fb70694cf6e99e550767048e52fb",
       "hash_mode": "content",
       "bound_at": "2026-08-04T11:16:10.701104+00:00"
-    },
-    {
-      "source": "figures/result_q2_prediction_distributions.pdf",
-      "destination": "figures/result_q2_prediction_distributions.pdf",
-      "sha256": "3d5cc9ec432105a1770c659fdbbc828a30d132135065d199a856df88da9f395c",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:16:10.800839+00:00"
-    },
-    {
-      "source": "matlab/run_stage1_data_inventory.m",
-      "destination": "code/matlab/run_stage1_data_inventory.m",
-      "sha256": "1118d9bf0f2663fc2e32090a8e384976355abd91a9ae89f1461d6039e63b7e7e",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:21:02.965632+00:00"
     },
     {
       "source": "matlab/run_stage3_final_modules.m",
@@ -217,74 +196,39 @@
       "bound_at": "2026-08-04T11:21:05.017524+00:00"
     },
     {
-      "source": "scripts/figures/draw_figure11_counterfactual_chain.py",
-      "destination": "code/python_figures/draw_figure11_counterfactual_chain.py",
-      "sha256": "0e82a2c0fd6d024263fd66b55973fa8b49dd5be225218da8897f5c4b59d19001",
+      "source": "figures/OURWORK.png",
+      "destination": "figures/OURWORK.png",
+      "sha256": "2d690a87abddab4d2b9693aed6db8c2c4d18baa21ae467bbde5c06e3f39cc56d",
       "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:00.727724+00:00"
+      "bound_at": "2026-08-04T11:42:20.216796+00:00"
     },
     {
-      "source": "scripts/figures/draw_figure12_prediction_distributions.py",
-      "destination": "code/python_figures/draw_figure12_prediction_distributions.py",
-      "sha256": "af1376256b350cb6a8e370031482a7972b927361276c0db246ef64016eaf444b",
+      "source": "figures/替代 result_q2_model_structure_preview.png",
+      "destination": "figures/result_q2_model_structure_revised.png",
+      "sha256": "e69944025cb7d0b7cee2f39b2e6afb9e330f1f4b128d1cb8db24297a5e2c5ea6",
       "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:00.855656+00:00"
+      "bound_at": "2026-08-04T11:42:20.322631+00:00"
     },
     {
-      "source": "scripts/figures/draw_figure2_cold_start.py",
-      "destination": "code/python_figures/draw_figure2_cold_start.py",
-      "sha256": "e44d5a2c92996588575ea0e9575bc7ac0faaddbab061bd20b4cdb1a1727d9264",
+      "source": "figures/addup-phase7.png",
+      "destination": "figures/addup-phase7.png",
+      "sha256": "312c75c17020bec761328d2e6e174805d7a3c054591cf998f0a84f4f544c618e",
       "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:00.965226+00:00"
+      "bound_at": "2026-08-04T11:42:20.432303+00:00"
     },
     {
-      "source": "scripts/figures/draw_figure3_module_loadings.py",
-      "destination": "code/python_figures/draw_figure3_module_loadings.py",
-      "sha256": "00e21ea950715d2819bb35d410a65882eab454325b2876c0443e94e7853af91b",
+      "source": "figures/result_q1_module_loadings_quality.pdf",
+      "destination": "figures/result_q1_module_loadings_quality.pdf",
+      "sha256": "5c39e01855b0bd13b46e76853eb30015f3757b737e3579fb0b35c93edefd2ac5",
       "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:01.071467+00:00"
+      "bound_at": "2026-08-04T11:42:20.535122+00:00"
     },
     {
-      "source": "scripts/figures/draw_figure4_lineage_modules.py",
-      "destination": "code/python_figures/draw_figure4_lineage_modules.py",
-      "sha256": "fe90296d0fc84097d83288ae023bd820dd9e70eb71e0ec7afa9323d1e622c606",
+      "source": "figures/result_q2_prediction_distributions.pdf",
+      "destination": "figures/result_q2_prediction_distributions.pdf",
+      "sha256": "eec7a02b715012fe333747ff651fb20371b60920563702f3fca012b2b6edb7b9",
       "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:01.173304+00:00"
-    },
-    {
-      "source": "scripts/figures/draw_figure5_gene_base_models.py",
-      "destination": "code/python_figures/draw_figure5_gene_base_models.py",
-      "sha256": "53983dfa19ff9fb547bce2035ac18cd522f153c4b58f2597ac1a56b6f89b6059",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:01.267693+00:00"
-    },
-    {
-      "source": "scripts/figures/draw_figure6_model_structure.py",
-      "destination": "code/python_figures/draw_figure6_model_structure.py",
-      "sha256": "e556b8bf7f1726e5f0567d23112fb1d614677c79b7cfe33f5faca1fd02773dc0",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:01.366836+00:00"
-    },
-    {
-      "source": "scripts/figures/draw_figure7_cold_start_scores.py",
-      "destination": "code/python_figures/draw_figure7_cold_start_scores.py",
-      "sha256": "db547df9fad3c444ecb65f915fabed3bc859ef8c2e718972636065f293835bda",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:01.463507+00:00"
-    },
-    {
-      "source": "scripts/figures/draw_figure9_paired_improvement.py",
-      "destination": "code/python_figures/draw_figure9_paired_improvement.py",
-      "sha256": "fd533e31203d03a50c75e0f718f7fa42c1e522083759d30ad12efcfb827c5d85",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:01.556799+00:00"
-    },
-    {
-      "source": "scripts/figures/prepare_figure5_model_scores.py",
-      "destination": "code/python_figures/prepare_figure5_model_scores.py",
-      "sha256": "9e57fa2c53c064a97dcf22f02e06f61c9af778721d0ed231d1e06ab008fd292f",
-      "hash_mode": "content",
-      "bound_at": "2026-08-04T11:22:01.649731+00:00"
+      "bound_at": "2026-08-04T11:42:20.634699+00:00"
     }
   ],
   "created_at": "2026-08-04T10:47:47.923056+00:00"

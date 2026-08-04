@@ -28,7 +28,12 @@ S=100\left(0.30S_{\mathrm{Spearman}}+0.30S_{\mathrm{nDCG}}
 
 整体建模路线见图\ref{fig:overview}。
 
-\placeholderfigure{总体研究路线图待外部 Imagen 定稿}{本文总体研究路线}{fig:overview}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/OURWORK.png}
+  \caption{本文总体研究路线}
+  \label{fig:overview}
+\end{figure}
 
 \hypertarget{21-ux6570ux636eux7ed3ux6784ux63edux793aux7684ux6838ux5fc3ux56f0ux96be}{%
 \subsection{2.1 数据结构揭示的核心困难}\label{21-ux6570ux636eux7ed3ux6784ux63edux793aux7684ux6838ux5fc3ux56f0ux96be}}
@@ -137,7 +142,7 @@ Cancer Dependency Map 和 Chronos 等工作表明，大规模 CRISPR 数据能�
 各数据表在建模中的用途见表\ref{tab:data-sources}。
 
 \begin{longtable}[]{@{}p{2.4cm}p{5.2cm}p{7.2cm}@{}}
-\caption{数据表及主要用途}\label{tab:data-sources}\\
+\caption{数据表及主要用途}\\
 \toprule
 数据 & 主要内容 & 用途 \\
 \midrule
@@ -150,6 +155,7 @@ Cancer Dependency Map 和 Chronos 等工作表明，大规模 CRISPR 数据能�
 正式测试模板 & 373990 个待预测组合 & 生成最终提交结果 \\
 \bottomrule
 \end{longtable}
+\label{tab:data-sources}
 
 \hypertarget{ux4e94ux95eeux9898ux4e00ux7ebfux7c92ux4f53ux529fux80fdux6a21ux5757ux6784ux5efa}{%
 \section{五、问题一：线粒体功能模块构建}\label{ux4e94ux95eeux9898ux4e00ux7ebfux7c92ux4f53ux529fux80fdux6a21ux5757ux6784ux5efa}}
@@ -249,9 +255,14 @@ M8 & TCA---复合体 II 与动力学平衡 & 1 & TCA 循环 0.3531、细胞色�
 \end{longtable}
 \label{tab:module-definitions}
 
-通路载荷与模块质量的最终图形将在图\ref{fig:module-loadings}中给出。
+通路载荷结构与模块解释质量见图\ref{fig:module-loadings}。
 
-\placeholderfigure{通路载荷与模块质量图待重画}{通路载荷结构与八个功能模块的解释质量}{fig:module-loadings}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/result_q1_module_loadings_quality.pdf}
+  \caption{通路载荷结构与八个功能模块的解释质量}
+  \label{fig:module-loadings}
+\end{figure}
 
 M1 的强载荷覆盖代谢、蛋白导入、呼吸链和线粒体动力学等多类功能，其中最高载荷集中于 mtDNA 复制、核样体、mtRNA 加工和线粒体核糖体装配，因而命名为``线粒体综合状态与遗传信息表达''。M2 将脂肪酸氧化、肉碱转运和支链氨基酸代谢连在一起，反映脂质及部分氨基酸底物利用；M3 的核心通路涉及外源物代谢、硫代谢和谷胱甘肽相关反应；M4 则由多个呼吸链复合体亚基共同定义。
 
@@ -454,7 +465,7 @@ K_{ij}=\exp\left(-\frac{\lVert\boldsymbol u_i-\boldsymbol u_j\rVert_2^2}{2h}\rig
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\linewidth]{figures/result_q2_model_structure_preview.png}
+  \includegraphics[width=\linewidth]{figures/result_q2_model_structure_revised.png}
   \caption{基因基础分与双侧相似性修正的两步核岭结构}
   \label{fig:two-step-structure}
 \end{figure}
@@ -626,7 +637,7 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.98\linewidth]{figures/result_q2_prediction_distributions.pdf}
-  \caption{四类新旧对象组合的正式预测分布}
+  \caption{四类新旧对象组合的正式预测分布（横轴显示 99.5\% 的预测值范围，少量右尾延伸至 3.892）}
   \label{fig:prediction-distribution}
 \end{figure}
 
@@ -652,6 +663,15 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 模型使用平方误差拟合残差，预测偏差越大，训练中受到的惩罚越强。因此，它更容易优先修正依赖性较强、数值误差也较大的组合。高依赖基因的预测值和前列位置得到改善后，RMSE、nDCG 和 Precision 会随之提高。与此同时，大量位于排序中部、依赖性分数彼此接近的基因，可能因为细小的数值修正而发生前后换位。此类变化对前列筛选影响有限，却会降低基于完整序列计算的 Spearman 相关系数。
 
 这一结果限定了模型的适用范围。当前模型更适合估计依赖性强度，并从每个细胞的大量候选基因中优先筛出少量高依赖对象；若应用目标是恢复全部基因的严格先后次序，则需要在数值误差之外进一步引入面向完整排序的约束，并重新检验这种调整是否会削弱新基因的外推表现。
+
+图\ref{fig:phase7-application}概括了这一应用边界：模型首先结合细胞状态缩小候选基因范围，再将优先级较高的对象交由后续实验验证。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/addup-phase7.png}
+  \caption{基于细胞状态的候选基因优先筛选流程}
+  \label{fig:phase7-application}
+\end{figure}
 
 \hypertarget{73-ux9a8cux8bc1ux8bbeux8ba1ux4e0eux7a33ux5b9aux6027ux68c0ux67e5}{%
 \subsection{7.3 验证设计与稳定性检查}\label{73-ux9a8cux8bc1ux8bbeux8ba1ux4e0eux7a33ux5b9aux6027ux68c0ux67e5}}
@@ -779,10 +799,10 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 \hypertarget{ux9644ux5f55-b-ux6838ux5fc3ux7a0bux5e8fux8bf4ux660e}{%
 \subsection{附录 B 核心程序说明}\label{ux9644ux5f55-b-ux6838ux5fc3ux7a0bux5e8fux8bf4ux660e}}
 
-完整 MATLAB 与 Python 源程序保存在随文的 \path{code/} 文件夹。核心入口及作用见表\ref{tab:appendix-code}。
+复现核心结论所需的 MATLAB 程序保存在随文的 \path{code/matlab/} 文件夹。核心入口及作用见表\ref{tab:appendix-code}；数据盘点和绘图脚本不属于模型复现的必要部分，不收入随文代码包。
 
 \begin{longtable}[]{@{}p{7.0cm}p{7.8cm}@{}}
-\caption{核心程序清单}\label{tab:appendix-code}\\
+\caption{核心程序清单}\\
 \toprule
 程序 & 作用 \\
 \midrule
@@ -793,9 +813,9 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 \path{run_stage7_paired_tests.m} & 计算按细胞配对的 Bootstrap 区间和置换检验 \\
 \path{run_stage9_counterfactual_analysis.m} & 完成三个案例的局部表达扰动与通路、模块响应计算 \\
 \path{run_stage10_final_prediction.m} & 使用全量训练标签重拟合模型并生成正式预测 \\
-\path{draw_figure*.py} & 由结果表生成论文中的数据图，统一字体、配色与导出格式 \\
 \bottomrule
 \end{longtable}
+\label{tab:appendix-code}
 
 各程序依次完成以下计算：
 
@@ -821,4 +841,4 @@ ACH-002475---ISCU & Fe-S cluster biosynthesis -0.4455 & -0.1571 & -0.001873 \\
 \hypertarget{ux9644ux5f55-c-ux8fd0ux884cux987aux5e8fux4e0eux73afux5883}{%
 \subsection{附录 C 运行顺序与环境}\label{ux9644ux5f55-c-ux8fd0ux884cux987aux5e8fux4e0eux73afux5883}}
 
-复现时先将题目数据置于仓库根目录的 \path{data/}，再依次运行阶段 1、3、4、7、9 和 10 的 MATLAB 入口。阶段 7 的配对检验在模型结果生成后单独运行；Python 绘图程序最后读取 \path{results/} 中的 CSV 文件并输出 PDF、PNG、SVG 与 TIFF。MATLAB 程序使用 Statistics and Machine Learning Toolbox，Python 绘图依赖 NumPy、pandas、SciPy 与 Matplotlib。所有随机划分固定使用种子 42，程序不会把原始大文件复制到论文目录。
+复现时先将题目数据置于仓库根目录的 \path{data/}，再依次运行阶段 3、4、7、9 和 10 的 MATLAB 入口。阶段 7 的配对检验在模型结果生成后单独运行。MATLAB 程序使用 Statistics and Machine Learning Toolbox；所有随机划分固定使用种子 42，程序不会把原始大文件复制到论文目录。
