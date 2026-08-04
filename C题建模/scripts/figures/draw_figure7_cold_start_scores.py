@@ -18,6 +18,7 @@ from matplotlib.font_manager import FontProperties, fontManager
 from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
+from PIL import Image
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -25,7 +26,12 @@ RESULTS_DIR = PROJECT_ROOT / "results"
 FIGURES_DIR = PROJECT_ROOT / "figures"
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.plot_style import PALETTE, apply_publication_style, audit_design, audit_layout  # noqa: E402
+from utils.plot_style import (  # noqa: E402
+    PALETTE,
+    apply_publication_style,
+    audit_design,
+    audit_layout,
+)
 
 
 MODEL_ORDER = ["stage4_hybrid_base", "two_step_kernel_ridge"]
@@ -306,17 +312,25 @@ def export_final(fig: plt.Figure) -> list[Path]:
     """审阅通过后导出论文使用的完整格式。"""
 
     stem = FIGURES_DIR / "result_q2_cold_start_scores"
-    outputs = [
-        stem.with_suffix(".png"),
-        stem.with_suffix(".svg"),
-        stem.with_suffix(".pdf"),
-        stem.with_suffix(".tiff"),
+    png_path = stem.with_suffix(".png")
+    svg_path = stem.with_suffix(".svg")
+    pdf_path = stem.with_suffix(".pdf")
+    tiff_path = stem.with_suffix(".tiff")
+    grayscale_path = FIGURES_DIR / "_qa" / f"{stem.name}_grayscale.png"
+    grayscale_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(png_path, dpi=300)
+    fig.savefig(svg_path)
+    fig.savefig(pdf_path)
+    fig.savefig(tiff_path, dpi=600, pil_kwargs={"compression": "tiff_lzw"})
+    with Image.open(png_path) as color_image:
+        color_image.convert("RGB").convert("L").save(grayscale_path)
+    return [
+        png_path,
+        svg_path,
+        grayscale_path,
+        pdf_path,
+        tiff_path,
     ]
-    fig.savefig(outputs[0], dpi=300)
-    fig.savefig(outputs[1])
-    fig.savefig(outputs[2])
-    fig.savefig(outputs[3], dpi=600)
-    return outputs
 
 
 def improvement_summary(scores: pd.DataFrame) -> str:
