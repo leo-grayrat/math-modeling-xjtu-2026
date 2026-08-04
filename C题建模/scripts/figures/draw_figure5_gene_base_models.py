@@ -26,7 +26,13 @@ FIGURES_DIR = PROJECT_ROOT / "figures"
 DATA_PATH = RESULTS_DIR / "figure5_gene_base_model_comparison.csv"
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.plot_style import PALETTE, apply_publication_style, audit_design, audit_layout  # noqa: E402
+from utils.plot_style import (  # noqa: E402
+    CONFIDENCE_COLORS,
+    PALETTE,
+    apply_publication_style,
+    audit_design,
+    audit_layout,
+)
 
 
 MODEL_ORDER = [
@@ -44,11 +50,16 @@ MODEL_LABELS = {
     "metadata_lasso": "纯元数据 LASSO",
 }
 MODEL_COLORS = {
-    "hybrid_ridge": PALETTE["known"],
-    "hybrid_lasso": PALETTE["contrast"],
-    "gene_mean": PALETTE["neutral"],
-    "metadata_ridge": (0.5725, 0.6196, 0.6706, 0.50),
-    "metadata_lasso": (0.5176, 0.6784, 0.8627, 0.50),
+    "hybrid_ridge": CONFIDENCE_COLORS["high"],
+    "hybrid_lasso": CONFIDENCE_COLORS["high"],
+    "gene_mean": CONFIDENCE_COLORS["medium"],
+    "metadata_ridge": CONFIDENCE_COLORS["low"],
+    "metadata_lasso": CONFIDENCE_COLORS["low"],
+}
+# 两个改善量都属于正向结果，仅用同一绿色的深浅区分算法。
+IMPROVEMENT_COLORS = {
+    "hybrid_ridge": CONFIDENCE_COLORS["high"],
+    "hybrid_lasso": "#9EE1C3",
 }
 NEW_GENE_SUBSETS = ["old_cell_new_gene", "new_cell_new_gene"]
 NEW_GENE_LABELS = ["旧细胞", "新细胞"]
@@ -222,7 +233,7 @@ def draw_figure() -> tuple[plt.Figure, pd.DataFrame]:
             x_positions + (model_index - 0.5) * width,
             reduction_values,
             width=width,
-            color=MODEL_COLORS[model],
+            color=IMPROVEMENT_COLORS[model],
             edgecolor="none",
             linewidth=0,
             label=MODEL_LABELS[model],
