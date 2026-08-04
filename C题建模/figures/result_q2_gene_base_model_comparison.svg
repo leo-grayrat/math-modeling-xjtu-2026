@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="270pt" viewBox="0 0 518.4 270" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-04T16:19:01.167171</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 270
+L 518.4 270
+L 518.4 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 121.824 221.4
+L 320.737813 221.4
+L 320.737813 54
+L 121.824 54
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m54ff567f2e" d="M 0 0
+L 0 3
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#m54ff567f2e" x="121.824" y="221.4" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="121.824" y="232.180781" transform="rotate(-0 121.824 232.180781)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m54ff567f2e" x="188.128604" y="221.4" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="188.128604" y="232.180781" transform="rotate(-0 188.128604 232.180781)">20</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m54ff567f2e" x="254.433209" y="221.4" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="254.433209" y="232.180781" transform="rotate(-0 254.433209 232.180781)">40</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m54ff567f2e" x="320.737813" y="221.4" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 7px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="320.737813" y="232.180781" transform="rotate(-0 320.737813 232.180781)">60</text>
+     </g>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 7.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="221.280907" y="244.626781" transform="rotate(-0 221.280907 244.626781)">综合评分</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_5"/>
+     <g id="text_6">
+      <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="114.824" y="206.982091" transform="rotate(-0 114.824 206.982091)">混合岭</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_6"/>
+     <g id="text_7">
+      <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="114.824" y="173.728252" transform="rotate(-0 114.824 173.728252)">混合 LASSO</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_7"/>
+     <g id="text_8">
+      <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="114.824" y="140.621484" transform="rotate(-0 114.824 140.621484)">基因均值</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_8"/>
+     <g id="text_9">
+      <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="114.824" y="107.34831" transform="rotate(-0 114.824 107.34831)">纯元数据岭</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_9"/>
+     <g id="text_10">
+      <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="114.824" y="74.120839" transform="rotate(-0 114.824 74.120839)">纯元数据 LASSO</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 121.824 213.790909
+L 303.085987 213.790909
+L 303.085987 194.518976
+L 121.824 194.518976
+z
+" clip-path="url(#p1fbe5e808d)" style="fill: #6ad1a3"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 121.824 180.563438
+L 302.783362 180.563438
+L 302.783362 161.291505
+L 121.824 161.291505
+z
+" clip-path="url(#p1fbe5e808d)" style="fill: #6ad1a3"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 121.824 147.335967
+L 297.800555 147.335967
+L 297.800555 128.064033
+L 121.824 128.064033
+z
+" clip-path="url(#p1fbe5e808d)" style="fill: #ffd47d"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 121.824 114.108495
+L 228.936231 114.108495
+L 228.936231 94.836562
+L 121.824 94.836562
+z
+" clip-path="url(#p1fbe5e808d)" style="fill: #ffa288"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 121.824 80.881024
+L 227.999647 80.881024
+L 227.999647 61.609091
+L 121.824 61.609091
+z
+" clip-path="url(#p1fbe5e808d)" style="fill: #ffa288"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 121.824 221.4
+L 121.824 54
+" style="fill: none; stroke: #30353b; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 121.824 221.4
+L 320.737813 221.4
+" style="fill: none; stroke: #30353b; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #30353b" x="305.57241" y="205.832317" transform="rotate(-0 305.57241 205.832317)">54.7</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #30353b" x="305.269784" y="172.604846" transform="rotate(-0 305.269784 172.604846)">54.6</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #30353b" x="300.286977" y="139.377375" transform="rotate(-0 300.286977 139.377375)">53.1</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #30353b" x="231.422654" y="106.149904" transform="rotate(-0 231.422654 106.149904)">32.3</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.2px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #30353b" x="230.48607" y="72.922433" transform="rotate(-0 230.48607 72.922433)">32.0</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.4px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #30353b" x="105.910895" y="43.071" transform="rotate(-0 105.910895 43.071)">a</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8.4px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="121.824" y="45" transform="rotate(-0 121.824 45)">五种基础分方案</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_10">
+    <path d="M 372.914437 221.4
+L 510.624 221.4
+L 510.624 54
+L 372.914437 54
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_5">
+     <g id="line2d_10"/>
+     <g id="text_18">
+      <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="408.981227" y="233.047266" transform="rotate(-0 408.981227 233.047266)">旧细胞</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11"/>
+     <g id="text_19">
+      <text style="font-size: 7.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="474.55721" y="233.115234" transform="rotate(-0 474.55721 233.115234)">新细胞</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_6">
+     <g id="line2d_12">
+      <defs>
+       <path id="m3cbed21103" d="M 0 0
+L -3 0
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#m3cbed21103" x="372.914437" y="221.4" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="366.914437" y="223.722094" transform="rotate(-0 366.914437 223.722094)">0.000</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m3cbed21103" x="372.914437" y="179.55" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="366.914437" y="181.872094" transform="rotate(-0 366.914437 181.872094)">0.005</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m3cbed21103" x="372.914437" y="137.7" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_22">
+      <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="366.914437" y="140.022094" transform="rotate(-0 366.914437 140.022094)">0.010</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m3cbed21103" x="372.914437" y="95.85" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_23">
+      <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="366.914437" y="98.172094" transform="rotate(-0 366.914437 98.172094)">0.015</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m3cbed21103" x="372.914437" y="54" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_24">
+      <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end" x="366.914437" y="56.322094" transform="rotate(-0 366.914437 56.322094)">0.020</text>
+     </g>
+    </g>
+    <g id="text_25">
+     <text style="font-size: 7.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle" x="344.100749" y="137.7" transform="rotate(-90 344.100749 137.7)">RMSE降低量</text>
+    </g>
+   </g>
+   <g id="patch_11">
+    <path d="M 389.964192 221.4
+L 408.981227 221.4
+L 408.981227 86.675245
+L 389.964192 86.675245
+z
+" clip-path="url(#pe9ef2e0c54)" style="fill: #3fae7c"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 455.540175 221.4
+L 474.55721 221.4
+L 474.55721 84.756358
+L 455.540175 84.756358
+z
+" clip-path="url(#pe9ef2e0c54)" style="fill: #3fae7c"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 408.981227 221.4
+L 427.998262 221.4
+L 427.998262 81.512356
+L 408.981227 81.512356
+z
+" clip-path="url(#pe9ef2e0c54)" style="fill: #a8e5ca"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 474.55721 221.4
+L 493.574245 221.4
+L 493.574245 79.60534
+L 474.55721 79.60534
+z
+" clip-path="url(#pe9ef2e0c54)" style="fill: #a8e5ca"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 372.914437 221.4
+L 372.914437 54
+" style="fill: none; stroke: #30353b; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 372.914437 221.4
+L 510.624 221.4
+" style="fill: none; stroke: #30353b; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="399.47271" y="81.432933" transform="rotate(-0 399.47271 81.432933)">0.0161</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="465.048692" y="79.514046" transform="rotate(-0 465.048692 79.514046)">0.0163</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="418.489745" y="76.270043" transform="rotate(-0 418.489745 76.270043)">0.0167</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 6.8px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #30353b" x="484.065727" y="74.363027" transform="rotate(-0 484.065727 74.363027)">0.0169</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 8.4px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #30353b" x="357.766385" y="43.071" transform="rotate(-0 357.766385 43.071)">b</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 8.4px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="372.914437" y="45" transform="rotate(-0 372.914437 45)">新基因组误差改善</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_17">
+     <path d="M 420.2565 54.717
+L 428.8815 54.717
+L 428.8815 49.467
+L 420.2565 49.467
+z
+" style="fill: #3fae7c"/>
+    </g>
+    <g id="text_32">
+     <text style="font-size: 6.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="432.2565" y="54.717" transform="rotate(-0 432.2565 54.717)">混合岭</text>
+    </g>
+    <g id="patch_18">
+     <path d="M 459.2565 54.717
+L 467.8815 54.717
+L 467.8815 49.467
+L 459.2565 49.467
+z
+" style="fill: #a8e5ca"/>
+    </g>
+    <g id="text_33">
+     <text style="font-size: 6.5px; font-family: 'TeX Gyre Termes', 'FandolSong', 'DejaVu Sans', sans-serif; text-anchor: start" x="471.2565" y="54.717" transform="rotate(-0 471.2565 54.717)">混合 LASSO</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p1fbe5e808d">
+   <rect x="121.824" y="54" width="198.913813" height="167.4"/>
+  </clipPath>
+  <clipPath id="pe9ef2e0c54">
+   <rect x="372.914437" y="54" width="137.709563" height="167.4"/>
+  </clipPath>
+ </defs>
+</svg>
