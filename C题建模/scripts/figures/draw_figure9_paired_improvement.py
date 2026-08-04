@@ -23,6 +23,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 RESULTS_DIR = PROJECT_ROOT / "results"
 FIGURES_DIR = PROJECT_ROOT / "figures"
 DATA_PATH = RESULTS_DIR / "stage7_paired_test_summary.csv"
+BOOTSTRAP_PATH = RESULTS_DIR / "stage7_paired_bootstrap_relative_changes.csv"
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from utils.plot_style import PALETTE, apply_publication_style, audit_design, audit_layout
@@ -93,8 +94,8 @@ def configure_fonts() -> tuple[FontProperties, FontProperties]:
     return FontProperties(fname=zh_path), FontProperties(fname=en_path)
 
 
-def load_data() -> pd.DataFrame:
-    """读取配对检验结果并换算相对变化百分比。"""
+def load_data() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """读取配对检验汇总和逐次 Bootstrap 相对变化。"""
 
     data = pd.read_csv(DATA_PATH)
     required = {
@@ -137,43 +138,94 @@ def load_data() -> pd.DataFrame:
         ("bootstrap_ci_upper", "relative_upper"),
     ]:
         data[target] = data[source] / data["baseline_value"] * 100
-    return data
+    bootstrap = pd.read_csv(BOOTSTRAP_PATH)
+    bootstrap_required = {"bootstrap_repeat", *METRIC_ORDER}
+    if not bootstrap_required.issubset(bootstrap.columns):
+        raise ValueError(
+            f"图9 Bootstrap 数据缺少字段："
+            f"{sorted(bootstrap_required - set(bootstrap.columns))}"
+        )
+    if len(bootstrap) != 10000 or bootstrap["bootstrap_repeat"].nunique() != 10000:
+        raise ValueError("图9必须包含10000次不重复的 Bootstrap 结果")
+    if not np.isfinite(bootstrap[METRIC_ORDER]).all().all():
+        raise ValueError("图9 Bootstrap 数据中存在缺失或无穷数值")
+    for row in data.itertuples(index=False):
+        samples = bootstrap[row.metric].to_numpy(dtype=float)
+        calculated = np.quantile(samples, [0.025, 0.975])
+        expected = np.array([row.relative_lower, row.relative_upper])
+        if not np.allclose(calculated, expected, atol=1e-3):
+            raise ValueError(f"{row.metric} 的逐次分布与汇总区间不一致")
+    return data, bootstrap
 
 
 def draw_figure() -> tuple[plt.Figure, pd.DataFrame]:
     """按照配对改进区间契约绘制图9。"""
 
-    apply_publication_style(language="zh", width="double")
+    apply_publication_style(language="zh", width="single")
     mpl.rcParams["figure.constrained_layout.use"] = False
     zh_font, en_font = configure_fonts()
-    data = load_data()
+    data, bootstrap = load_data()
 
-    figure, axis = plt.subplots(figsize=(7.2, 3.25), layout=None)
-    figure.subplots_adjust(left=0.245, right=0.965, bottom=0.20, top=0.94)
+    figure, axis = plt.subplots(figsize=(3.5, 2.55), layout=None)
+    figure.subplots_adjust(left=0.225, right=0.975, bottom=0.235, top=0.95)
 
     y_positions = np.arange(len(data))[::-1]
-    for y_position, row in zip(y_positions, data.itertuples(index=False)):
+    distributions = [bootstrap[metric].to_numpy(dtype=float) for metric in METRIC_ORDER]
+    violin_parts = axis.violinplot(
+        distributions,
+        positions=y_positions,
+        vert=False,
+        widths=0.64,
+        showmeans=False,
+        showextrema=False,
+        showmedians=False,
+        points=160,
+        bw_method=0.25,
+    )
+    for body, row in zip(violin_parts["bodies"], data.itertuples(index=False)):
+        color = PALETTE["positive"] if row.relative_change >= 0 else PALETTE["risk"]
+        body.set_facecolor(color)
+        body.set_edgecolor("none")
+        body.set_alpha(0.72)
+        body.set_zorder(2)
+
+    for y_position, row, samples in zip(
+        y_positions,
+        data.itertuples(index=False),
+        distributions,
+    ):
         estimate = float(row.relative_change)
         lower = float(row.relative_lower)
         upper = float(row.relative_upper)
-        color = PALETTE["positive"] if estimate >= 0 else PALETTE["risk"]
-        axis.errorbar(
-            estimate,
+        point_color = "#238E62" if estimate >= 0 else "#E87356"
+        axis.hlines(
             y_position,
-            xerr=np.array([[estimate - lower], [upper - estimate]]),
-            fmt="D",
-            markersize=5.2,
-            markerfacecolor=color,
-            markeredgecolor="white",
-            markeredgewidth=0.7,
-            ecolor=color,
-            elinewidth=2.0,
-            capsize=3.2,
-            capthick=1.1,
+            lower,
+            upper,
+            color=point_color,
+            linewidth=1.0,
             zorder=3,
         )
+        axis.vlines(
+            [lower, upper],
+            y_position - 0.075,
+            y_position + 0.075,
+            color=point_color,
+            linewidth=0.85,
+            zorder=3,
+        )
+        axis.scatter(
+            estimate,
+            y_position,
+            marker="D",
+            s=25,
+            facecolor=point_color,
+            edgecolor="white",
+            linewidth=0.6,
+            zorder=4,
+        )
         label = f"{estimate:+.2f}%".replace("-", "−")
-        text_x = upper + 0.10
+        text_x = max(upper, float(np.quantile(samples, 0.995))) + 0.08
         horizontal_alignment = "left"
         axis.text(
             text_x,
@@ -182,25 +234,25 @@ def draw_figure() -> tuple[plt.Figure, pd.DataFrame]:
             ha=horizontal_alignment,
             va="center",
             fontproperties=en_font,
-            fontsize=7.2,
+            fontsize=6.6,
             color=PALETTE["dark"],
         )
 
     axis.axvline(0, color=PALETTE["dark"], linewidth=0.85, linestyle=(0, (3, 2)), zorder=1)
-    axis.set_xlim(-1.35, 5.20)
+    axis.set_xlim(-1.55, 5.55)
     axis.set_xticks([-1, 0, 1, 2, 3, 4, 5])
-    axis.set_xlabel("相对基础分模型的变化（%）", fontproperties=zh_font, fontsize=8.0, labelpad=7)
+    axis.set_xlabel("相对基础分模型的变化（%）", fontproperties=zh_font, fontsize=7.3, labelpad=6)
     axis.set_yticks(y_positions)
     axis.set_yticklabels(
         [METRIC_LABELS[metric] for metric in METRIC_ORDER],
         fontproperties=zh_font,
-        fontsize=7.8,
+        fontsize=7.0,
     )
     axis.tick_params(axis="y", length=0, pad=8)
     axis.tick_params(axis="x", length=3, width=0.6, pad=4)
     for label in axis.get_xticklabels():
         label.set_fontproperties(en_font)
-        label.set_fontsize(7.0)
+        label.set_fontsize(6.5)
     axis.grid(axis="x", color="#E7EBE8", linewidth=0.6, zorder=0)
     axis.spines["bottom"].set_color(PALETTE["dark"])
     axis.spines["bottom"].set_linewidth(0.7)
