@@ -320,6 +320,13 @@ def export_final(fig: plt.Figure) -> list[Path]:
     grayscale_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(png_path, dpi=300)
     fig.savefig(svg_path)
+    # Matplotlib 的路径换行自带行尾空格，导出后机械清理，避免 Git 空白检查报错。
+    svg_lines = svg_path.read_text(encoding="utf-8").splitlines()
+    svg_path.write_text(
+        "\n".join(line.rstrip() for line in svg_lines) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     fig.savefig(pdf_path)
     fig.savefig(tiff_path, dpi=600, pil_kwargs={"compression": "tiff_lzw"})
     with Image.open(png_path) as color_image:
