@@ -9,6 +9,7 @@ import sys
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap, Normalize
+from matplotlib.patches import Patch
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -198,15 +199,16 @@ def draw() -> dict[str, str]:
     ax_objects.tick_params(axis="y", length=0, pad=5)
     ax_objects.spines["left"].set_visible(False)
     ax_objects.spines["bottom"].set_color("#C9D6D2")
-    ax_objects.text(
-        0,
-        1.42,
-        "灰蓝：训练中已见    黄：正式测试新增",
-        transform=ax_objects.transData,
-        ha="left",
-        va="bottom",
-        fontsize=6.8,
-        color=PALETTE["dark"],
+    ax_objects.legend(
+        handles=[
+            Patch(facecolor=PALETTE["known"], alpha=0.82, label="训练中已见"),
+            Patch(facecolor=PALETTE["new"], alpha=0.95, label="正式测试新增"),
+        ],
+        loc="upper center",
+        bbox_to_anchor=(0.5, 0.98),
+        ncol=2,
+        handlelength=1.2,
+        columnspacing=1.2,
     )
 
     add_panel_labels([ax_matrix, ax_objects])
