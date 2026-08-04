@@ -206,9 +206,12 @@ def draw() -> dict[str, str]:
     add_panel_labels([ax_heat, ax_quality])
     output_stem = FIGURES_DIR / "result_q1_module_loadings_quality"
     outputs = export_figure(fig, output_stem, dpi=600, grayscale_preview=True)
-    fig.savefig(output_stem.with_suffix(".svg"), format="svg")
     fig.savefig(output_stem.with_suffix(".pdf"))
-    fig.savefig(output_stem.with_suffix(".tiff"), dpi=600)
+    fig.savefig(
+        output_stem.with_suffix(".tiff"),
+        dpi=600,
+        pil_kwargs={"compression": "tiff_lzw"},
+    )
     plt.close(fig)
     return outputs
 

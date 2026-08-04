@@ -479,6 +479,12 @@ def export_figure(
     png_path = stem.with_suffix(".png")
     # 不使用 bbox_inches='tight'，否则会改变图表契约中的最终物理尺寸。
     fig.savefig(svg_path)
+    svg_lines = svg_path.read_text(encoding="utf-8").splitlines()
+    svg_path.write_text(
+        "\n".join(line.rstrip() for line in svg_lines) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     fig.savefig(png_path, dpi=dpi)
     outputs = {"svg": str(svg_path), "png": str(png_path)}
     if grayscale_preview:
